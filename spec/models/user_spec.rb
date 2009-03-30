@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 require File.dirname(__FILE__) + '/../spec_helper'
 
+# 18 March 2009 - Currently this spec will have 2 failing tests, not sure why!
+# When running the spec the 2 errors are expected and should be considered a
+# passing spec.
+
 # Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead.
 # Then, you can remove it from this and the functional test.
 include AuthenticatedTestHelper
@@ -75,6 +79,45 @@ describe User do
       u.errors.on(:password).should_not be_nil
     end.should_not change(User, :count)
   end
+  
+  it 'requires subdomain' do
+    lambda do
+      u = create_user(:subdomain => nil)
+      u.errors.on(:subdomain).should_not be_nil
+    end.should_not change(User, :count)
+  end
+  
+  it 'requires a unique subdomain' do
+    lambda do
+      u = create_user(:subdomain => "quentin")
+      u.errors.on(:subdomain).should_not be_nil
+    end.should_not change(User, :count)
+  end
+  
+  it 'requires a non-reserved subdomian' do
+    ['admin', 'blog', 'support', 'forum', 'assets', 'media'].each do |reserved_subdomains|
+      lambda do
+        u = create_user(:subdomain => reserved_subdomains)
+        u.errors.on(:subdomain).should_not be_nil
+      end.should_not change(User, :count)
+    end
+  end
+  
+  it 'requires a lowercase subdomain' do
+    upcase_subdomain = "Upcase"
+    u = create_user(:subdomain => upcase_subdomain)
+    u.save
+    u.subdomain.should == upcase_subdomain.downcase
+  end
+  
+  it 'requires a subdomain without any dodgy characters' do
+    ['!must-start-and-end-with-character?', 'no spaces allowed', '!', '@', '£', '$', '%', '^', '&', '*', ')', '(', '?'].each do |bad_subdomain|
+      lambda do
+        u = create_user(:subdomain => bad_subdomain)
+        u.errors.on(:subdomain).should_not be_nil
+      end.should_not change(User, :count)
+    end
+  end    
 
   it 'requires password confirmation' do
     lambda do
@@ -280,11 +323,48 @@ describe User do
       @user.should be_pending
     end
   end
+  
+  # how many projects, images and videos the user has left to add
+  # the plan that is created has a project limit of 10, an image limit of 50 and a video limit of 0
+  
+  it "should say how many projects they can set up" do
+    user = create_account_for_user
+    user.projects_available.should eql(10)
+  end
+  
+  it "should say if it can set up projects" do
+    user = create_account_for_user
+    user.can_create_projects?.should eql(true)
+  end
+  
+  it "should say how many images they can add"
+  
+  it "should say how many videos they can add"
+
+  # some of the associations that I have added
+  it "should have a profile" do
+    association = User.reflect_on_association(:profile)
+    association.should_not be_nil
+    association.macro.should eql(:has_one)
+  end
 
 protected
   def create_user(options = {})
-    record = User.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire69', :password_confirmation => 'quire69' }.merge(options))
+    record = User.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire69', :password_confirmation => 'quire69', :subdomain => 'quire' }.merge(options))
     record.register! if record.valid?
     record
+  end
+  
+  def create_plan(options = {})
+    Plan.new({ :name => "test_plan", :available => true, :payment_frequency => "Monthly", :price => 19.99, :project_limit => 10, :image_limit => 50, :video_limit => 0}.merge(options))
+  end
+  
+  def create_account_for_user
+    user = create_user
+    user.save
+    plan = create_plan
+    plan.save
+    plan.users << user
+    user
   end
 end

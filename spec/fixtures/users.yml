@@ -11,6 +11,7 @@ quentin:
   activation_code:           
   activated_at:              <%= 5.days.ago.to_s :db %>
   state:                     active
+  subdomain:                 quentin
       
 aaron:
   id:                        2
@@ -25,7 +26,7 @@ aaron:
   activated_at:              
 
   state:                     pending
-
+  subdomain:                 aaron
 
 old_password_holder:
   id:                        3
@@ -40,3 +41,4 @@ old_password_holder:
 
 
   state:                     active
+  subdomain:                 salty_dog

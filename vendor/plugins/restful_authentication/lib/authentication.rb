@@ -19,6 +19,13 @@ module Authentication
     MSG_EMAIL_BAD   = "should look like an email address."
 
     CONSTANTS_DEFINED = 'yup' # sorry for the C idiom
+    
+    # added to validate subdomains which can contain letters, numbers or hyphens (-), 
+    # NO spaces or other characters are allowed.
+    # any alphanumeric, any number, hypen '-', a subdomain must begin and end with a character,
+    # punctuation should not be placed together
+    RE_SUBDOMAIN_OK = /^\w+(\-?\w)*\w+$/
+    MSG_SUBDOMAIN_BAD = "can contain letters, numbers or hyphens '-', no spaces or other characters are allowed"
   end
 
   def self.included( recipient )

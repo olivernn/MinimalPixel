@@ -1,4 +1,10 @@
-ActionController::Routing::Routes.draw do |map| 
+ActionController::Routing::Routes.draw do |map|
+  map.resources :themes
+  
+  map.complete_account '/complete', :controller => 'users', :action => 'complete'
+  
+  map.resources :subscriptions
+  
   # Restful Authentication Rewrites
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -10,10 +16,24 @@ ActionController::Routing::Routes.draw do |map|
   map.open_id_complete '/opensession', :controller => "sessions", :action => "create", :requirements => { :method => :get }
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
   
-  # Restful Authentication Resources
-  map.resources :users
+  map.resources :plans do |plan|
+    plan.resources :users
+  end
+  
+  map.resources :projects do |project|
+    project.resources :items, :collection => {:sort => :put}
+    project.resources :images
+  end
+  
+  map.resources :draft_projects, :member => {:publish => :put}
   map.resources :passwords
   map.resource :session
+  map.resources :styles
+  map.resources :profiles
+  map.resources :accounts
+  
+  # map subdomains to the projects controller
+  map.projects_root '', :controller => 'projects', :action => 'index', :conditions => { :subdomain => /.+/}
   
   # Home Page
   map.root :controller => 'sessions', :action => 'new'

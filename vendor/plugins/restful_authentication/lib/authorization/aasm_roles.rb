@@ -62,6 +62,9 @@ module Authorization
         @activated = true
         self.activated_at = Time.now.utc
         self.deleted_at = self.activation_code = nil
+        self.profile = Profile.new # creating a blank profile for a newly activated user
+        self.style = Style.default # creating a default style for the new user
+        self.roles << Role.find_by_name('user') # assigning a new user to a role
       end
     end # instance methods
   end

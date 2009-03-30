@@ -19,14 +19,26 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD, :if => :not_using_openid?
   validates_uniqueness_of :identity_url, :unless => :not_using_openid?
   validate :normalize_identity_url
+  validates_presence_of :subdomain
+  validates_uniqueness_of :subdomain, :case_sensitive => false
+  validates_exclusion_of :subdomain, :in => %w(admin blog support forum assets media) # these are reserved subdomains
+  validates_format_of :subdomain, :with => RE_SUBDOMAIN_OK, :message => MSG_SUBDOMAIN_BAD
   
   # Relationships
   has_and_belongs_to_many :roles
+  has_one :plan, :through => :account, :source => :plan
+  has_one :account
+  has_one :profile
+  has_one :style
+  has_many :projects
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :subdomain
+  
+  # callbacks
+  before_save :prepare_subdomain
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
@@ -49,6 +61,15 @@ class User < ActiveRecord::Base
   def password_required?
     new_record? ? not_using_openid? && (crypted_password.blank? || !password.blank?) : !password.blank?
   end
+  
+  # methods for determening how many projects, images and videos the user can set up
+  def projects_available
+    self.plan.project_limit - self.projects.count
+  end
+  
+  def can_create_projects?
+    self.projects_available > 0
+  end
 
   protected
     
@@ -61,5 +82,9 @@ class User < ActiveRecord::Base
     self.identity_url = OpenIdAuthentication.normalize_url(identity_url) unless not_using_openid?
   rescue URI::InvalidURIError
     errors.add_to_base("Invalid OpenID URL")
+  end
+  
+  def prepare_subdomain
+    self.subdomain = self.subdomain.downcase.gsub(' ', '_')
   end
 end

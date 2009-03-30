@@ -2,8 +2,13 @@ module AuthenticatedSystem
   protected
     # Returns true or false if the user is logged in.
     # Preloads @current_user with the user model if they're logged in.
+    # original implementation of this method is below, changed to check that the user is valid for the current_subdomain
+    # def logged_in?
+    #   !!current_user
+    # end
+    
     def logged_in?
-      !!current_user
+      current_user.subdomain == current_subdomain if current_user
     end
 
     # Accesses the current user from the session.
@@ -65,7 +70,7 @@ module AuthenticatedSystem
       respond_to do |format|
         format.html do
           store_location
-          redirect_to new_session_path
+          redirect_to login_path, :subdomain => false
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
         # you may want to change format.any to e.g. format.any(:js, :xml)

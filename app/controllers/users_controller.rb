@@ -1,23 +1,51 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
+  before_filter :load_plan, :except => :complete
+  
+  def load_plan
+    begin
+      @plan = Plan.find(params[:plan_id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_url
+    end
+  end
   
   def new
     @user = User.new
   end
- 
+
   def create
     logout_keeping_session!
-    if using_open_id?
-      authenticate_with_open_id(params[:openid_url], :return_to => open_id_create_url, 
-        :required => [:nickname, :email]) do |result, identity_url, registration|
-        if result.successful?
-          create_new_user(:identity_url => identity_url, :login => registration['nickname'], :email => registration['email'])
-        else
-          failed_creation(result.message || "Sorry, something went wrong")
-        end
+    @user = User.new(params[:user])
+    if @user.save
+      @user.register!
+      create_account(@user, @plan)
+    else
+      render :action => :new
+    end      
+  end
+  
+  def complete
+    @gateway ||= set_up_gateway
+    response = @gateway.create_profile(params[:token], :description => "test_description", :start_date => Time.now, :frequency => 2, :amount => 16, :auto_bill_outstanding => true)
+    @account = Account.find(session[:account_id])
+    logger.debug response.to_yaml
+    if response.success?
+      if @account.update_attributes(:profile_id => response.params["profile_id"])
+        logger.debug "account updated"
+        @account.activate!
+        @account.user.activate!
+        flash[:notice] = "account succesfully created"
+        render :nothing => true
+      else
+        logger.error "account with id=#{session[:account_id]} could not be updated with profile_id=#{response.params["profile_id"]}"
+        flash[:error] = "there was a problem setting up your account"
+        render :nothing => true
       end
     else
-      create_new_user(params[:user])
+      logger.debug "problem from paypal"
+      flash[:error] = "there was a problem setting up your account"
+      render :nothing => true
     end
   end
   
@@ -57,6 +85,19 @@ class UsersController < ApplicationController
     end
   end
   
+  def create_account(user, plan)
+    plan.users << user
+    session[:account_id] = user.account.id
+    if plan.free?
+      user.account.activate!
+      user.activate!
+      flash[:notice] = "Signup complete! Please sign in to continue."
+      redirect_to login_path
+    else
+      checkout
+    end
+  end
+  
   def successful_creation(user)
     redirect_back_or_default(root_path)
     flash[:notice] = "Thanks for signing up!"
@@ -67,5 +108,20 @@ class UsersController < ApplicationController
   def failed_creation(message = 'Sorry, there was an error creating your account')
     flash[:error] = message
     render :action => :new
+  end
+  
+  def checkout
+    @gateway ||= set_up_gateway
+    description = "subscription to minimal pixel"
+    response = @gateway.setup_agreement(:description => description, :return_url => complete_account_url, :cancel_return_url => root_url)
+    redirect_to @gateway.redirect_url_for(response.token)
+  end
+  
+  def set_up_gateway
+    # these are the test credentials -- need changing before live.
+    ActiveMerchant::Billing::PaypalExpressRecurringGateway.new(
+      :login => 'oliver_1218302408_biz_api1.ntlworld.com',
+      :password => '95X5HJ8WG2SRBPB2',
+      :signature => 'AH1eOAAdxH9dz4bJ8jTBB9jd0rv7AUvGZZ3ZuXIXmV77iCPhPlGt9YM.')
   end
 end
