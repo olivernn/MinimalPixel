@@ -22,32 +22,21 @@ class Style < ActiveRecord::Base
   # attr_protected :palette
   
   def heading_colour
-    palette.foreground[0].html
+    palette.foreground
   end
   
   def heading_colour=(colour)
-    self.palette = Color::Palette::MonoContrast.new(Color::RGB.from_html(self.theme.background_colour), Color::RGB.from_html(colour))
-  end
-  
-  def foreground_colours
-    a = Array.new
-    palette.foreground.values.each {|col| a << col.html}
-    a.uniq.delete_if {|item| item == "#ffffff" || item == "#000000"}
+    self.palette = ColourPalette.new(self.theme.background_colour, colour)
   end
   
   # method to create a default style
   def self.default
     random_theme = Theme.random
-    palette = Color::Palette::MonoContrast.new(Color::RGB.from_html(random_theme.background_colour), Color::RGB.from_html(random_colour))
+    palette = ColourPalette.new(random_theme.background_colour, random_colour)
     new(:theme_id => random_theme.id,
         :border_type => random_border_type,
         :font_id => 1,
         :palette => palette)
-        #:heading_colour => palette.foreground[0].html)
-  end
-  
-  def heading_colour_rgb
-    heading_colour.gsub("#","").scan(/../).map {|colour| colour.to_i(16)}
   end
   
   private
