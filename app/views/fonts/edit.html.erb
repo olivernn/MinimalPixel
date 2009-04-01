@@ -1,0 +1,12 @@
+<h1>Editing font</h1>
+
+<% form_for(@font) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @font %> |
+<%= link_to 'Back', fonts_path %>

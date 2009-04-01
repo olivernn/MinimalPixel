@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   def destroy
     logout_killing_session!
     flash[:notice] = "You have been logged out."
-    redirect_back_or_default(root_path)
+    redirect_back_or_default(root_path :subdomain => false)
   end
   
   def open_id_authentication
@@ -33,6 +33,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:login], params[:password])
     if user
       self.current_user = user
+      session[:user_id] = user.id
       successful_login
     else
       note_failed_signin
@@ -45,7 +46,8 @@ class SessionsController < ApplicationController
   def successful_login
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
-    redirect_back_or_default(root_path)
+    redirect_to(projects_root_path :subdomain => current_user.subdomain)
+    #redirect_back_or_default(projects_root_path :subdomain => current_user.subdomain)
     flash[:notice] = "Logged in successfully"
   end
 

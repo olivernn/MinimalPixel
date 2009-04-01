@@ -2,10 +2,11 @@ class Theme < ActiveRecord::Base
   include ValidationRegExp
   
   # validation statements
-  validates_presence_of :name, :border_colour
+  validates_presence_of :name, :border_colour, :text_colour
   validates_uniqueness_of :name
   validates_format_of :border_colour, :with => RE_HEX_COLOUR, :message => MSG_HEX_COLOUR_BAD
   validates_format_of :background_colour, :with => RE_HEX_COLOUR, :message => MSG_HEX_COLOUR_BAD
+  validates_format_of :text_colour, :with => RE_HEX_COLOUR, :message => MSG_HEX_COLOUR_BAD
   
   # association statements
   has_many :styles

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090328215215) do
+ActiveRecord::Schema.define(:version => 20090401182627) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20090328215215) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "profile_id"
+  end
+
+  create_table "fonts", :force => true do |t|
+    t.string   "name",              :null => false
+    t.string   "font_file_name"
+    t.string   "font_content_type"
+    t.integer  "font_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "items", :force => true do |t|
@@ -63,15 +72,15 @@ ActiveRecord::Schema.define(:version => 20090328215215) do
   end
 
   create_table "plans", :force => true do |t|
-    t.string   "name",                                                           :null => false
-    t.integer  "price",             :limit => 10, :precision => 10, :scale => 0, :null => false
-    t.string   "payment_frequency",                                              :null => false
+    t.string   "name",                            :null => false
+    t.integer  "price",             :limit => 10, :null => false
+    t.string   "payment_frequency",               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",                                                      :null => false
-    t.integer  "project_limit",                                                  :null => false
-    t.integer  "image_limit",                                                    :null => false
-    t.integer  "video_limit",                                                    :null => false
+    t.boolean  "available",                       :null => false
+    t.integer  "project_limit",                   :null => false
+    t.integer  "image_limit",                     :null => false
+    t.integer  "video_limit",                     :null => false
   end
 
   create_table "profiles", :force => true do |t|
@@ -144,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20090328215215) do
     t.boolean  "available",         :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "text_colour"
   end
 
   create_table "users", :force => true do |t|

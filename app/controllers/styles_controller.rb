@@ -1,9 +1,10 @@
 class StylesController < ApplicationController
   before_filter :user_required
+  before_filter :login_required, :except => :index
   
-  # GET /styles/1
-  # GET /styles/1.xml
-  def show
+  # GET /styles
+  # GET /styles.css
+  def index
     @style = @user.style
 
     respond_to do |format|

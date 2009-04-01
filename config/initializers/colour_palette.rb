@@ -15,6 +15,7 @@ class ColourPalette
   
   def foreground=(colour)
     @palette = Color::Palette::MonoContrast.new(Color::RGB.from_html(@background), Color::RGB.from_html(colour))
+    @foreground = colour
   end
   
   def foreground_colours
@@ -23,29 +24,34 @@ class ColourPalette
     a.uniq.delete_if {|item| remove_unwanted_foreground_colours(item)} 
   end
   
+  def foreground_dark
+    Color::RGB.from_html(@foreground).darken_by(20).html
+  end
+  
+  def foreground_light
+    Color::RGB.from_html(@foreground).lighten_by(20).html
+  end
+  
+  def background
+    @background
+  end
+  
+  def background=(colour)
+    @palette = Color::Palette::MonoContrast.new(Color::RGB.from_html(colour), Color::RGB.from_html(@foreground))
+    @background = colour
+  end
+  
   def background_colours
     a = Array.new
     @palette.background.values.each {|colour_value| a << colour_value.html}
     a.uniq.delete_if {|item| remove_unwanted_background_colours(item)}
   end
   
-  def main_foreground
-    @palette.foreground[0].html
-  end
-  
-  def main_background
-    @palette.background[0].html
-  end
-  
-  def palette
-    @palette
-  end
-  
   private
   
   def remove_unwanted_foreground_colours(colour)
     unless @foreground == Color::RGB::White.html || @foreground == Color::RGB::Black.html
-      colour == Color::RGB::White.html || colour == Color::RGB::Black.html
+      colour == Color::RGB::White.html || colour == Color::RGB::Black.html || colour == @foreground
     else
       false
     end
@@ -53,7 +59,7 @@ class ColourPalette
   
   def remove_unwanted_background_colours(colour)
     unless @background == Color::RGB::White.html || @background == Color::RGB::Black.html
-      colour == Color::RGB::White.html || colour == Color::RGB::Black.html
+      colour == Color::RGB::White.html || colour == Color::RGB::Black.html || colour == @background
     else
       false
     end

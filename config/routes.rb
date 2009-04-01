@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fonts
+
   map.resources :themes
   
   map.complete_account '/complete', :controller => 'users', :action => 'complete'

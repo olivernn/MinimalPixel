@@ -6,6 +6,7 @@ describe Theme do
       :name => 'dark',
       :border_colour => '#000000',
       :background_colour => '#ffffff',
+      :text_colour => '#000000',
       :available => true
     }
     @theme = Theme.new
@@ -54,6 +55,24 @@ describe Theme do
     @theme.background_colour_rgb.size.should eql(3)
   end
   
+  it "should be invalid without a text_colour" do
+    @theme.attributes = @valid_attributes.except(:text_colour)
+    @theme.should_not be_valid
+  end
+  
+  it "should have a valid hex colour value for text colour" do
+    @theme.attributes = @valid_attributes.except(:text_colour)
+    ["not valid", "123456", "#GGGGGG", "#a1a1a1a"].each do |invalid_text_colour|
+      @theme.text_colour = invalid_text_colour
+      @theme.should_not be_valid
+    end
+  end
+  
+  it "should be invalid without a background colour" do
+    @theme.attributes = @valid_attributes.except(:background_colour)
+    @theme.should_not be_valid
+  end
+  
   it "should have many styles" do
     association = Theme.reflect_on_association(:styles)
     association.should_not be_nil
@@ -63,7 +82,4 @@ describe Theme do
   it "should have an available named_scope on available attribute" do
     Theme.available.proxy_options.should == {:conditions => {:available => true}}
   end
-  
-  it "should be able to return a random available theme" do
-    
 end

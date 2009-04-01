@@ -17,4 +17,10 @@ module ApplicationHelper
     messages
   end
   
+  def user_stylesheet
+    if current_subdomain
+      stylesheet_link_tag styles_path :format => :css, :subdomain => current_subdomain_user.subdomain
+    end
+  end
+  
 end

@@ -5,6 +5,7 @@ describe StylesController do
   before(:each) do
     # using 'test' as this is what the subdomain is when running the tests
     User.stub!(:find_by_subdomain).with("test").and_return(mock_user)
+    controller.stub!(:login_required).and_return(true)
   end
   
   def mock_user(stubs={})
@@ -18,7 +19,7 @@ describe StylesController do
   describe "scoping the actions to a user" do
     it "should expose the user as @user" do
       User.should_receive(:find_by_subdomain).with("test").and_return(mock_user)
-      get :show, :id => 1
+      get :index
       assigns[:user].should == mock_user
     end
   end
@@ -26,25 +27,24 @@ describe StylesController do
   describe "handling an unrecognized subdomain" do
     it "should redirect to the root url" do
       User.stub!(:find_by_subdomain).with("test").and_return(false)
-      get :show, :id => 1
+      get :index
       response.should redirect_to(root_url)
     end
   end
   
-  describe "responding to GET show" do
+  describe "responding to GET index" do
     it "should expose the requested style as @style" do
       mock_user.should_receive(:style).with(no_args).and_return(mock_style)
-      get :show, :id => "37"
+      get :index
       assigns[:style].should equal(mock_style)
     end
     
-    describe "with mime type of xml" do
-      it "should render the requested style as xml" do
-        request.env["HTTP_ACCEPT"] = "application/xml"
+    describe "with mime type of css" do
+      it "should render the requested css stylesheet" do
+        request.env["HTTP_ACCEPT"] = "text/css"
         mock_user.should_receive(:style).with(no_args).and_return(mock_style)
-        mock_style.should_receive(:to_xml).and_return("generated XML")
-        get :show, :id => "37"
-        response.body.should == "generated XML"
+        get :index
+        response.headers['Content-Type'].should == "text/css"
       end
     end
   end

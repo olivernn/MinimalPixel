@@ -3,13 +3,13 @@ module AuthenticatedSystem
     # Returns true or false if the user is logged in.
     # Preloads @current_user with the user model if they're logged in.
     # original implementation of this method is below, changed to check that the user is valid for the current_subdomain
-    # def logged_in?
-    #   !!current_user
-    # end
-    
     def logged_in?
-      current_user.subdomain == current_subdomain if current_user
+      !!current_user
     end
+    
+    # def logged_in?
+    #   current_subdomain_user.subdomain == current_subdomain if current_subdomain_user
+    # end
 
     # Accesses the current user from the session.
     # Future calls avoid the database because nil is not equal to false.
@@ -37,7 +37,11 @@ module AuthenticatedSystem
     #  end
     #
     def authorized?(action=nil, resource=nil, *args)
-      logged_in?
+      if logged_in? 
+        current_user == current_subdomain_user
+      else
+        false
+      end
     end
 
     # Filter method to enforce a login requirement.
