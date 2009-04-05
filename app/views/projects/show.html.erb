@@ -1,3 +1,16 @@
+<%= meta_title(@project.name) %>
+<%= meta_description(@project.description) %>
 
-<%= link_to 'Edit', edit_projects_path(@projects) %> |
-<%= link_to 'Back', projects_path %>
+<h1><%= @project.name %></h1>
+<% if logged_in? %>
+  <%= @project.status %>
+<% end %>
+
+<div class="project_description"><%= @project.description %></div>
+
+<% if logged_in? %>
+	<%= link_to 'Edit', edit_project_path(@project, :subdomain => current_subdomain_user.subdomain) %> |
+	<%= link_to 'Back', projects_path %> |
+	<%= link_to('Publish', publish_draft_project_path(@project), :method => :put) if @project.status == 'draft' && !@project.items.empty? %> |
+	<%= link_to 'Add Image', new_project_image_path(@project) %>
+<% end -%>

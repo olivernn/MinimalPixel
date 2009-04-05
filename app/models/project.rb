@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   # association statements
   belongs_to :user
   has_many :items
+  has_many :images
   
   # validation statements
   validates_presence_of :name

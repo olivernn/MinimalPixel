@@ -1,0 +1,21 @@
+<h1>Draft Projects</h1>
+<table>
+  <tr>
+	<th>Name</th>
+  </tr>
+<% for project in @projects %>
+  <tr>
+		<td><%= project.name %></td>
+  	<td><%= link_to 'Show', project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
+  	<td><%= link_to 'Edit', edit_project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
+		<td><%= link_to 'Publish', publish_draft_project_path(project, :subdomain => current_subdomain_user.subdomain), :method => :put %></td>
+  	<td><%= link_to 'Destroy', project_path(project, :subdomain => current_subdomain_user.subdomain), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if logged_in? %>
+	<%= link_to 'New projects', new_draft_project_path, :subdomain => current_subdomain_user.subdomain %>  
+<% end %>

@@ -1,3 +1,4 @@
+<%= meta_title(@item.name) %>
+<%= meta_description(@item.description) %>
 
-<%= link_to 'Edit', edit_project_item_path(@project, @item) %> |
-<%= link_to 'Back', project_items_path(@project) %>
+<%= render_item(@item, @project) %>

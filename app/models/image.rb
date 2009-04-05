@@ -5,9 +5,11 @@ class Image < Item
       :long   => "500x150#",
       :normal => "500x500>",
       :large => "600x600>"
-    },
-    :storage => :s3,
-    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+    }
+    
+    # During initial testing storage will be the filesystem
+    # :storage => :s3,
+    # :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
     
     validates_attachment_presence :source
     validates_attachment_size :source, :less_than => 5.megabytes

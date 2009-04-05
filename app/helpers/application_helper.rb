@@ -28,4 +28,29 @@ module ApplicationHelper
       javascript_include_tag styles_path(:format => :js, :subdomain => current_subdomain_user.subdomain), :id => "user_font"
     end
   end
+  
+  # methods that set the meta tags for the page
+  #displays a nice page title easily
+  def meta_title(text)
+    content_for(:title) { text }
+  end
+  
+  #allows us to specify the keywords for a page
+  def meta_keywords(keywords)
+    content_for(:keywords) { keywords }
+  end
+  
+  #allows us to specify the description for a page
+  def meta_description(description)
+    content_for(:description) { description }
+  end
+  
+  def render_item(item, project)
+    if item.class.to_s == "Image"
+      render :partial => 'images/image', :locals => {:image => item, :project => project}
+    else
+      # it must be a video
+      render :partial => 'videos/video', :locals => {:video => item, :project => project}
+    end
+  end
 end
