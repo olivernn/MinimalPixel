@@ -68,6 +68,14 @@ describe Theme do
     end
   end
   
+  it "should convert a 3 letter hex colour to a valid 6 letter hex colour" do
+    @theme.attributes = @valid_attributes.except(:background_colour)
+    @theme.background_colour = "#f00"
+    @theme.should be_valid
+    @theme.save!
+    @theme.heading_colour.should eql("#ff0000")
+  end
+  
   it "should be invalid without a background colour" do
     @theme.attributes = @valid_attributes.except(:background_colour)
     @theme.should_not be_valid

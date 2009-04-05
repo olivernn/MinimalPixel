@@ -1,9 +1,14 @@
-#leftcolumn, #rightcolumn, #header, #footer{
+#content, #sub_section, #header, #footer{
 	background-color:<%= @style.theme.background_colour%>;
+}
+
+#header{
+	border-bottom:2px solid <%= @style.theme.border_colour %>;
 }
 
 body{
 	color:<%= @style.theme.text_colour %>;
+	background-color:<%= @style.theme.background_colour%>;
 }
 
 h1, h2, h3, h4, h5{
@@ -15,5 +20,5 @@ a{
 }
 
 a:visited{
-	color:<%= @style.palette.foreground_light %>;
+	color:<%= @style.alt_heading_colour %>;
 }

@@ -4,6 +4,9 @@ class Style < ActiveRecord::Base
   require 'color/palette'
   require 'color/palette/monocontrast'
   
+  # callbacks
+  before_validation :prepare_hex
+  
   # serialized attributes
   serialize :palette
   
@@ -11,12 +14,13 @@ class Style < ActiveRecord::Base
   validates_presence_of :heading_colour, :border_type
   validates_format_of :heading_colour, :with => RE_HEX_COLOUR, :message => MSG_HEX_COLOUR_BAD
   
-  # TODO: both of these validates_inclusion should probably be looking at a lookup table to get the acceptable values!
+  # TODO: this validates_inclusion should probably be looking at a lookup table to get the acceptable values!
   validates_inclusion_of :border_type, :in =>%w(thin fat polaroid)
                                                   
   # association statements
   belongs_to :user
   belongs_to :theme
+  belongs_to :font
   
   # protect the following attributes from mass-assignement
   # attr_protected :palette
@@ -29,14 +33,31 @@ class Style < ActiveRecord::Base
     self.palette = ColourPalette.new(self.theme.background_colour, colour)
   end
   
+  #TODO: need to find a better way of determening which alt heading colour to use!
+  def alt_heading_colour
+    if self.theme.background_colour == Color::RGB::White.html
+      self.palette.foreground_dark
+    else
+      self.palette.foreground_light
+    end
+  end
+  
   # method to create a default style
   def self.default
     random_theme = Theme.random
     palette = ColourPalette.new(random_theme.background_colour, random_colour)
     new(:theme_id => random_theme.id,
         :border_type => random_border_type,
-        :font_id => 1,
+        :font_id => Font.random.id,
         :palette => palette)
+  end
+  
+  protected
+  
+  def prepare_hex
+    if self.heading_colour =~ /^#[0-9a-f]{3}$/i
+      self.heading_colour = Color::RGB.from_html(self.heading_colour).html
+    end
   end
   
   private

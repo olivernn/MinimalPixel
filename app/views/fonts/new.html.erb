@@ -1,8 +1,8 @@
 <h1>New font</h1>
 
-<% form_for(@font) do |f| %>
+<% form_for(@font, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
-
+	<%= render :partial => 'form', :locals => {:f => f } %>
   <p>
     <%= f.submit 'Create' %>
   </p>

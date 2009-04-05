@@ -17,6 +17,8 @@ class StylesController < ApplicationController
 
   # GET /styles/1/edit
   def edit
+    @themes = Theme.available
+    @fonts = Font.find(:all)
     @style = @user.style
   end
 
@@ -30,6 +32,7 @@ class StylesController < ApplicationController
         flash[:notice] = 'Style was successfully updated.'
         format.html { redirect_to(projects_root_url(:subdomain => @user.subdomain)) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @style.errors, :status => :unprocessable_entity }

@@ -1,5 +1,11 @@
 class Theme < ActiveRecord::Base
   include ValidationRegExp
+  require 'color'
+  require 'color/palette'
+  require 'color/palette/monocontrast'
+  
+  # callbacks
+  before_validation :prepare_hex
   
   # validation statements
   validates_presence_of :name, :border_colour, :text_colour
@@ -25,5 +31,21 @@ class Theme < ActiveRecord::Base
   
   def self.random
     find(:all, :conditions => {:available => true}).at(rand(available.size))
+  end
+  
+  protected
+  
+  def prepare_hex
+    if self.background_colour =~ /^#[0-9a-f]{3}$/i
+      self.background_colour = Color::RGB.from_html(self.background_colour).html
+    end
+    
+    if self.border_colour =~ /^#[0-9a-f]{3}$/i
+      self.border_colour = Color::RGB.from_html(self.border_colour).html
+    end
+    
+    if self.text_colour =~ /^#[0-9a-f]{3}$/i
+      self.text_colour = Color::RGB.from_html(self.text_colour).html
+    end
   end
 end

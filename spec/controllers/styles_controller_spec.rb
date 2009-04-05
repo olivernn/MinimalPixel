@@ -16,6 +16,14 @@ describe StylesController do
     @mock_style ||= mock_model(Style, stubs)
   end
   
+  def mock_theme(stubs={})
+    @mock_theme ||= mock_model(Theme, stubs)
+  end
+  
+  def mock_font(stubs ={})
+    @mock_font ||= mock_model(Font, stubs)
+  end
+  
   describe "scoping the actions to a user" do
     it "should expose the user as @user" do
       User.should_receive(:find_by_subdomain).with("test").and_return(mock_user)
@@ -54,6 +62,18 @@ describe StylesController do
       mock_user.should_receive(:style).with(no_args).and_return(mock_style)
       get :edit, :id => "37"
       assigns[:style].should equal(mock_style)
+    end
+    
+    it "should expose all available themes as @themes" do
+      Theme.should_receive(:available).with(no_args).and_return([mock_theme])
+      get :edit, :id => "37"
+      assigns[:themes].should equal([mock_theme])
+    end
+    
+    it "should expose all available fonts as @fonts" do
+      Font.should_receive(:find).with(:all).and_return([mock_font])
+      get :edit, :id => "37"
+      assigns[:fonts].should equal([mock_font])
     end
   end
 

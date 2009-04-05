@@ -10,6 +10,11 @@ describe Style do
       :font_id => 2
     }
     @style = Style.new
+    @theme = Theme.create!(:name => 'test',
+                       :background_colour => "#ffffff",
+                       :border_colour => "#000000",
+                       :text_colour => "#000000",
+                       :id => 1)
   end
 
   it "should create a new instance given valid attributes" do
@@ -28,6 +33,14 @@ describe Style do
       @style.heading_colour = invalid_heading_colour
       @style.should_not be_valid
     end
+  end
+  
+  it "should convert a 3 letter hex colour to a valid 6 letter hex colour" do
+    @style.attributes = @valid_attributes.except(:heading_colour)
+    @style.heading_colour = "#f00"
+    @style.should be_valid
+    @style.save!
+    @style.heading_colour.should eql("#ff0000")
   end
   
   it "should be invalid without a border type" do
@@ -57,6 +70,12 @@ describe Style do
   
   it "should belong to a theme" do
     association = Style.reflect_on_association(:theme)
+    association.should_not be_nil
+    association.macro.should eql(:belongs_to)
+  end
+  
+  it "should belong to a font" do
+    association = Style.reflect_on_association(:font)
     association.should_not be_nil
     association.macro.should eql(:belongs_to)
   end

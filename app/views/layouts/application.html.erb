@@ -9,15 +9,26 @@
 		<meta name="robots" content="all" />	
 		<meta name="resource-type" content="document" />
 		<meta name="MSSmartTagsPreventParsing" content="true" />
-		<%= stylesheet_link_tag 'base', 'main' %>
-		<%= javascript_include_tag 'jquery-1.3.2', 'iColorPicker' %>
+		<%= stylesheet_link_tag 'base', 'layout' %>
+		<%= javascript_include_tag 'jquery', 'iColorPicker', 'jquery.sifr.min', 'jquery.flash', 'application' %>
 		
 		<!-- adding the generated stylesheets, this should probably be put into a helper -->
 		<%= user_stylesheet %>
+		<%= user_font %>
 	</head>
 	<body>
-		<div id="wrapper">
+		<div id="container">
 			<div id="header">
+				<h1><%= current_subdomain_user.name %></h1>
+			</div>
+			<div id="content">
+				<%= flash_messages %>
+				<%= yield :layout %>
+			</div>
+			<div id="sub_section">
+				<% if logged_in? && authorized? %>
+					<%= link_to "Edit Style", edit_style_path(current_user.style) %>
+				<% end -%>
 				<ul>
 					<% if logged_in? %>
 					<li><%= link_to 'Logout', logout_path %></li>
@@ -26,13 +37,6 @@
 					<li><%= link_to 'Signup', signup_path %></li>
 					<% end %>
 				</ul>
-			</div>
-			<div id="leftcolumn">
-				<%= flash_messages %>
-				<%= yield :layout %>
-			</div>
-			<div id="rightcolumn">
-				Right Column
 			</div>
 			<div id="footer">
 				Footer

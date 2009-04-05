@@ -1,0 +1,17 @@
+<fieldset>
+	<legend>Theme Details</legend>
+	<label for="theme_name">Name</label>
+	<%= f.text_field :name %><br/>
+	
+	<label for="theme_border_colour">Border Colour</label>
+	<%= f.text_field :border_colour, :class => 'iColorPicker' %><br/>
+	
+	<label for="theme_background_colour">Background Colour</label>
+	<%= f.text_field :background_colour, :class => 'iColorPicker' %><br/>
+	
+	<label for="theme_text_colour">Text Colour</label>
+	<%= f.text_field :text_colour, :class => 'iColorPicker' %><br/>
+	
+	<label for="theme_available">Available</label>
+	<%= f.check_box :available %><br/>
+</fieldset>

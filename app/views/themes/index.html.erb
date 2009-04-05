@@ -6,6 +6,7 @@
 
 <% for theme in @themes %>
   <tr>
+		<td><%= theme.name %></td>
     <td><%= link_to 'Show', theme %></td>
     <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
     <td><%= link_to 'Destroy', theme, :confirm => 'Are you sure?', :method => :delete %></td>
