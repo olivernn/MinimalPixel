@@ -1,5 +1,6 @@
 class Image < Item
   has_attached_file :source,
+  
     :styles => {
       :thumb => "100x100#",
       :long   => "500x150#",
@@ -10,6 +11,12 @@ class Image < Item
     # During initial testing storage will be the filesystem
     # :storage => :s3,
     # :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+    
+    before_post_process :hault_processing
+    
+    def hault_processing
+      true
+    end
     
     validates_attachment_presence :source
     validates_attachment_size :source, :less_than => 5.megabytes

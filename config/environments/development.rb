@@ -24,3 +24,6 @@ REST_AUTH_DIGEST_STRETCHES = 10
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
 end
+
+# Setting up Workling to talk to the Starling message server
+Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
