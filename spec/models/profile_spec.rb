@@ -6,7 +6,7 @@ describe Profile do
       :user_id => 1,
       :location => "London",
       :phone => "07811140700",
-      :web => "www.poo.com"
+      :web => "http://www.poo.com"
     }
     @profile = Profile.new
   end
@@ -19,5 +19,12 @@ describe Profile do
     association = Profile.reflect_on_association(:user)
     association.should_not be_nil
     association.macro.should eql(:belongs_to)
+  end
+  
+  it "should be invalid without a valid url" do
+    @profile.attributes = @valid_attributes.except(:web)
+    @profile.should be_valid
+    @profile.web = "in valid web address"
+    @profile.should_not be_valid
   end
 end

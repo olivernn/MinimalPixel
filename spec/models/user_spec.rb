@@ -347,6 +347,12 @@ describe User do
     association.should_not be_nil
     association.macro.should eql(:has_one)
   end
+  
+  it "should have some pages" do
+    association = User.reflect_on_association(:pages)
+    association.should_not be_nil
+    association.macro.should eql(:has_many)
+  end
 
 protected
   def create_user(options = {})

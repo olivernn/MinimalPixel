@@ -8,6 +8,23 @@
 
 <div class="project_description"><%= @project.description %></div>
 
+<% unless @project.items.empty? %>
+  <% if @project.items.size > 1 %>
+    <div id="carousel_holder"><a href="#" id="carousel-next" class="carousel_control">Up</a><div id="carousel">
+		<ul id="carousel_list">
+		<% for item in @items %>
+			<li class="carousel_item">
+				<%= link_to(image_tag(item.display_thumbnail, :title => item.description), project_item_path(@project, item), :class => 'carousel')  %>
+			</li>
+		<% end %>
+	</ul>
+	</div>
+  <a href="#" id="carousel-prev" class="carousel_control">Down</a>
+</div>
+  <% end %>
+<div id="carousel_view"><%= render_item(@items.first, @project) %></div>
+<% end %>
+
 <% if logged_in? %>
 	<%= link_to 'Edit', edit_project_path(@project, :subdomain => current_subdomain_user.subdomain) %> |
 	<%= link_to 'Back', projects_path %> |

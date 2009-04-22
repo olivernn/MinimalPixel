@@ -1,3 +1,50 @@
+<h1>Your Account</h1>
+
+<h2>Summary</h2>
+
+<table summary="a table showing the details of the plan that this account is on">
+	<caption>Your Plan</caption>
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+	</tr>
+	<tr>
+		<td><%= @account.plan.name %></td>
+		<td><%= number_to_currency(@account.plan.price) %> per <%= @account.plan.payment_frequency %></td>
+	</tr>
+</table>
+
+<table summary="a table of the number of projects, images and videos that can be created for an account">
+	<caption>Projects, images and videos remaining</caption>
+	<tr>
+		<th>Projects</th>
+		<th>Images</th>
+		<th>Videos</th>
+	</tr>
+	<tr>
+		<td><%= @account.user.projects_available %></td>
+		<td><%= @account.user.images_available %></td>
+		<td>NOT YET IMPLEMENTED</td>
+	</tr>
+</table>
+
+<h2>Payments</h2>
+
+<table summary="a table of all the transactions that have been made on an account">
+	<caption>Transactions against your accout</caption>
+	<tr>
+		<th>Date</th>
+		<th>Amount</th>
+		<th>Status</th>
+	</tr>
+	<% @transactions.each do |transaction| %>
+		<tr>
+			<td><%= transaction.date %></td>
+			<td><%= number_to_currency(transaction.amount) %></td>
+			<td><%= transaction.status %></td>
+		</tr>
+	<% end -%>
+</table>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>

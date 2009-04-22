@@ -65,9 +65,15 @@ describe Project do
     Project.drafts.proxy_options.should == {:conditions => {:status => "draft"}}
   end
   
+  # prettier urls please!
+  it "should have a param that includes its name" do
+    @project.attributes = @valid_attributes
+    @project.to_param.should eql("#{@project.id}-#{@project.name.parameterize.to_s}")
+  end
+  
   # testing the associations have been included
   it "should have some items" do
-    association = Project.reflect_on_association(:item)
+    association = Project.reflect_on_association(:items)
     association.should_not be_nil
     association.macro.should eql(:has_many)
   end

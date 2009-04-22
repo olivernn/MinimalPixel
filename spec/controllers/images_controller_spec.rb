@@ -15,12 +15,10 @@ describe ImagesController do
   end
   
   before(:each) do
+    controller.stub!(:load_profile).and_return(true)
+    mock_user.projects.stub!(:find).with("1").and_return(mock_project)
     # using 'test' as this is what the subdomain is when running the tests
     User.stub!(:find_by_subdomain).with("test").and_return(mock_user)
-  end
-  
-  before(:each) do
-    mock_user.projects.stub!(:find).with("1").and_return(mock_project)
   end
   
   describe "scoping the actions to a user" do
@@ -85,7 +83,7 @@ describe ImagesController do
         mock_project.images.stub!(:build).and_return(mock_image(:save => true))
         mock_user.should_receive(:subdomain).and_return('test_subdomain')
         post :create, :image => {}, :project_id => "1"
-        response.should redirect_to(project_image_url(mock_project, mock_image, :subdomain => 'test_subdomain'))
+        response.should redirect_to(project_item_url(mock_project, mock_image, :subdomain => 'test_subdomain'))
       end  
     end
     
@@ -123,7 +121,7 @@ describe ImagesController do
         mock_project.images.stub!(:find).and_return(mock_image(:update_attributes => true))
         mock_user.should_receive(:subdomain).and_return('test_subdomain')
         put :update, :id => "1", :project_id => "1"
-        response.should redirect_to(project_image_url(mock_project, mock_image, :subdomain => 'test_subdomain'))
+        response.should redirect_to(project_item_url(mock_project, mock_image, :subdomain => 'test_subdomain'))
       end
     end
     

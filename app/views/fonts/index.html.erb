@@ -6,6 +6,7 @@
 
 <% @fonts.each do |font| %>
   <tr>
+		<td><%= link_to font.name, font %></td>
     <td><%= link_to 'Show', font %></td>
     <td><%= link_to 'Edit', edit_font_path(font) %></td>
     <td><%= link_to 'Destroy', font, :confirm => 'Are you sure?', :method => :delete %></td>

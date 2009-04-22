@@ -26,26 +26,27 @@ class UsersController < ApplicationController
   end
   
   def complete
-    @gateway ||= set_up_gateway
-    response = @gateway.create_profile(params[:token], :description => "test_description", :start_date => Time.now, :frequency => 2, :amount => 16, :auto_bill_outstanding => true)
+    @plan = Plan.find(session[:plan_id])
+    response = GATEWAY.create_profile(params[:token], @plan.payment_profile)
     @account = Account.find(session[:account_id])
-    logger.debug response.to_yaml
     if response.success?
       if @account.update_attributes(:profile_id => response.params["profile_id"])
-        logger.debug "account updated"
         @account.activate!
         @account.user.activate!
-        flash[:notice] = "account succesfully created"
-        render :nothing => true
+        flash[:notice] = "Account succesfully created!"
+        redirect_to(projects_root_url(:subdomain => @user.subdomain))
       else
         logger.error "account with id=#{session[:account_id]} could not be updated with profile_id=#{response.params["profile_id"]}"
         flash[:error] = "there was a problem setting up your account"
-        render :nothing => true
+        redirect_to(projects_root_url(:subdomain => @user.subdomain))
       end
     else
-      logger.debug "problem from paypal"
-      flash[:error] = "there was a problem setting up your account"
-      render :nothing => true
+      logger.error "problem from paypal trying to create account with id=#{session[:account_id]} to plan #{session[:plan_id]}"
+      logger.error "****** paypal response below *******"
+      logger.error response.to_yaml
+      logger.error "************************************"
+      flash[:error] = "sorry, there was a problem creating your account."
+      redirect_to(root_url(:subdomain => @user.subdomain))
     end
   end
   
@@ -88,13 +89,14 @@ class UsersController < ApplicationController
   def create_account(user, plan)
     plan.users << user
     session[:account_id] = user.account.id
+    session[:plan_id] = plan.id
     if plan.free?
       user.account.activate!
       user.activate!
       flash[:notice] = "Signup complete! Please sign in to continue."
       redirect_to login_path
     else
-      checkout
+      checkout(complete_account_url, root_url)
     end
   end
   
@@ -108,20 +110,5 @@ class UsersController < ApplicationController
   def failed_creation(message = 'Sorry, there was an error creating your account')
     flash[:error] = message
     render :action => :new
-  end
-  
-  def checkout
-    @gateway ||= set_up_gateway
-    description = "subscription to minimal pixel"
-    response = @gateway.setup_agreement(:description => description, :return_url => complete_account_url, :cancel_return_url => root_url)
-    redirect_to @gateway.redirect_url_for(response.token)
-  end
-  
-  def set_up_gateway
-    # these are the test credentials -- need changing before live.
-    ActiveMerchant::Billing::PaypalExpressRecurringGateway.new(
-      :login => 'oliver_1218302408_biz_api1.ntlworld.com',
-      :password => '95X5HJ8WG2SRBPB2',
-      :signature => 'AH1eOAAdxH9dz4bJ8jTBB9jd0rv7AUvGZZ3ZuXIXmV77iCPhPlGt9YM.')
   end
 end

@@ -25,11 +25,11 @@ class ColourPalette
   end
   
   def foreground_dark
-    Color::RGB.from_html(@foreground).darken_by(20).html
+    Color::RGB.from_html(@foreground).darken_by(50).html
   end
   
   def foreground_light
-    Color::RGB.from_html(@foreground).lighten_by(20).html
+    Color::RGB.from_html(@foreground).lighten_by(50).html
   end
   
   def background

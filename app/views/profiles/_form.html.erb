@@ -1,0 +1,17 @@
+<fieldset>
+	<legend>Profile Details</legend>
+	<label for="profile_location">Location</label>
+	<%= f.text_field :location %><br/>
+	
+	<label for="profile_phone">Phone</label>
+	<%= f.text_field :phone %><br/>
+	
+	<label for="profile_web">Web</label>
+	<%= f.text_field :web %><br/>
+	
+	<label for="profile_photo">Photo</label>
+	<%= f.file_field :photo %><br/>
+	
+	<label for="profile_date_of_birth">Date of Birth</label>
+	<%= f.date_select :date_of_birth %><br/>
+</fieldset>

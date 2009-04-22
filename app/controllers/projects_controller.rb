@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = @user.projects.active
+    @projects = @user.projects.active.paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = @user.projects.find(params[:id])
+    @items = @project.items
 
     respond_to do |format|
       format.html # show.html.erb

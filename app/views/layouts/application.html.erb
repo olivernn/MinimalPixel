@@ -9,8 +9,8 @@
 		<meta name="robots" content="all" />	
 		<meta name="resource-type" content="document" />
 		<meta name="MSSmartTagsPreventParsing" content="true" />
-		<%= stylesheet_link_tag 'base', 'layout' %>
-		<%= javascript_include_tag 'jquery', 'iColorPicker', 'jquery.sifr.min', 'jquery.flash', 'application' %>
+		<%= stylesheet_link_tag 'base', 'layout', 'common', 'superfish-vertical' %>
+		<%= javascript_include_tag 'jquery', 'iColorPicker', 'jquery.sifr.min', 'jquery.flash', 'jquery.color', 'jquery.dwFadingLinks', 'superfish', 'jquery.carousel_lite', 'application' %>
 		
 		<!-- adding the generated stylesheets, this should probably be put into a helper -->
 		<%= user_stylesheet %>
@@ -19,24 +19,34 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<h1><%= current_subdomain_user.name %></h1>
+				<% if current_subdomain %>
+					<h1><%= link_to current_subdomain_user.name, projects_root_url(:subdomain => current_subdomain_user.subdomain) %></h1>
+				<% end %>
 			</div>
 			<div id="content">
 				<%= flash_messages %>
 				<%= yield :layout %>
 			</div>
 			<div id="sub_section">
-				<% if logged_in? && authorized? %>
-					<%= link_to "Edit Style", edit_style_path(current_user.style) %>
-				<% end -%>
-				<ul>
-					<% if logged_in? %>
-					<li><%= link_to 'Logout', logout_path %></li>
-					<% else %>
-					<li><%= link_to 'Login', login_path %></li>
-					<li><%= link_to 'Signup', signup_path %></li>
+				<div id="profile">
+					<%= image_tag(@profile.photo.url(:sidebar), :class => 'image', :alt => @user.name) if @user %>
+					<ul id="profile_attributes"><%= display_populated_attributes(@profile) %></ul>
+				</div>
+				<div id="pages">
+					<% current_subdomain_user.pages.each do |page| %>
+						<ul>
+							<li><%= link_to page.title, page_path(page) %></li>
+						</ul>
 					<% end %>
-				</ul>
+				</div>
+					<% if logged_in? && current_user == current_subdomain_user %>
+						<%= render :partial => 'layouts/menu' %>
+					<ul>
+					<% else %>
+						<li><%= link_to 'Login', login_path %></li>
+						<li><%= link_to 'Signup', signup_path %></li>
+					<% end %>
+					</ul>
 			</div>
 			<div id="footer">
 				Footer

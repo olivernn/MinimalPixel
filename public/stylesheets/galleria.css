@@ -1,0 +1,9 @@
+.gallery{list-style:none;width:200px}
+.gallery li{display:block;width:80px;height:80px;overflow:hidden;float:left;margin:0 10px 10px 0}
+.gallery li a{display:none}
+.gallery li div{position:absolute;display:none;top:0;left:180px}
+.gallery li div img{cursor:pointer}
+.gallery li.active div img,.gallery li.active div{display:block}
+.gallery li img.thumb{cursor:pointer;top:auto;left:auto;display:block;width:auto;height:auto}
+.gallery li .caption{display:block;padding-top:.5em}
+* html .gallery li div span{width:400px} /* MSIE bug */

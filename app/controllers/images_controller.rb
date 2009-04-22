@@ -56,7 +56,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.update_attributes(params[:image])
         flash[:notice] = 'Image was successfully updated.'
-        format.html { redirect_to(project_image_path(@project, @image, :subdomain => @user.subdomain)) }
+        format.html { redirect_to(project_item_path(@project, @image, :subdomain => @user.subdomain)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

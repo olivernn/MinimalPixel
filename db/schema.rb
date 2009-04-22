@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090401182627) do
+ActiveRecord::Schema.define(:version => 20090415183847) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -62,6 +62,18 @@ ActiveRecord::Schema.define(:version => 20090401182627) do
     t.string  "server_url"
     t.string  "salt",       :null => false
   end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.string   "title",      :null => false
+    t.string   "permalink",  :null => false
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
+  add_index "pages", ["user_id"], :name => "index_pages_on_user_id"
 
   create_table "passwords", :force => true do |t|
     t.integer  "user_id"
@@ -155,6 +167,18 @@ ActiveRecord::Schema.define(:version => 20090401182627) do
     t.datetime "updated_at"
     t.string   "text_colour"
   end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "account_id", :null => false
+    t.string   "status"
+    t.date     "date"
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["account_id"], :name => "index_transactions_on_account_id"
+  add_index "transactions", ["status"], :name => "index_transactions_on_status"
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

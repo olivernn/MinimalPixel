@@ -1,14 +1,29 @@
 /* === FLASH MESSAGES === */
 div#flash-notice {
-	
+	border-top:1px solid #37b44a;
+	border-bottom:1px solid #37b44a;
+	color:#37b44a;
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align:center;
 }
 
 div#flash-warning {
-	
+	border-top:1px solid #f16522;
+	border-bottom:1px solid #f16522;
+	color:#f16522;
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align:center;
 }
 
 div#flash-error {
-	
+	border-top:1px solid #ee1d24;
+	border-bottom:1px solid #ee1d24;
+	color:#ee1d24;
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align:center;
 }
 
 /* === ERROR MESSAGES === */
@@ -30,6 +45,72 @@ div#errorExplanation ul {
 
 div#errorExplanation ul li {
 	
+}
+
+/* === MENU ==== */
+#main_menu{
+	padding:0;
+	margin-top:20px;
+	list-style:none;
+}
+
+#main_menu ul{
+	list-style:none;
+}
+
+/* === PROFILE === */
+#profile{
+	margin-top:15px;
+}
+
+#profile_attributes{
+	padding:0;
+	margin:0;
+	list-style:none;
+	font-size:0.7em;
+}
+
+#sub_section #pages ul{
+	padding:0;
+	margin:0;
+	margin-top:10px;
+	list-style:none;
+	font-size:0.7em;
+}
+
+/* === PROJECTS === */
+#gallery{
+	list-style:none;
+	padding:0;
+	margin:0;
+	float:left;
+}
+
+/* === TABLES === */
+table{
+	padding:5px;
+	font-size:0.9em;
+	line-height:1.4em;
+}
+
+th{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana;
+	font-size:1.1em;
+	font-weight:normal;
+	text-align:left;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+td{
+	padding-left:5px;
+	padding-right:5px;
+}
+
+caption{
+	font-style:italic;
+	font-size:0.85em;
+	text-align:left;
 }
 
 /* === FORMS === */
@@ -79,4 +160,49 @@ div.fieldWithErrors input, div.fieldWithErrors select,
 div.fieldWithErrors textarea
 {
 	
+}
+
+/* === ITEMS CAROUSEL === */
+
+#items_carosel{
+	margin-top:10px;
+}
+
+#carousel{
+	border:1px solid;
+	padding-left:15px;
+	width:125px;
+}
+
+#carousel_list{
+	list-style:none;
+	padding:0px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+#carousel_list li{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#carousel_controls{
+	margin-right:auto;
+	margin-left:auto;
+}
+
+#carousel_holder{
+	float:left;
+	margin:25px;
+	margin-right:50px;
+	margin-left:0px;
+}
+
+a.carousel{
+	color:#646464;
+}
+
+a.carousel img{
+	border:5px solid #f0f0f0;
+	border-bottom:15px solid #f0f0f0;
 }

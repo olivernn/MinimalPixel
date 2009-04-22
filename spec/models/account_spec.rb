@@ -32,6 +32,12 @@ describe Account do
     @account.status.should eql("active")
   end
   
+  it "should have some transactions" do
+    association = Account.reflect_on_association(:transactions)
+    association.should_not be_nil
+    association.macro.should eql(:has_many)
+  end
+  
   # it "shouldn't be able to be activated unless currently pending" do
   #   @account.attributes = @valid_attributes.except(:status)
   #   @account.status = "not pending"

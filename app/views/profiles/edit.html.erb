@@ -1,8 +1,8 @@
 <h1>Editing profile</h1>
 
-<% form_for(@profile) do |f| %>
+<% form_for(@profile, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
-
+	<%= render :partial => 'form', :locals => {:f => f} %>
   <p>
     <%= f.submit "Update" %>
   </p>

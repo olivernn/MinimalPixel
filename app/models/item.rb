@@ -17,6 +17,6 @@ class Item < ActiveRecord::Base
   
   # override to_param method to get prettier urls
   def to_param
-    "#{self.id}_#{self.name.parameterize.to_s}"
+    "#{self.id}-#{self.name.parameterize.to_s}"
   end
 end

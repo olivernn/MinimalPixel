@@ -1,0 +1,7 @@
+<fieldset>
+	<legend>Plans</legend>
+	<% plans.each do |plan| %>
+		<label for="account_plan_id"><%= plan.name %></label>
+		<%= f.radio_button :plan_id, plan.id %><br/>
+	<% end -%>
+</fieldset>

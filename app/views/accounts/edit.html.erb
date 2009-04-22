@@ -2,11 +2,11 @@
 
 <% form_for(@account) do |f| %>
   <%= f.error_messages %>
-
+	<%= render :partial => 'form', :locals => {:f => f, :plans => @plans, } %>
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
 <%= link_to 'Show', @account %> |
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Back', projects_root_url(:subdomain => @user.subdomain) %>

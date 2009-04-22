@@ -36,7 +36,7 @@ describe Item do
   
   it "should have a param that includes its name" do
     @item.attributes = @valid_attributes
-    @item.to_param.should eql("#{@item.id}_#{@item.name.parameterize.to_s}")
+    @item.to_param.should eql("#{@item.id}-#{@item.name.parameterize.to_s}")
   end
   
   # trying to test some of the list actions, having to create images as otherwise we cannot set the type

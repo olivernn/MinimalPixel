@@ -1,5 +1,24 @@
+// sifr the headings
 $(document).ready(function(){
-	$("h1, h2, h3, h4").sifr({
+	$("h1, h2, h3, h4, th").sifr({
 		font:'<%= @style.font.font.url %>'
 	});
 })
+
+jQuery.fn.dwFadingLinks = function(settings) {
+	settings = jQuery.extend({
+		color: '<%= @style.alt_heading_colour %>',
+		duration:750
+	}, settings);
+	return this.each(function() {
+		var original = $(this).css('color');
+		$(this).mouseover(function() { $(this).animate({ color: settings.color },settings.duration); });
+		$(this).mouseout(function() { $(this).animate({ color: original },settings.duration); });
+	});
+};
+
+// fade the links in and out
+$(document).ready(function(){
+	$("a").dwFadingLinks({});
+})
+

@@ -15,6 +15,18 @@
 		<% end %>
 	</fieldset>
 	
+	<fieldset>
+		<legend>Image Borders</legend>
+		<label for="style_border_type_thin">Thin</label>
+		<%= f.radio_button :border_type, "thin" %><br/>
+		
+		<label for="style_border_type_polaroid">Polaroid</label>
+		<%= f.radio_button :border_type, "polaroid" %><br/>
+		
+		<label for="style_border_type_fat">Fat</label>
+		<%= f.radio_button :border_type, "fat" %><br/>
+	</fieldset>
+	
 	<fieldset id="font_fieldset">
 		<legend>Font</legend>
 		<% @fonts.each do |font| %>

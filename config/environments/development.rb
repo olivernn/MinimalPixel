@@ -19,7 +19,7 @@ config.action_mailer.raise_delivery_errors = false
 # Restful Authentication
 REST_AUTH_SITE_KEY = '1f4b92d1eb016f4c5bf6a68ddaff287f71ce10d1620866a4fc82688e63a1a2492c2323de1c6e21b3a20e6be5ad41a7d71b1900b1461d9dbb0fc92b9db586845d'
 REST_AUTH_DIGEST_STRETCHES = 10
-
+  
 # setting up activemerchant and paypal
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test

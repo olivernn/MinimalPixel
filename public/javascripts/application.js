@@ -31,6 +31,13 @@ jQuery.extend({
     }
 });
 
+//this is the ajax functionality on the item pictures in the carosel
+$(document).ready(function(){
+	$('.carousel').click(function(){
+		$.get($(this).attr("href") + ".js", null, null, "script");
+		return false;
+	})
+})
 
 // adding an instant update of the style attributes when editing the styles
 $(document).ready(function(){
@@ -47,4 +54,24 @@ $(document).ready(function(){
 			font: $(this).attr("id")
 		})
 	})
+})
+
+//creating the menu
+$(document).ready(function(){
+	$('#main_menu').superfish({
+		delay:1000,
+		animation: {opacity:'show',height:'show'},
+		speed: 'slow'
+	});
+})
+
+//this loads the corousel for the items on the project page
+$(window).load(function(){
+	$("#carousel").jCarouselLite({
+      btnNext: "#carousel-prev",
+      btnPrev: "#carousel-next",
+			speed:   1000,
+			vertical: true,
+			visible: 3
+  });
 })

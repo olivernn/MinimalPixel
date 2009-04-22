@@ -1,3 +1,28 @@
-<% if authorized? %>
-	<%= link_to "Edit Style", edit_styles_path(@user.style) %>
+<% if logged_in? && current_subdomain_user == current_user %>
+	<ul id="main_menu" class="sf-vertical">
+		<li><a>Projects</a>
+			<ul>
+				<li><%= link_to 'New project', new_draft_project_path, :subdomain => current_subdomain_user.subdomain %></li>
+				<li><%= link_to 'Draft Projects', draft_projects_path, :subdomain => current_subdomain_user.subdomain %></li>
+			</ul>
+		</li>
+	
+		<li><a>Account</a>
+			<ul>
+				<li><%= link_to 'Logout', logout_path %></li>
+				<li><%= link_to 'Summary', account_path(current_subdomain_user.account) %></li>
+				<li><%= link_to 'Change Plan', edit_account_path(current_subdomain_user.account) %></li>
+				<li><%= link_to 'Edit Profile', edit_profile_path(current_subdomain_user.profile) %></li>
+				<li><%= link_to "Edit Style", edit_style_path(current_user.style) %></li>
+				<li><%= link_to 'Close Account', account_path(current_subdomain_user.account, :method => :delete), :confirm => "This will delete your account, are you sure?" %></li>
+			</ul>
+		</li>
+		
+		<li><a>Pages</a>
+			<ul>
+				<li><%= link_to 'Pages Index', pages_path(:subdomain => current_subdomain_user.subdomain) %></li>
+				<li><%= link_to 'New Page', new_page_path(:subdomain => current_subdomain_user.subdomain) %></li>
+			</ul>
+		</li>
+	</ul>
 <% end -%>

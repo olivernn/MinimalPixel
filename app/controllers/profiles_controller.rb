@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
         flash[:notice] = 'Profile was successfully updated.'
-        format.html { redirect_to(project_url(:subdomain => @user.subdomain)) }
+        format.html { redirect_to(projects_root_url(:subdomain => @user.subdomain)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

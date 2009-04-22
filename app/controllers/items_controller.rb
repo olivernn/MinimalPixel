@@ -19,10 +19,12 @@ class ItemsController < ApplicationController
   # GET /projects/:project_id/items/1.xml
   def show
     @item = @project.items.find(params[:id])
+    @style = @user.style
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @item }
+      format.js # show.js.erb
     end
   end
 

@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_one :style
   has_many :projects
+  has_many :pages
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -66,6 +67,18 @@ class User < ActiveRecord::Base
   def projects_available
     self.plan.project_limit - self.projects.count
   end
+  
+  def images_available
+    x = 0
+    self.projects.each {|p| x = x + p.images.count}
+    self.plan.image_limit - x
+  end
+  
+  # def videos_available
+  #   x = 0
+  #   self.projects.each {|p| x = x + p.videos.count}
+  #   self.plan.video_limit - x
+  # end
   
   def can_create_projects?
     self.projects_available > 0

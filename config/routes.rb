@@ -1,11 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :fonts
+  map.resources :pages
 
-  map.resources :themes
   
   map.complete_account '/complete', :controller => 'users', :action => 'complete'
-  
-  map.resources :subscriptions
+  map.upgrade_account '/upgrade', :controller => 'accounts', :action => 'upgrade'
   
   # Restful Authentication Rewrites
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
@@ -33,6 +31,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :styles
   map.resources :profiles
   map.resources :accounts
+  map.resources :fonts
+  map.resources :subscriptions
+  map.resources :themes
   
   # map subdomains to the projects controller
   map.projects_root '', :controller => 'projects', :action => 'index', :conditions => { :subdomain => /.+/}

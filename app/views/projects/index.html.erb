@@ -1,22 +1,11 @@
 <h1>Projects</h1>
 
-<table>
-  <tr>
-  </tr>
-
 <% for project in @projects %>
-  <tr>
-	<td><%= project.name %></td>
-    <td><%= link_to 'Show', project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
-    <td><%= link_to 'Edit', edit_project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
-    <td><%= link_to 'Destroy', project_path(project, :subdomain => current_subdomain_user.subdomain, :confirm => 'Are you sure?', :method => :delete) %></td>
-  </tr>
+	<div class="project_image" style="background-image: url(<%= project.items.first.display_long %>); height:50px; width:500px">
+	<h2 class="project"><%= link_to project.name, project %></h2>
+	</div>
 <% end %>
-</table>
+
+<%= will_paginate @projects %>
 
 <br />
-
-<% if logged_in? %>
-	<%= link_to 'New projects', new_draft_project_path, :subdomain => current_subdomain_user.subdomain %>
-	<%= link_to 'Draft Projects', draft_projects_path, :subdomain => current_subdomain_user.subdomain %>
-<% end -%>

@@ -15,4 +15,12 @@ class Image < Item
     validates_attachment_size :source, :less_than => 5.megabytes
     # TODO: need to check that we really can support all of these formats!
     validates_attachment_content_type :source, :content_type => ['image/gif', 'image/x-png', 'image/jpeg', 'image/tiff', 'image/x-pict']
+
+    def display_thumbnail
+      self.source.url(:thumb)
+    end
+
+    def display_long
+      self.source.url(:long)
+    end
 end

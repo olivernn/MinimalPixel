@@ -3,7 +3,7 @@
 }
 
 #header{
-	border-bottom:2px solid <%= @style.theme.border_colour %>;
+	<%= header_border(@style) %>
 }
 
 body{
@@ -11,8 +11,35 @@ body{
 	background-color:<%= @style.theme.background_colour%>;
 }
 
+th{
+	color:<%= @style.palette.foreground %>;
+	border-bottom: 1px solid <%= @style.theme.border_colour %>;	
+}
+
+/* styles for the sidebar */
+#sub_section{
+	<%= sidebar_border(@style) %>
+}
+
+/* STYLES FOR THE IMAGES */
+.project_image{
+	<%= border_styles(@style) %>
+}
+
+.image{
+	<%= border_styles(@style) %>
+}
+
 h1, h2, h3, h4, h5{
 	color:<%= @style.palette.foreground %>;
+}
+
+a.carousel img{
+	<%= border_styles(@style) %>
+}
+
+#carousel{
+	border-color:<%= @style.theme.border_colour %>;
 }
 
 a{
@@ -20,5 +47,9 @@ a{
 }
 
 a:visited{
-	color:<%= @style.alt_heading_colour %>;
+	color:<%= @style.palette.foreground %>;
+}
+
+.project_image h2 a{
+	color:<%= @style.palette.foreground %>;
 }

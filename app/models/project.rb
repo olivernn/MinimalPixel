@@ -37,4 +37,8 @@ class Project < ActiveRecord::Base
   named_scope :active,  :conditions => {:status => "active"}, :order => 'created_at DESC'
   named_scope :drafts,  :conditions => {:status => "draft"}
   named_scope :removed, :conditions => {:status => "removed"}
+  
+  def to_param
+    "#{self.id}-#{self.name.parameterize.to_s}"
+  end
 end

@@ -6,7 +6,7 @@ describe Plan do
       :id => 1,
       :name => "Pro",
       :price => 19.95,
-      :payment_frequency => "Monthly",
+      :payment_frequency => "Month",
       :available => true,
       :project_limit => 99,
       :image_limit => 999,
@@ -42,7 +42,7 @@ describe Plan do
     @plan.should_not be_valid
   end
   
-  it "should be invalid without a payment_frequency of either 'Weekly', 'Monthly' or 'Annualy'" do
+  it "should be invalid without a payment_frequency of either 'Day', 'Week', 'Month' or 'Year'" do
     @plan.attributes = @valid_attributes.except(:payment_frequency)
     @plan.payment_frequency = "BLAH!@"
     @plan.should_not be_valid
@@ -88,6 +88,10 @@ describe Plan do
   
   it "should have an available named scope" do
     Plan.offerable.proxy_options.should == {:conditions => {:available => true}}
+  end
+  
+  it "should get all chargeable accounts" do
+    Plan.chargeable.proxy_options.should == {:conditions => 'price > 0'}
   end
   
   it "should not be free if the price is greater than 0" do

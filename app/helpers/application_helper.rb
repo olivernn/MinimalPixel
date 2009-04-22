@@ -29,6 +29,28 @@ module ApplicationHelper
     end
   end
   
+  def border_styles(style)
+    case style.border_type
+    when "thin": "border:1px solid #{style.theme.border_colour};"
+    when "polaroid": "border:8px solid #{style.theme.border_colour}; border-bottom:24px solid #{style.theme.border_colour};"
+    when "fat": "border:8px solid #{style.theme.border_colour};"
+    end
+  end
+  
+  def header_border(style)
+    case style.border_type
+    when "thin" : "border-bottom: 2px solid #{style.theme.border_colour};"
+    else "border-bottom: 5px solid #{style.theme.border_colour};"
+    end
+  end
+  
+  def sidebar_border(style)
+    case style.border_type
+    when "thin" : "border-left-style:solid; border-left-width: 2px; border-left-color: #{style.theme.border_colour};"
+    else "border-left-style:solid; border-left-width: 5px; border-left-color: #{style.theme.border_colour};"
+    end
+  end
+  
   # methods that set the meta tags for the page
   #displays a nice page title easily
   def meta_title(text)
@@ -52,5 +74,15 @@ module ApplicationHelper
       # it must be a video
       render :partial => 'videos/video', :locals => {:video => item, :project => project}
     end
+  end
+  
+  def display_populated_attributes(profile)
+    html = String.new
+    ['location', 'phone', 'freelance', 'skills', 'web'].each do |field|
+      if profile.attributes[field]
+        html << "<li><strong>#{field.humanize}:</strong> #{profile.attributes[field]}</li>" unless profile.attributes[field].empty?
+      end
+    end
+    html
   end
 end
