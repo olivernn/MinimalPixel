@@ -1,10 +1,18 @@
 <h1>Projects</h1>
 
-<% for project in @projects %>
-	<div class="project_image" style="background-image: url(<%= project.items.first.display_long %>); height:50px; width:600px">
-	<h2 class="project"><%= link_to project.name, project %></h2>
-	</div>
-<% end %>
+<% unless @projects.empty? %>
+	<% for project in @projects %>
+		<div class="project_image" style="background-image: url(<%= project.items.first.display_long %>); height:50px; width:600px">
+		<div class="project_title"><h2 class="project"><%= link_to project.name, project %></h2></div>
+		</div>
+	<% end %>
+<% else %>
+	<% if logged_in? %>
+		<div class="get_started">
+			<p>Get started with your portfolio by <%= link_to 'adding', new_draft_project_path %> a new project.</p>
+		</div>
+	<% end -%>
+<% end -%>
 
 <%= will_paginate @projects %>
 

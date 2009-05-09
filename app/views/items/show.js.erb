@@ -1,3 +1,3 @@
-$("#carousel_view").hide().html("<%= escape_javascript(render_item(@item, @project)) %>").fadeIn();
+$("#item_view").hide().html("<%= escape_javascript(render_item(@item, @project)) %>").fadeIn();
 // need to re_apply the sifr font for the image heading!
-$("#carousel_view h1").sifr({font:'<%= @style.font.font.url %>', color:'<%= @style.heading_colour %>'});
+$("#item_view h1").sifr({font:'<%= @style.font.font.url %>', color:'<%= @style.heading_colour %>'});

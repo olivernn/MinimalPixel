@@ -135,6 +135,11 @@ ul.style_form li{
 }
 
 /* === PROJECTS === */
+.project_title{
+	margin-left:10px;
+	margin-right:10px;
+}
+
 #gallery{
 	list-style:none;
 	padding:0;
@@ -147,6 +152,29 @@ ul.style_form li{
 	margin-bottom:10px;
 }
 
+#item_index{
+	float:left;
+	width:180px;
+	height:600px;
+	padding:0px;
+}
+
+#item_view{
+	margin:10px;
+	width:500px;
+	float:right;
+}
+
+ul.items{
+	list-style:none;
+	padding:0px;
+	margin:0px;
+	width:140px;
+}
+
+ul.items li{
+	display:inline;
+}
 /*.get_started{
 	border:1px solid;
 	margin-top:50px;

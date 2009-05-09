@@ -18,7 +18,12 @@ th{
 
 /* styles for the sidebar */
 #sub_section{
-	<%= sidebar_border(@style) %>
+	<%= sidebar_border(@style, 'left') %>
+}
+
+/* styles for the item_index */
+#item_index{
+	<%= sidebar_border(@style, 'right') %>
 }
 
 /* STYLES FOR THE IMAGES */
@@ -28,6 +33,10 @@ th{
 
 .image{
 	<%= border_styles(@style) %>
+}
+
+.project_title{
+	background:<%= transaprent_background(@style) %>;
 }
 
 h1, h2, h3, h4, h5{

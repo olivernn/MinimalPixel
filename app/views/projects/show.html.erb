@@ -1,32 +1,31 @@
 <%= meta_title(@project.name) %>
 <%= meta_description(@project.description) %>
 
-<h1><%=h @project.name %></h1>
-<% if logged_in? %>
-  <p class="project_status"><%= @project.status.titlecase %></p>
-<% end %>
 
-<div class="project_description"><%=h @project.description %></div>
-
-<% unless @items.empty? %>
-  <% if @items.size > 1 %>
-    <div id="carousel_holder"><a href="#" id="carousel-next" class="carousel_control">Up</a><div id="carousel">
-		<ul id="carousel_list">
-		<% for item in @items %>
-			<li class="carousel_item">
-				<%= link_to(image_tag(item.display_thumbnail, :title => item.description), project_item_path(@project, item), :class => 'carousel')  %>
-			</li>
+<div id="item_index">
+	<h2><%=h @project.name %></h2>
+	<% if logged_in? %>
+	  <p class="project_status"><%= @project.status.titlecase %></p>
+	<% end %>
+	<ul class="items">
+		<% unless @items.empty? %>
+			<% for item in @items %>
+				<li><%= link_to(image_tag(item.display_thumbnail, :title => item.description), project_item_path(@project, item), :class => 'carousel')  %></li>
+			<% end -%>
 		<% end %>
 	</ul>
-	</div>
-  <a href="#" id="carousel-prev" class="carousel_control">Down</a>
 </div>
-  <% end %>
-<div id="carousel_view"><%= render_item(@items.first, @project) %></div>
-<% else %>
-	<div class="get_started">
-		<p>Get started with your project by adding images and videos</p>
-		<p><%= link_to 'Add an Image', new_project_image_path(@project) %>
-		<%= link_to 'Add a Video', new_project_video_path(@project) %></p>
+
+<% unless @items.empty? %>
+	<div id="item_view">
+		<%= render_item(@items.first, @project) %>
 	</div>
-<% end %>
+<% else %>
+	<% if logged_in? %>
+		<div class="get_started">
+			<p>Get started with your project by adding images and videos</p>
+			<p><%= link_to 'Add an Image', new_project_image_path(@project) %>
+			<%= link_to 'Add a Video', new_project_video_path(@project) %></p>
+		</div>
+	<% end -%>
+<% end -%>

@@ -44,11 +44,15 @@ module ApplicationHelper
     end
   end
   
-  def sidebar_border(style)
+  def sidebar_border(style, side)
     case style.border_type
-    when "thin" : "border-left-style:solid; border-left-width: 2px; border-left-color: #{style.theme.border_colour};"
-    else "border-left-style:solid; border-left-width: 5px; border-left-color: #{style.theme.border_colour};"
+    when "thin" : "border-#{side}-style:solid; border-#{side}-width: 2px; border-#{side}-color: #{style.theme.border_colour};"
+    else "border-#{side}-style:solid; border-#{side}-width: 5px; border-#{side}-color: #{style.theme.border_colour};"
     end
+  end
+  
+  def transaprent_background(style)
+    "url(images/#{style.theme.name.downcase}_transparent.png)"    
   end
   
   # methods that set the meta tags for the page

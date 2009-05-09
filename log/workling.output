@@ -350,3 +350,9 @@ video:10kB audio:0kB global headers:0kB muxing overhead 0.000000%
 	from /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/daemons-1.0.9/lib/daemons.rb:135:in `run'
 	from script/workling_client:17
 ** Exiting
+=> Loading Rails...
+[memcache-client] Could not load SystemTimer gem, falling back to Ruby's slower/unsafe timeout library: no such file to load -- system_timer
+/Users/Oliver/Documents/rails_projects/iPortfolio/hosted/config/initializers/gateway.rb:1: warning: already initialized constant RAILS_ENV
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.

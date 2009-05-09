@@ -1,10 +1,8 @@
-<h1><%=h image.name %></h1>
-
 <%= ready_image(image) %>
-
+<h1><%=h image.name %></h1>
 <p class="project_description"><%=h image.description %></p>
 
-<% if logged_in? %>
+<% if logged_in? && image.ready? %>
   <%= link_to 'Edit', edit_project_image_path(project, image) %>
 <% end %>
 

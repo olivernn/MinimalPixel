@@ -2,7 +2,7 @@ class Image < Item
   has_attached_file :source,
   
     :styles => {
-      :thumb => "100x100#",
+      :thumb => "50x50#",
       :long   => "600x150#",
       :normal => "500x500>",
       :large => "600x600>"
