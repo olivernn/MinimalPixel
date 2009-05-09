@@ -1,0 +1,22 @@
+<li class="plan">
+	<div class="details">
+		<h2><%= plan.name %></h2>
+		<h3><%= number_to_currency(plan.price) %> per <%= plan.payment_frequency %></h3>
+		<h4>Some description of the plan?</h4>
+
+		<ul class="plan_features">
+			<li><strong><%= plan.project_limit %></strong> Projects</li>
+			<li><strong><%= plan.image_limit %></strong> Images</li>
+			<li><strong><%= plan.video_limit %></strong> Videos</li>
+		</ul>
+		
+		<div class="action">
+			<% if f.nil? %>
+				<%= link_to "Signup", new_plan_user_path(plan) %>
+			<% else %>
+				<%= f.label :plan_id, "Pick" %>
+				<%= f.radio_button :plan_id, plan.id %>
+			<% end -%>
+		</div>
+	</div>
+</li>

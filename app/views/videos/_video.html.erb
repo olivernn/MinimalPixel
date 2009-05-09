@@ -1,0 +1,11 @@
+<h1><%= video.name %></h1>
+
+<%= ready_video(video) %>
+
+<p class="project_description"><%= video.description %></p>
+
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_project_video_path(project, video) %>
+<% end %>
+
+<%= link_to 'Back', project_path(project) %>
