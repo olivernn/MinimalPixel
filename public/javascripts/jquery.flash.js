@@ -1,288 +1,261 @@
-/**
- * Flash (http://jquery.lukelutman.com/plugins/flash)
- * A jQuery plugin for embedding Flash movies.
- * 
- * Version 1.0
- * November 9th, 2006
- *
- * Copyright (c) 2006 Luke Lutman (http://www.lukelutman.com)
- * Dual licensed under the MIT and GPL licenses.
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.opensource.org/licenses/gpl-license.php
- * 
- * Inspired by:
- * SWFObject (http://blog.deconcept.com/swfobject/)
- * UFO (http://www.bobbyvandersluis.com/ufo/)
- * sIFR (http://www.mikeindustries.com/sifr/)
- * 
- * IMPORTANT: 
- * The packed version of jQuery breaks ActiveX control
- * activation in Internet Explorer. Use JSMin to minifiy
- * jQuery (see: http://jquery.lukelutman.com/plugins/flash#activex).
- *
- **/ 
-(function(){
-	
-var $$;
+/*! jquery.swfobject.license.txt *//*
 
-/**
- * 
- * @desc Replace matching elements with a flash movie.
- * @author Luke Lutman
- * @version 1.0.1
- *
- * @name flash
- * @param Hash htmlOptions Options for the embed/object tag.
- * @param Hash pluginOptions Options for detecting/updating the Flash plugin (optional).
- * @param Function replace Custom block called for each matched element if flash is installed (optional).
- * @param Function update Custom block called for each matched if flash isn't installed (optional).
- * @type jQuery
- *
- * @cat plugins/flash
- * 
- * @example $('#hello').flash({ src: 'hello.swf' });
- * @desc Embed a Flash movie.
- *
- * @example $('#hello').flash({ src: 'hello.swf' }, { version: 8 });
- * @desc Embed a Flash 8 movie.
- *
- * @example $('#hello').flash({ src: 'hello.swf' }, { expressInstall: true });
- * @desc Embed a Flash movie using Express Install if flash isn't installed.
- *
- * @example $('#hello').flash({ src: 'hello.swf' }, { update: false });
- * @desc Embed a Flash movie, don't show an update message if Flash isn't installed.
- *
-**/
-$$ = jQuery.fn.flash = function(htmlOptions, pluginOptions, replace, update) {
-	
-	// Set the default block.
-	var block = replace || $$.replace;
-	
-	// Merge the default and passed plugin options.
-	pluginOptions = $$.copy($$.pluginOptions, pluginOptions);
-	
-	// Detect Flash.
-	if(!$$.hasFlash(pluginOptions.version)) {
-		// Use Express Install (if specified and Flash plugin 6,0,65 or higher is installed).
-		if(pluginOptions.expressInstall && $$.hasFlash(6,0,65)) {
-			// Add the necessary flashvars (merged later).
-			var expressInstallOptions = {
-				flashvars: {  	
-					MMredirectURL: location,
-					MMplayerType: 'PlugIn',
-					MMdoctitle: jQuery('title').text() 
-				}					
+jQuery SWFObject Plugin v1.0.4 <http://jquery.thewikies.com/swfobject/>
+Copyright (c) 2009 Jonathan Neal
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+This software is released under the GPL License <http://www.opensource.org/licenses/gpl-2.0.php>
+
+SWFObject v2.1 <http://code.google.com/p/swfobject/>
+Copyright (c) 2007-2009 Geoff Stearns, Michael Williams, and Bobby van der Sluis
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+
+jQuery v1.2.6 <http://jquery.com/>
+Copyright (c) 2009 John Resig
+This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+This software is released under the GPL License <http://www.opensource.org/licenses/gpl-2.0.php>
+
+*//*jslint
+	passfail: false,
+	white: true,
+	browser: true,
+	widget: false,
+	sidebar: false,
+	rhino: false,
+	safe: false,
+	adsafe: false,
+	debug: false,
+	evil: false,
+	cap: false,
+	on: false,
+	fragment: false,
+	laxbreak: false,
+	forin: true,
+	sub: false,
+	css: false,
+	undef: true,
+	nomen: false,
+	eqeqeq: true,
+	plusplus: false,
+	bitwise: true,
+	regexp: false,
+	onevar: true,
+	strict: false
+*//*global
+	jQuery,
+	ActiveXObject
+*/
+
+(function ($) {
+	var win = window,
+	doc = document,
+	x = '',
+	object = 'object';
+
+	/* $.flashPlayerVersion */
+	$.flashPlayerVersion = (function () {
+		var flashVersion, activeX = null,
+		fp6Crash = false,
+		shockwaveFlash = 'ShockwaveFlash.ShockwaveFlash';
+
+		/* If Internet Explorer */
+		if (! (flashVersion = navigator.plugins['Shockwave Flash'])) {
+			try {
+				activeX = new ActiveXObject(shockwaveFlash + '.7');
+			} catch (errorA) {
+				try {
+					activeX = new ActiveXObject(shockwaveFlash + '.6');
+					flashVersion = [6, 0, 21];
+					activeX.AllowScriptAccess = 'always';
+				} catch (errorB) {
+					if (flashVersion && flashVersion[0] === 6) {
+						fp6Crash = true;
+					}
+				}
+				if (!fp6Crash) {
+					try {
+						activeX = new ActiveXObject(shockwaveFlash);
+					} catch (errorC) {
+						flashVersion = 'X 0,0,0';
+					}
+				}
+			}
+			if (!fp6Crash && activeX) {
+				try {
+					/* Will crash fp6.0.21/23/29 */
+					flashVersion = activeX.GetVariable('$version');
+				} catch (errorD) {}
+			}
+		}
+
+		/* If NOT Internet Explorer */
+		else {
+			flashVersion = flashVersion.description;
+		}
+
+		/* Return flash version */
+		flashVersion = flashVersion.match(/^[A-Za-z\s]*?(\d+)(\.|,)(\d+)(\s+r|,)(\d+)/);
+		return [flashVersion[1] * 1, flashVersion[3] * 1, flashVersion[5] * 1];
+	}());
+
+	/* $.flashExpressInstaller */
+	$.flashExpressInstaller = 'expressInstall.swf';
+
+	/* $.hasFlashPlayer */
+	$.hasFlashPlayer = ($.flashPlayerVersion[0] !== 0);
+
+	/* $.hasFlashPlayerVersion */
+	$.hasFlashPlayerVersion = function (options) {
+		var flashVersion = $.flashPlayerVersion;
+		options = (/string|integer/.test(typeof options)) ? options.toString().split('.') : options;
+		options = [options.major || options[0] || flashVersion[0], options.minor || options[1] || flashVersion[1], options.release || options[2] || flashVersion[2]];
+
+		/* Return true or false */
+		return ($.hasFlashPlayer && (options[0] > flashVersion[0] || (options[0] === flashVersion[0] && (options[1] > flashVersion[1] || (options[1] === flashVersion[1] && options[2] >= flashVersion[2])))));
+	};
+
+	/* $.flash */
+	$.flash = function (options) {
+		/* Check if Flash is installed, return false if it isn't */
+		if (!$.hasFlashPlayer) {
+			return false;
+		}
+
+		var movieFilename = options.swf || x,
+		paramAttributes = options.params || {},
+		buildDOM = doc.createElement('body'),
+		aArr,
+		bArr,
+		cArr,
+		dArr,
+		a,
+		b,
+		c,
+		d;
+
+		/* Set the default height and width if not already set */
+		options.height = options.height || 180;
+		options.width = options.width || 320;
+
+		/* Inject ExpressInstall if "hasVersion" is requested and the version requirement is not met */
+		if (options.hasVersion && !$.hasFlashPlayerVersion(options.hasVersion)) {
+			$.extend(options, {
+				id: 'SWFObjectExprInst',
+				height: Math.max(options.height, 137),
+				width: Math.max(options.width, 214)
+			});
+			movieFilename = options.expressInstaller || $.flashExpressInstaller;
+			paramAttributes = {
+				flashvars: {
+					MMredirectURL: win.location.href,
+					MMplayerType: ($.browser.msie && $.browser.win) ? 'ActiveX': 'PlugIn',
+					MMdoctitle: doc.title.slice(0, 47) + ' - Flash Player Installation'
+				}
 			};
-		// Ask the user to update (if specified).
-		} else if (pluginOptions.update) {
-			// Change the block to insert the update message instead of the flash movie.
-			block = update || $$.update;
-		// Fail
+		}
+
+		/* Append as a param if specified separately */
+		if (typeof paramAttributes === object) {
+			/* flashvars */
+			if (options.flashvars) {
+				paramAttributes.flashvars = options.flashvars;
+			}
+
+			/* wmode */
+			if (options.wmode) {
+				paramAttributes.wmode = options.wmode;
+			}
+		}
+
+		/* Delete the reformatted constructors */
+		for (a in (b = ['swf', 'expressInstall', 'hasVersion', 'params', 'flashvars', 'wmode'])) {
+			delete options[b[a]];
+		}
+
+		/* Create the OBJECT tag attributes */
+		aArr = [];
+		for (a in options) {
+			if (typeof options[a] === object) {
+				bArr = [];
+				for (b in options[a]) {
+					bArr.push(b.replace(/([A-Z])/, '-$1').toLowerCase() + ':' + options[a][b] + ';');
+				}
+				options[a] = bArr.join(x);
+			}
+			aArr.push(a + '="' + options[a] + '"');
+		}
+		options = aArr.join(' ');
+
+		/* Create the PARAM tags */
+		if (typeof paramAttributes === object) {
+			aArr = [];
+			for (a in paramAttributes) {
+				if (typeof paramAttributes[a] === object) {
+					bArr = [];
+					for (b in paramAttributes[a]) {
+						if (typeof paramAttributes[a][b] === object) {
+							cArr = [];
+							for (c in paramAttributes[a][b]) {
+								if (typeof paramAttributes[a][b][c] === object) {
+									dArr = [];
+									for (d in paramAttributes[a][b][c]) {
+										dArr.push([d.replace(/([A-Z])/, '-$1').toLowerCase(), ':', paramAttributes[a][b][c][d], ';'].join(x));
+									}
+									paramAttributes[a][b][c] = dArr.join(x);
+								}
+								cArr.push([c, '{', paramAttributes[a][b][c], '}'].join(x));
+							}
+							paramAttributes[a][b] = cArr.join(x);
+						}
+						bArr.push([b, '=', win.escape(win.escape(paramAttributes[a][b]))].join(x));
+					}
+					paramAttributes[a] = bArr.join('&amp;');
+				}
+				aArr.push(['<PARAM NAME="', a, '" VALUE="', paramAttributes[a], '">'].join(x));
+			}
+			paramAttributes = aArr.join(x);
+		}
+
+		/* Unify the visual display between all browsers */
+		if (! (/style=/.test(options))) {
+			options += ' style="vertical-align:text-top;"';
+		}
+		if (! (/style=(.*?)vertical-align/.test(options))) {
+			options = options.replace(/style="/, 'style="vertical-align:text-top;');
+		}
+
+		/* Specify the object and param tags between browsers */
+		if ($.browser.msie) {
+			options += ' classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"';
+			paramAttributes = '<PARAM NAME="movie" VALUE="' + movieFilename + '">' + paramAttributes;
 		} else {
-			// The required version of flash isn't installed.
-			// Express Install is turned off, or flash 6,0,65 isn't installed.
-			// Update is turned off.
-			// Return without doing anything.
+			options += ' type="application/x-shockwave-flash" data="' + movieFilename + '"';
+		}
+
+		/* Return the jQuery'd flash OBJECT */
+		buildDOM.innerHTML = ['<OBJECT ', options, '>', paramAttributes, '</OBJECT>'].join(x);
+		return $(buildDOM.firstChild);
+	};
+
+	/* $.fn.flash */
+	$.fn.flash = function (options) {
+		/* Check if Flash is installed, return the jQuery node if it isn't */
+		if (!$.hasFlashPlayer) {
 			return this;
 		}
-	}
-	
-	// Merge the default, express install and passed html options.
-	htmlOptions = $$.copy($$.htmlOptions, expressInstallOptions, htmlOptions);
-	
-	// Invoke $block (with a copy of the merged html options) for each element.
-	return this.each(function(){
-		block.call(this, $$.copy(htmlOptions));
-	});
-	
-};
-/**
- *
- * @name flash.copy
- * @desc Copy an arbitrary number of objects into a new object.
- * @type Object
- * 
- * @example $$.copy({ foo: 1 }, { bar: 2 });
- * @result { foo: 1, bar: 2 };
- *
-**/
-$$.copy = function() {
-	var options = {}, flashvars = {};
-	for(var i = 0; i < arguments.length; i++) {
-		var arg = arguments[i];
-		if(arg == undefined) continue;
-		jQuery.extend(options, arg);
-		// don't clobber one flash vars object with another
-		// merge them instead
-		if(arg.flashvars == undefined) continue;
-		jQuery.extend(flashvars, arg.flashvars);
-	}
-	options.flashvars = flashvars;
-	return options;
-};
-/*
- * @name flash.hasFlash
- * @desc Check if a specific version of the Flash plugin is installed
- * @type Boolean
- *
-**/
-$$.hasFlash = function() {
-	// look for a flag in the query string to bypass flash detection
-	if(/hasFlash\=true/.test(location)) return true;
-	if(/hasFlash\=false/.test(location)) return false;
-	var pv = $$.hasFlash.playerVersion().match(/\d+/g);
-	var rv = String([arguments[0], arguments[1], arguments[2]]).match(/\d+/g) || String($$.pluginOptions.version).match(/\d+/g);
-	for(var i = 0; i < 3; i++) {
-		pv[i] = parseInt(pv[i] || 0);
-		rv[i] = parseInt(rv[i] || 0);
-		// player is less than required
-		if(pv[i] < rv[i]) return false;
-		// player is greater than required
-		if(pv[i] > rv[i]) return true;
-	}
-	// major version, minor version and revision match exactly
-	return true;
-};
-/**
- *
- * @name flash.hasFlash.playerVersion
- * @desc Get the version of the installed Flash plugin.
- * @type String
- *
-**/
-$$.hasFlash.playerVersion = function() {
-	// ie
-	try {
-		try {
-			// avoid fp6 minor version lookup issues
-			// see: http://blog.deconcept.com/2006/01/11/getvariable-setvariable-crash-internet-explorer-flash-6/
-			var axo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash.6');
-			try { axo.AllowScriptAccess = 'always';	} 
-			catch(e) { return '6,0,0'; }				
-		} catch(e) {}
-		return new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
-	// other browsers
-	} catch(e) {
-		try {
-			if(navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin){
-				return (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
-			}
-		} catch(e) {}		
-	}
-	return '0,0,0';
-};
-/**
- *
- * @name flash.htmlOptions
- * @desc The default set of options for the object or embed tag.
- *
-**/
-$$.htmlOptions = {
-	height: 240,
-	flashvars: {},
-	pluginspage: 'http://www.adobe.com/go/getflashplayer',
-	src: '#',
-	type: 'application/x-shockwave-flash',
-	width: 320		
-};
-/**
- *
- * @name flash.pluginOptions
- * @desc The default set of options for checking/updating the flash Plugin.
- *
-**/
-$$.pluginOptions = {
-	expressInstall: false,
-	update: true,
-	version: '6.0.65'
-};
-/**
- *
- * @name flash.replace
- * @desc The default method for replacing an element with a Flash movie.
- *
-**/
-$$.replace = function(htmlOptions) {
-	this.innerHTML = '<div class="alt">'+this.innerHTML+'</div>';
-	jQuery(this)
-		.addClass('flash-replaced')
-		.prepend($$.transform(htmlOptions));
-};
-/**
- *
- * @name flash.update
- * @desc The default method for replacing an element with an update message.
- *
-**/
-$$.update = function(htmlOptions) {
-	var url = String(location).split('?');
-	url.splice(1,0,'?hasFlash=true&');
-	url = url.join('');
-	var msg = '<p>This content requires the Flash Player. <a href="http://www.adobe.com/go/getflashplayer">Download Flash Player</a>. Already have Flash Player? <a href="'+url+'">Click here.</a></p>';
-	this.innerHTML = '<span class="alt">'+this.innerHTML+'</span>';
-	jQuery(this)
-		.addClass('flash-update')
-		.prepend(msg);
-};
-/**
- *
- * @desc Convert a hash of html options to a string of attributes, using Function.apply(). 
- * @example toAttributeString.apply(htmlOptions)
- * @result foo="bar" foo="bar"
- *
-**/
-function toAttributeString() {
-	var s = '';
-	for(var key in this)
-		if(typeof this[key] != 'function')
-			s += key+'="'+this[key]+'" ';
-	return s;		
-};
-/**
- *
- * @desc Convert a hash of flashvars to a url-encoded string, using Function.apply(). 
- * @example toFlashvarsString.apply(flashvarsObject)
- * @result foo=bar&foo=bar
- *
-**/
-function toFlashvarsString() {
-	var s = '';
-	for(var key in this)
-		if(typeof this[key] != 'function')
-			s += key+'='+encodeURIComponent(this[key])+'&';
-	return s.replace(/&$/, '');		
-};
-/**
- *
- * @name flash.transform
- * @desc Transform a set of html options into an embed tag.
- * @type String 
- *
- * @example $$.transform(htmlOptions)
- * @result <embed src="foo.swf" ... />
- *
- * Note: The embed tag is NOT standards-compliant, but it 
- * works in all current browsers. flash.transform can be
- * overwritten with a custom function to generate more 
- * standards-compliant markup.
- *
-**/
-$$.transform = function(htmlOptions) {
-	htmlOptions.toString = toAttributeString;
-	if(htmlOptions.flashvars) htmlOptions.flashvars.toString = toFlashvarsString;
-	return '<embed ' + String(htmlOptions) + '/>';		
-};
 
-/**
- *
- * Flash Player 9 Fix (http://blog.deconcept.com/2006/07/28/swfobject-143-released/)
- *
-**/
-if (window.attachEvent) {
-	window.attachEvent("onbeforeunload", function(){
-		__flash_unloadHandler = function() {};
-		__flash_savedUnloadHandler = function() {};
-	});
-}
-	
-})();
+		var a = 0,
+		each;
+
+		/* Each */
+		while ((each = this.eq(a++))[0]) {
+			each.html($.flash($.extend({},
+			options)));
+			if (document.getElementById('SWFObjectExprInst')) {
+				a = this.length;
+			}
+		}
+
+		/* Return the jQuery node */
+		return this;
+	};
+}(jQuery));

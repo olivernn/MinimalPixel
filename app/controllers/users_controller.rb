@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => :create
-  before_filter :load_plan, :except => :complete
+  skip_before_filter :verify_authenticity_token, :only => [:create, :validate]
+  before_filter :load_plan, :except => [:complete, :validate]
+  
+  # GET /plans/:id/users/validate
+  def validate
+    @user = User.new(params[:user])
+    respond_to do |format|
+      format.js { render :json => {:model => 'user', :success => @user.valid?, :errors => @user.errors }}
+    end
+  end
   
   def load_plan
     begin

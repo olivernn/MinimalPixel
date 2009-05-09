@@ -2,11 +2,11 @@
 
 <% form_for([@project, @image], :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
-	<%= render :partial => 'form', :locals => {:f => f} %>
+	<%= render :partial => 'form', :locals => {:f => f, :upload => false, :image => @image} %>
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
 <%= link_to 'Show', [@project, @image] %> |
-<%= link_to 'Back', project_images_path(@project) %>
+<%= link_to 'Back', project_path(@project) %>

@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :pages
 
+  map.resources :pages, :collection => {:validate => :get}
+  map.resources :contact, :collection => {:validate => :get}
   
   map.complete_account '/complete', :controller => 'users', :action => 'complete'
   map.upgrade_account '/upgrade', :controller => 'accounts', :action => 'upgrade'
@@ -17,15 +18,16 @@ ActionController::Routing::Routes.draw do |map|
   map.open_id_create '/opencreate', :controller => "users", :action => "create", :requirements => { :method => :get }
   
   map.resources :plans do |plan|
-    plan.resources :users
+    plan.resources :users, :collection => {:validate => :get}
   end
   
   map.resources :projects do |project|
     project.resources :items, :collection => {:sort => :put}
     project.resources :images
+    project.resources :videos
   end
   
-  map.resources :draft_projects, :member => {:publish => :put}
+  map.resources :draft_projects, :member => {:publish => :put}, :collection => {:validate => :get}
   map.resources :passwords
   map.resource :session
   map.resources :styles

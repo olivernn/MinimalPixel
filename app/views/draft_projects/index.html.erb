@@ -1,21 +1,22 @@
 <h1>Draft Projects</h1>
-<table>
-  <tr>
-	<th>Name</th>
-  </tr>
-<% for project in @projects %>
-  <tr>
-		<td><%= project.name %></td>
-  	<td><%= link_to 'Show', project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
-  	<td><%= link_to 'Edit', edit_project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
-		<td><%= link_to 'Publish', publish_draft_project_path(project, :subdomain => current_subdomain_user.subdomain), :method => :put %></td>
-  	<td><%= link_to 'Destroy', project_path(project, :subdomain => current_subdomain_user.subdomain), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<% if logged_in? %>
-	<%= link_to 'New projects', new_draft_project_path, :subdomain => current_subdomain_user.subdomain %>  
-<% end %>
+<% unless @projects.empty? %>
+	<table>
+	  <tr>
+		<th>Name</th>
+	  </tr>
+	<% for project in @projects %>
+	  <tr>
+			<td><%= project.name %></td>
+	  	<td><%= link_to 'Show', project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
+	  	<td><%= link_to 'Edit', edit_project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
+			<td><%= link_to 'Publish', publish_draft_project_path(project, :subdomain => current_subdomain_user.subdomain), :method => :put %></td>
+	  	<td><%= link_to 'Destroy', project_path(project, :subdomain => current_subdomain_user.subdomain), :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	<div class="get_started">
+		<p>Draft projects can be managed from here</p>
+		<p>Projects start as drafts and must be published to be viewed as part of your portfolio, get started by creating a new <%= link_to 'project', new_project_path %> then add some images or videos, finally publish it for the world to see!</p>
+	</div>
+<% end -%>

@@ -55,4 +55,10 @@ describe Image do
       @image.should be_valid
     end
   end
+  
+  it "should have an inital status of 'pending'" do
+    @image.attributes = @valid_attributes.except(:status)
+    @image.save
+    @image.status.should eql('pending')
+  end
 end

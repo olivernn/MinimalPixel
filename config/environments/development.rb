@@ -23,7 +23,6 @@ REST_AUTH_DIGEST_STRETCHES = 10
 # setting up activemerchant and paypal
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
+  # Setting up Workling to talk to the Starling message server
+  Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
 end
-
-# Setting up Workling to talk to the Starling message server
-Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new

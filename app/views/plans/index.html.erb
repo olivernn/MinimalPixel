@@ -1,20 +1,11 @@
-<h1>Listing plans</h1>
+<h1>Choose your plan</h1>
 
-<table>
-  <tr>
-  </tr>
+<ul class="plans_display">
+	<% for plan in @plans %>
+		<%= render :partial => 'display', :locals => {:plan => plan, :f => nil} %>
+	<% end %>
+</ul>
 
-<% for plan in @plans %>
-  <tr>
-		<td><%= plan.name %></td>
-    <td><%= link_to 'Show', plan %></td>
-    <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-    <td><%= link_to 'Destroy', plan, :confirm => 'Are you sure?', :method => :delete %></td>
-		<td><%= link_to 'Create', new_plan_user_path(plan) %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<br/>
 
 <%= link_to 'New plan', new_plan_path %>

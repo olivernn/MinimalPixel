@@ -71,8 +71,32 @@ module ApplicationHelper
     if item.class.to_s == "Image"
       render :partial => 'images/image', :locals => {:image => item, :project => project}
     else
-      # it must be a video
       render :partial => 'videos/video', :locals => {:video => item, :project => project}
+    end
+  end
+  
+  def ready_image(image)
+    logger.debug(image.status)
+    if image.ready?
+      link_to image_tag(image.source.url(:normal), :class => 'image', :alt => image.name), image.source.url(:large), :class => 'lightbox', :title => image.description
+    else
+      render :partial => 'items/not_ready', :locals => {:project => image.project, :item => image}
+    end
+  end
+  
+  def ready_video(video)
+    if video.ready?
+      flv_player :file => video.source.url, :autostart => true, :showicons => false, :showdigits => false
+    else
+      render :partial => 'items/not_ready', :locals => {:project => image.project, :item => image}
+    end
+  end
+  
+  def display_profile_picture(profile, user)
+    if profile.photo.exists?
+      image_tag(profile.photo.url(:sidebar), :class => 'image', :alt => user.name)
+    else
+      image_tag 'pig.png', :class => 'image', :alt => user.name
     end
   end
   

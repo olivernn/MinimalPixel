@@ -1,15 +1,15 @@
 <%= meta_title(@project.name) %>
 <%= meta_description(@project.description) %>
 
-<h1><%= @project.name %></h1>
+<h1><%=h @project.name %></h1>
 <% if logged_in? %>
-  <%= @project.status %>
+  <p class="project_status"><%= @project.status.titlecase %></p>
 <% end %>
 
-<div class="project_description"><%= @project.description %></div>
+<div class="project_description"><%=h @project.description %></div>
 
-<% unless @project.items.empty? %>
-  <% if @project.items.size > 1 %>
+<% unless @items.empty? %>
+  <% if @items.size > 1 %>
     <div id="carousel_holder"><a href="#" id="carousel-next" class="carousel_control">Up</a><div id="carousel">
 		<ul id="carousel_list">
 		<% for item in @items %>
@@ -23,11 +23,10 @@
 </div>
   <% end %>
 <div id="carousel_view"><%= render_item(@items.first, @project) %></div>
+<% else %>
+	<div class="get_started">
+		<p>Get started with your project by adding images and videos</p>
+		<p><%= link_to 'Add an Image', new_project_image_path(@project) %>
+		<%= link_to 'Add a Video', new_project_video_path(@project) %></p>
+	</div>
 <% end %>
-
-<% if logged_in? %>
-	<%= link_to 'Edit', edit_project_path(@project, :subdomain => current_subdomain_user.subdomain) %> |
-	<%= link_to 'Back', projects_path %> |
-	<%= link_to('Publish', publish_draft_project_path(@project), :method => :put) if @project.status == 'draft' && !@project.items.empty? %> |
-	<%= link_to 'Add Image', new_project_image_path(@project) %>
-<% end -%>

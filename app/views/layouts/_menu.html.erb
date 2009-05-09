@@ -1,13 +1,28 @@
+<ul id="main_menu" class="sf-vertical">
 <% if logged_in? && current_subdomain_user == current_user %>
-	<ul id="main_menu" class="sf-vertical">
-		<li><a>Projects</a>
+		<% unless @project.try(:id).nil? %>
+		<li><a class="top_level"><%= @project.name %></a>		
 			<ul>
+				<li><%= link_to 'All Projects', projects_path %></li>
+				<li><%= link_to 'Edit Project', edit_project_path(@project, :subdomain => current_subdomain_user.subdomain) %></li>
+			<li><%= link_to('Publish Project', publish_draft_project_path(@project), :method => :put) if @project.status == 'draft' && !@project.items.empty? %></li>
+			<li><%= link_to "Delete Project", project_path(@project), :method => :delete, :confirm => "Are you sure you want to delete #{@project.name} project?" %></li>
+			<li><%= link_to 'Add Image', new_project_image_path(@project) %></li>
+			<li><%= link_to 'Add Video', new_project_video_path(@project) %></li>
+			<li><%= link_to 'Organize Items', project_items_path(@project) unless @project.items.empty? %></li>
+			</ul>
+			</li>
+		<% end -%>
+		
+		<li><a class="top_level">Projects</a>
+			<ul>
+				<li><%= link_to 'All Projects', projects_path %></li>
 				<li><%= link_to 'New project', new_draft_project_path, :subdomain => current_subdomain_user.subdomain %></li>
 				<li><%= link_to 'Draft Projects', draft_projects_path, :subdomain => current_subdomain_user.subdomain %></li>
 			</ul>
 		</li>
 	
-		<li><a>Account</a>
+		<li><a class="top_level">Account</a>
 			<ul>
 				<li><%= link_to 'Logout', logout_path %></li>
 				<li><%= link_to 'Summary', account_path(current_subdomain_user.account) %></li>
@@ -18,11 +33,15 @@
 			</ul>
 		</li>
 		
-		<li><a>Pages</a>
+		<li><a class="top_level">Pages</a>
 			<ul>
 				<li><%= link_to 'Pages Index', pages_path(:subdomain => current_subdomain_user.subdomain) %></li>
 				<li><%= link_to 'New Page', new_page_path(:subdomain => current_subdomain_user.subdomain) %></li>
 			</ul>
 		</li>
-	</ul>
+<% else %>
+	<li><%= link_to 'Login', login_path %></li>
+	<li><%= link_to 'Signup', signup_path %></li>
+	<li><%= link_to 'All Projects', projects_path %></li>
 <% end -%>
+</ul>

@@ -10,6 +10,7 @@ describe Item do
       :description => 'my very painting',
       :date => Date.today.to_s,
       :type => 'image', # have to pretend that this is an image item
+      :status => 'ready',
       :created_at => Time.now,
       :updated_at => Time.now
     }
@@ -18,6 +19,12 @@ describe Item do
   
   it "should be invalid without a name" do
     @item.attributes = @valid_attributes.except(:name)
+    @item.should_not be_valid
+  end
+  
+  it "should be invalid with a name longer than 30 characters" do
+    @item.attributes = @valid_attributes.except(:name)
+    @item.name = "this name contains more than 30 characters and should be invalid"
     @item.should_not be_valid
   end
   
@@ -42,15 +49,19 @@ describe Item do
   # trying to test some of the list actions, having to create images as otherwise we cannot set the type
   # attribute which is required by the database!
   it "should be ordered by position" do
-    @first_item = Image.create(@valid_attributes)
-    @second_item = Image.create(@valid_attributes)
+    @first_item = Image.create!(@valid_attributes)
+    @second_item = Image.create!(@valid_attributes)
     Item.find(:all).first.position.should eql(1)
     Item.find(:all).last.position.should eql(2)
+  end
+  
+  it "should have a ready named scope that retrieves only ready items" do
+    Item.ready.proxy_options.should == {:conditions => {:status => "ready"}}
   end
   
   protected
   
   def create_item(options ={})
-    Item.create({:name => "item", :date => Time.now, :project_id => 1, :type => "image"}.merge(options))
+    Image.create({:name => "item", :date => Time.now, :project_id => 1}.merge(options))
   end
 end

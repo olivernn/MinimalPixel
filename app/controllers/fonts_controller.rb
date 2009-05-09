@@ -1,4 +1,6 @@
 class FontsController < ApplicationController
+  require_role :admin
+  
   # GET /fonts
   # GET /fonts.xml
   def index

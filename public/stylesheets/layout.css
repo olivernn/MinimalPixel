@@ -32,13 +32,14 @@ body{
 
 #content{
 	float:left;
-	width:700px;
+	width:720px;
 	padding:10px 10px 10px 10px;
 }
 
 #sub_section{
 	padding-left:25px;
-	width:200px;
+	width:180px;
+	height:600px;
 }
 
 #footer{

@@ -1,5 +1,14 @@
 class PagesController < ApplicationController
-  before_filter :user_required
+  skip_filter :load_profile, :only => :validate
+  before_filter :user_required, :except => :validate
+  
+  # GET /pages/validate.js
+  def validate
+    @page = Page.new(params[:page])
+    respond_to do |format|
+      format.js { render :json => {:model => 'page', :success => @page.valid?, :errors => @page.errors }}
+    end
+  end
   
   # GET /pages
   # GET /pages.xml

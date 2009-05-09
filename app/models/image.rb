@@ -3,7 +3,7 @@ class Image < Item
   
     :styles => {
       :thumb => "100x100#",
-      :long   => "500x150#",
+      :long   => "600x150#",
       :normal => "500x500>",
       :large => "600x600>"
     }
@@ -12,22 +12,46 @@ class Image < Item
     # :storage => :s3,
     # :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
     
-    before_post_process :hault_processing
-    
-    def hault_processing
-      true
-    end
-    
-    validates_attachment_presence :source
-    validates_attachment_size :source, :less_than => 5.megabytes
-    # TODO: need to check that we really can support all of these formats!
-    validates_attachment_content_type :source, :content_type => ['image/gif', 'image/x-png', 'image/jpeg', 'image/tiff', 'image/x-pict']
+  before_post_process :hault_processing
+  after_create :process_images
+  
+  # state maching modelling
+  include AASM
+  aasm_column :status
+  aasm_initial_state :pending
 
-    def display_thumbnail
-      self.source.url(:thumb)
-    end
+  aasm_state :pending
+  aasm_state :processing
+  aasm_state :ready
+  aasm_state :error
 
-    def display_long
-      self.source.url(:long)
-    end
+  aasm_event :start_processing do
+    transitions :to => :processing, :from => [:pending, :ready]
+  end
+
+  aasm_event :end_processing do
+    transitions :to => :ready, :from => [:processing]
+  end
+  
+  aasm_event :error do
+    transitions :to => :error, :from => [:processing]
+  end
+  
+  validates_attachment_presence :source
+  validates_attachment_size :source, :less_than => 5.megabytes, :message => "must be less than 5MB"
+  # TODO: need to check that we really can support all of these formats!
+  validates_attachment_content_type :source, :content_type => ['image/gif', 'image/x-png', 'image/jpeg', 'image/tiff', 'image/x-pict']
+
+  def display_thumbnail
+    self.source.url(:thumb)
+  end
+
+  def display_long
+    self.source.url(:long)
+  end
+  
+  # this method gets run after creation, it will set up the background job to process the upload
+  def process_images
+    ProcessorWorker.async_image_processor(:image_id => self.id)
+  end
 end

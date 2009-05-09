@@ -1,10 +1,11 @@
-<h1><%= image.name %></h1>
-<%= link_to image_tag(image.source.url(:normal), :class => 'image', :alt => image.name), image.source.url(:large), :class => 'lightbox', :title => image.description %>
+<h1><%=h image.name %></h1>
 
-<p class="project_description"><%= image.description %></p>
+<%= ready_image(image) %>
+
+<p class="project_description"><%=h image.description %></p>
 
 <% if logged_in? %>
   <%= link_to 'Edit', edit_project_image_path(project, image) %>
 <% end %>
 
-<%= link_to 'Back', project_path(project) %>
+<%= link_to project.name, project_path(project) %>

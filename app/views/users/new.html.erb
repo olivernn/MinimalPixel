@@ -2,34 +2,26 @@
 <%= title "Signup", :h2 %>
 <% form_for([@plan, @user]) do |f| %>
 	<%= f.error_messages %>
-	<fieldset>
+	<fieldset class="new_style">
 		<legend>Your Details</legend>
-		<ol>
-			<li>
 				<%= f.label :name, 'Name' %>
-				<%= f.text_field :name %>
-			</li>
-			<li>
+				<%= f.text_field :name %><br/>
+				
 				<%= f.label :login, 'Username' %>
-				<%= f.text_field :login %>
-			</li>
-			<li>
+				<%= f.text_field :login %><br/>
+
 				<%= f.label :email %>
-				<%= f.text_field :email %>
-			</li>
-			<li>
+				<%= f.text_field :email %><br/>
+
 				<%= f.label :password %>
-				<%= f.password_field :password %>
-			</li>
-			<li>
+				<%= f.password_field :password %><br/>
+
 				<%= f.label :password_confirmation, 'Confirm Password' %>
-				<%= f.password_field :password_confirmation %>
-			</li>
-			<li>
+				<%= f.password_field :password_confirmation %><br/>
+
 				<%= f.label :subdomain %>
-				<%= f.text_field :subdomain %>
-			</li>
-		</ol>
+				<%= f.text_field :subdomain %><br/>
+
 	</fieldset>
 	<div class="buttons">
 		<%= submit_tag 'Sign up' %>

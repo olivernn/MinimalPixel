@@ -52,6 +52,10 @@ class Style < ActiveRecord::Base
         :palette => palette)
   end
   
+  def is_new?
+    self.created_at == self.updated_at
+  end
+  
   protected
   
   def prepare_hex

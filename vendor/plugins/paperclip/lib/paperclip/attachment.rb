@@ -363,6 +363,7 @@ module Paperclip
         begin
           raise RuntimeError.new("Style #{name} has no processors defined.") if args[:processors].blank?
           @queued_for_write[name] = args[:processors].inject(@queued_for_write[:original]) do |file, processor|
+            logger.debug "****** processing styles #{file}"
             Paperclip.processor(processor).make(file, args, self)
           end
         rescue PaperclipError => e

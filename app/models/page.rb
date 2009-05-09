@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   # validation statements
   validates_presence_of :title, :permalink, :content
-  validates_uniqueness_of :permalink, :scope => :user_id
+  validates_uniqueness_of :title, :scope => :user_id
   
   # association statements
   belongs_to :user

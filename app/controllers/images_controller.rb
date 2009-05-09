@@ -2,17 +2,6 @@ class ImagesController < ApplicationController
   # filters
   before_filter :user_required, :load_project
   
-  # this method will scope this controller to the project matching the project id passed
-  protected
-  
-  def load_project
-    begin
-      @project = Project.find(params[:project_id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to projects_url
-    end
-  end
-  
   public
   
   # GET /projects/:project_id/images/new
@@ -38,9 +27,9 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        flash[:notice] = 'Image was successfully created.'
+        flash[:notice] = 'Image is being processed.'
         format.html { redirect_to(project_item_path(@project, @image, :subdomain => @user.subdomain)) }
-        format.xml  { render :xml => @image, :status => :created, :location => project_image_path(project, @image) }
+        format.xml  { render :xml => @image, :status => :created, :location => project_item_path(@project, @image) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @image.errors, :status => :unprocessable_entity }

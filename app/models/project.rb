@@ -3,9 +3,11 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :items
   has_many :images
+  has_many :videos
   
   # validation statements
   validates_presence_of :name
+  validates_length_of :name, :maximum => 30
   validates_each :date do |model, attr, value|
     begin
       DateTime.parse(value.to_s)

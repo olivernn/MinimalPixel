@@ -1,26 +1,29 @@
 /* === FLASH MESSAGES === */
 div#flash-notice {
-	border-top:1px solid #37b44a;
-	border-bottom:1px solid #37b44a;
-	color:#37b44a;
+	border-top:2px solid #14401A;
+	border-bottom:2px solid #14401A;
+	color:#14401A;
+	background-color:#85FF97;
 	padding-top:5px;
 	padding-bottom:5px;
 	text-align:center;
 }
 
 div#flash-warning {
-	border-top:1px solid #f16522;
-	border-bottom:1px solid #f16522;
-	color:#f16522;
+	border-top:2px solid #7E8700;
+	border-bottom:2px solid #7E8700;
+	background-color:#FFFC57;
+	color:#7E8700;
 	padding-top:5px;
 	padding-bottom:5px;
 	text-align:center;
 }
 
 div#flash-error {
-	border-top:1px solid #ee1d24;
-	border-bottom:1px solid #ee1d24;
-	color:#ee1d24;
+	border-top:2px solid #B20C00;
+	border-bottom:2px solid #B20C00;
+	background-color:#FF7A70;
+	color:#B20C00;
 	padding-top:5px;
 	padding-bottom:5px;
 	text-align:center;
@@ -47,15 +50,68 @@ div#errorExplanation ul li {
 	
 }
 
+span.errorMessage{
+	font-size:0.8em;
+	color:red;
+	font-style:italic;
+}
+
 /* === MENU ==== */
 #main_menu{
-	padding:0;
+	padding:0px;
 	margin-top:20px;
 	list-style:none;
 }
 
+#main_menu li{
+	padding-bottom:5px;
+}
+
+#main_menu ul li{
+	padding-bottom:2px;
+}
+
 #main_menu ul{
 	list-style:none;
+}
+
+/* === STYLE FORM === */
+a.accordion_header{
+	font-size:1.4em;
+	background-color:black;
+	width:400px;
+}
+
+#accordion div{
+	border: 1px solid #aaaaaa;
+	border-top:0px;
+}
+
+#accordion h3{
+	border: 1px solid #aaaaaa;
+	border-bottom:0px;
+}
+
+#style_font_id{
+	margin-top:10px;
+	width:200px;
+}
+
+ul.style_form{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	padding-top:10px;
+}
+
+ul.style_form li{
+	display:inline;
+}
+
+.style_desc{
+	padding:5px;
+	margin:0px;
+	font-size:0.8em;
 }
 
 /* === PROFILE === */
@@ -85,6 +141,23 @@ div#errorExplanation ul li {
 	margin:0;
 	float:left;
 }
+
+.project_status{
+	font-size:0.6em;
+	margin-bottom:10px;
+}
+
+/*.get_started{
+	border:1px solid;
+	margin-top:50px;
+	padding:10px;
+	width:40%;
+	margin-left:200px;
+}
+
+.get_started p{
+	text-align:center;
+}*/
 
 /* === TABLES === */
 table{
@@ -116,7 +189,7 @@ caption{
 /* === FORMS === */
 legend{
 	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana;
-	font-size:1.2em;
+	font-size:1.4em;
 	font-weight:normal;
 }
 
@@ -144,22 +217,53 @@ fieldset select{
 	margin-right:5px;
 }
 
+form input, form textarea, form select{
+	font-size:1.2em;
+}
+
+textarea{
+	height:150px;
+}
+
 form br{
 	clear:left;
 }
 
 div.fieldWithErrors {
-	
+	margin:0px;
 }
 
 div.fieldWithErrors label {
-	
+	color:#ee1d24;
 }
 
 div.fieldWithErrors input, div.fieldWithErrors select, 
 div.fieldWithErrors textarea
 {
-	
+	border:5px solid #ee1d24;
+	background-color:#FF8282;
+}
+
+/* === NEW STYLE FORMS === */
+fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea, fieldset.new_style select{
+	display:inline;
+	float:none;
+	width:640px;
+	margin-left:20px;
+}
+
+fieldset.new_style input{
+	margin-bottom:20px;
+}
+
+fieldset.new_style img{
+	margin-left:20px;
+	margin-bottom:10px;
+}
+
+fieldset.new_style input[type=radio]{
+	margin-top:10px;
+	width:15px;
 }
 
 /* === ITEMS CAROUSEL === */
@@ -196,6 +300,7 @@ div.fieldWithErrors textarea
 	margin:25px;
 	margin-right:50px;
 	margin-left:0px;
+	height:650px;
 }
 
 a.carousel{
@@ -205,4 +310,39 @@ a.carousel{
 a.carousel img{
 	border:5px solid #f0f0f0;
 	border-bottom:15px solid #f0f0f0;
+}
+
+/* === PLANS === */
+ul.plans_display{
+	padding:0;
+	margin-top:0;
+	list-style:none;
+}
+
+li.plan{
+	float:left;
+	display:block;
+	padding:10px;
+	margin:10px;
+	width:300px;
+}
+
+li.plan div.details{
+	border:1px solid #f0f0f0;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+}
+
+li.plan div.action{
+	margin-top:10px;
+	margin-left:100px;
+}
+
+ul.plans_display ul{
+	list-style:none;
+}
+
+ul.plans_display h3{
+	font-size:1.1em;
 }

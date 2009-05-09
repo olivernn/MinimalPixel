@@ -1,10 +1,16 @@
 <h1>Editing style</h1>
 
+<% if @style.is_new? %>
+	<div class='get_started'>
+		Change the appearance of your portfolio by changing the heading color, selecting the background theme, changing the image borders and choosing a font.
+	</div>
+<% end -%>
+
 <% form_for(@style) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => 'form', :locals => {:f => f } %>
   <p>
-    <%= f.submit "Update" %>
+    <noscript><%= f.submit "Update" %></noscript>
   </p>
 <% end %>
 

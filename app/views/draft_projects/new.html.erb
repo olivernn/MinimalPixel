@@ -1,6 +1,6 @@
 <h1>New project</h1>
 
-<% form_for(@project, :url => {:controller => 'draft_projects', :action => 'create'}) do |f| %>
+<% form_for(@project, :url => {:controller => 'draft_projects', :action => 'create'}, :class => 'live_validation') do |f| %>
   <%= f.error_messages %>
   <%= render :partial => 'projects/form', :locals => {:f => f} %>
   <p>

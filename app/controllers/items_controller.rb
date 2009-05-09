@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   # GET /projects/:project_id/items
   # GET /projects/:project_id/items.xml
   def index
-    @items = @project.items
+    @items = @project.items.ready
     
     respond_to do |format|
       format.html # index.html.erb

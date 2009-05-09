@@ -74,11 +74,11 @@ class User < ActiveRecord::Base
     self.plan.image_limit - x
   end
   
-  # def videos_available
-  #   x = 0
-  #   self.projects.each {|p| x = x + p.videos.count}
-  #   self.plan.video_limit - x
-  # end
+  def videos_available
+    x = 0
+    self.projects.each {|p| x = x + p.videos.count}
+    self.plan.video_limit - x
+  end
   
   def can_create_projects?
     self.projects_available > 0

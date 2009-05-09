@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = @user.projects.active.paginate(:per_page => 5, :page => params[:page])
+    @projects = @user.projects.active.paginate(:per_page => 3, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = @user.projects.find(params[:id])
-    @items = @project.items
+    @items = @project.items.ready
 
     respond_to do |format|
       format.html # show.html.erb
@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to(project_url(:subdomain => @user.subdomain)) }
+      format.html { redirect_to(projects_url(:subdomain => @user.subdomain)) }
       format.xml  { head :ok }
     end
   end

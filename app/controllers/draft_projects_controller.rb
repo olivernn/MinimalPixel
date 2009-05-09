@@ -1,5 +1,15 @@
 class DraftProjectsController < ApplicationController
-  before_filter :user_required, :login_required
+  skip_filter :load_profile, :only => :validate
+  before_filter :user_required, :login_required, :except => :validate
+  
+  # GET /draft_projects/validate.js
+  def validate
+    @project = Project.new(params[:project])
+    @project.valid?
+    respond_to do |format|
+      format.js { render :json => {:model => 'project', :success => @project.valid?, :errors => @project.errors }}
+    end
+  end
   
   # GET /draft_projects
   # GET /draft_projects.xml
@@ -22,7 +32,8 @@ class DraftProjectsController < ApplicationController
         format.html # new.html.erb
         format.xml  { render :xml => @project }
       else
-        format.html { redirect_to(draft_projects_url(:subdomain => @user.subdomain)) }
+        flash[:warning] = "You cannot create any more projects, upgrade account to create more projects"
+        format.html { redirect_to(projects_url(:subdomain => @user.subdomain)) }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
