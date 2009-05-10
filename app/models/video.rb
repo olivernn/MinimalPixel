@@ -96,7 +96,7 @@ class Video < Item
     still = File.join(File.dirname(source.path), "#{id}-still.jpg")
     thumb = File.join(path, "#{id}-thumb.jpg")
     File.open(thumb, 'w')
-    command = "convert #{still} -thumbnail '100x100^' -gravity center -extent 100x100 #{thumb}"
+    command = "convert #{still} -thumbnail '50x50^' -gravity center -extent 50x50 #{thumb}"
     logger.debug command
     command.gsub!(/\s+/," ")
   end
@@ -106,7 +106,7 @@ class Video < Item
     still = File.join(File.dirname(source.path), "#{id}-still.jpg")
     long = File.join(path, "#{id}-long.jpg")
     File.open(long, 'w')
-    command = "convert #{still} -thumbnail 600x150^ -gravity center -extent 500x150 #{long}"
+    command = "convert #{still} -thumbnail 600x150^ -gravity center -extent 600x150 #{long}"
     logger.debug command
     command.gsub!(/\s+/," ")
   end

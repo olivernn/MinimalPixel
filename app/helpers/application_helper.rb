@@ -90,9 +90,10 @@ module ApplicationHelper
   
   def ready_video(video)
     if video.ready?
+      # link_to video.name, video.source.url, :class => 'video_player'
       flv_player :file => video.source.url, :autostart => true, :showicons => false, :showdigits => false
     else
-      render :partial => 'items/not_ready', :locals => {:project => image.project, :item => image}
+      render :partial => 'items/not_ready', :locals => {:project => video.project, :item => video}
     end
   end
   

@@ -374,3 +374,9 @@ ul.plans_display ul{
 ul.plans_display h3{
 	font-size:1.1em;
 }
+
+/*=== VIDEO PLAYER ===*/
+#flash_player{
+	width:500px;
+	height:400px;
+}
