@@ -356,3 +356,4 @@ video:10kB audio:0kB global headers:0kB muxing overhead 0.000000%
 ** Rails loaded.
 ** Starting Workling::Remote::Invokers::ThreadedPoller...
 ** Use CTRL-C to stop.
+** Exiting

@@ -54,12 +54,14 @@ class Account < ActiveRecord::Base
   def plan_change_valid?(new_plan)
     total_images = total_videos = 0
     self.user.projects.each {|p| total_images = total_images + p.images.count}
-    # self.user.projects.each {|p| total_videos = total_videos + p.videos.count}
+    self.user.projects.each {|p| total_videos = total_videos + p.videos.count}
     
-    new_plan.id != self.plan.id && new_plan.project_limit >= self.user.projects.count && new_plan.image_limit >= total_images #&& new_plan.video_limit >= total_videos
+    new_plan.id != self.plan.id && new_plan.project_limit >= self.user.projects.count && new_plan.image_limit >= total_images && new_plan.video_limit >= total_videos
   end
   
+  # 
   # below are methods that interact with paypal for handling the payment profile
+  # 
   def profile
     @profile ||= GATEWAY.get_profile_details(self.profile_id) unless profile_id.nil?
   end

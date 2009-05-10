@@ -1,4 +1,6 @@
 class ThemesController < ApplicationController
+  require_role :admin
+  
   # GET /themes
   # GET /themes.xml
   def index
