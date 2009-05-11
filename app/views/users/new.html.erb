@@ -1,27 +1,42 @@
 <% @user.password = @user.password_confirmation = nil %>
-<%= title "Signup", :h2 %>
+<%= title "Signup", :h1 %>
+
 <% form_for([@plan, @user]) do |f| %>
 	<%= f.error_messages %>
 	<fieldset class="new_style">
 		<legend>Your Details</legend>
-				<%= f.label :name, 'Name' %>
-				<%= f.text_field :name %><br/>
+				<fieldset>
+					<legend>Create your account</legend>
+					<p>Your name will be displayed as the heading for your portfolio.  We absolutley promise not to spam you or
+						 pass your name or email address onto any nasty spammers!</p>
+					<%= f.label :name, 'Name' %>
+					<%= f.text_field :name, :class => 'medium' %><br/>
 				
-				<%= f.label :login, 'Username' %>
-				<%= f.text_field :login %><br/>
+					<%= f.label :email %>
+					<%= f.text_field :email, :class => 'medium' %><br/>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Set up your login details</legend>
+					<p>You will use your username to log into the site.  Use letters and numbers only please.
+						 Choose a password that is memorable and is at least 6 letters long.</p>
+					<%= f.label :login, 'Username' %>
+					<%= f.text_field :login, :class => 'medium' %><br/>
 
-				<%= f.label :email %>
-				<%= f.text_field :email %><br/>
+					<%= f.label :password %>
+					<%= f.password_field :password %><br/>
 
-				<%= f.label :password %>
-				<%= f.password_field :password %><br/>
-
-				<%= f.label :password_confirmation, 'Confirm Password' %>
-				<%= f.password_field :password_confirmation %><br/>
-
-				<%= f.label :subdomain %>
-				<%= f.text_field :subdomain %><br/>
-
+					<%= f.label :password_confirmation, 'Confirm Password' %>
+					<%= f.password_field :password_confirmation %><br/>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Create your portfolio address</legend>
+					<p>Every portfolio has its own unique web address.  This is where you will login and where all
+						 of your work will be displayed.  If you wanted your portfolio site to be http://blah.minimalpixel.net
+						 then enter blah.  <strong>Letters and numbers only - no spaces please.</strong></p>
+					<span class="subdomain">http://<%= f.text_field :subdomain %>.minimalpixel.net</span><br/>
+				</fieldset>
 	</fieldset>
 	<div class="buttons">
 		<%= submit_tag 'Sign up' %>

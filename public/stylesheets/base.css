@@ -280,6 +280,22 @@ fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea,
 	margin-left:20px;
 }
 
+fieldset.new_style label{
+	font-size:0.8em;
+}
+
+fieldset fieldset legend{
+	font-size:1em;
+}
+
+input.medium{
+	width:200px;
+}
+
+fieldset fieldset p{
+	font-size:0.8em;
+}
+
 fieldset.new_style input{
 	margin-bottom:20px;
 }
@@ -298,6 +314,19 @@ fieldset.new_style input[type=radio]{
 	width:20px;
 	padding-left:0px;
 	margin-left:0px;
+}
+
+/* === SIGN UP FORM === */
+#user_subdomain{
+	width:150px;
+}
+
+span.subdomain{
+	margin-left:20px;
+}
+
+span.subdomain input{
+	margin:0px;
 }
 
 /* === ITEMS CAROUSEL === */
