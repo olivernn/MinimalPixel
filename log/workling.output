@@ -404,3 +404,4 @@ Press [q] to stop encoding
 [h264 @ 0x1003600]brainfart cropping not supported, this could look slightly wrong ...
 frame=    1 fps=  0 q=3.6 Lsize=      10kB time=1.00 bitrate=  78.6kbits/s    
 video:10kB audio:0kB global headers:0kB muxing overhead 0.000000%
+** Exiting

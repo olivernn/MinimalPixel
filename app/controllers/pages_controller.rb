@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_filter :load_profile, :only => :validate
   before_filter :user_required, :except => :validate
+  before_filter :login_required, :except => [:validate, :show]
   
   # GET /pages/validate.js
   def validate
