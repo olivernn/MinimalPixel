@@ -294,6 +294,12 @@ fieldset.new_style input[type=radio]{
 	width:15px;
 }
 
+#remember_me{
+	width:20px;
+	padding-left:0px;
+	margin-left:0px;
+}
+
 /* === ITEMS CAROUSEL === */
 
 #items_carosel{
