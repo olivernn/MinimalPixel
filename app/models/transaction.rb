@@ -20,7 +20,7 @@ class Transaction < ActiveRecord::Base
   end
   
   aasm_event :fail do
-    transitions :to => :failed, :from => [:pending, :r]
+    transitions :to => :failed, :from => [:pending, :retry]
   end
   
   def create_pending_transaction

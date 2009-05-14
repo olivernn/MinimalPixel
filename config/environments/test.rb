@@ -29,3 +29,6 @@ REST_AUTH_DIGEST_STRETCHES = 10
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
 end
+
+# gems required only for testing environment
+config.gem "webrat", :lib => false

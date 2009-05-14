@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090422211708) do
+ActiveRecord::Schema.define(:version => 20090514180403) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(:version => 20090422211708) do
     t.datetime "updated_at"
     t.string   "profile_id"
   end
+
+  create_table "articles", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "content"
+    t.date     "date",       :null => false
+    t.string   "permalink",  :null => false
+    t.string   "status",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles", ["permalink"], :name => "index_articles_on_permalink"
 
   create_table "fonts", :force => true do |t|
     t.string   "name",              :null => false
@@ -85,15 +97,15 @@ ActiveRecord::Schema.define(:version => 20090422211708) do
   end
 
   create_table "plans", :force => true do |t|
-    t.string   "name",                            :null => false
-    t.integer  "price",             :limit => 10, :null => false
-    t.string   "payment_frequency",               :null => false
+    t.string   "name",              :null => false
+    t.integer  "price",             :null => false
+    t.string   "payment_frequency", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "available",                       :null => false
-    t.integer  "project_limit",                   :null => false
-    t.integer  "image_limit",                     :null => false
-    t.integer  "video_limit",                     :null => false
+    t.boolean  "available",         :null => false
+    t.integer  "project_limit",     :null => false
+    t.integer  "image_limit",       :null => false
+    t.integer  "video_limit",       :null => false
   end
 
   create_table "profiles", :force => true do |t|
@@ -170,10 +182,10 @@ ActiveRecord::Schema.define(:version => 20090422211708) do
   end
 
   create_table "transactions", :force => true do |t|
-    t.integer  "account_id", :null => false
+    t.integer  "account_id",                                              :null => false
     t.string   "status"
     t.date     "date"
-    t.decimal  "amount"
+    t.integer  "amount",     :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
