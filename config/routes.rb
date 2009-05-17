@@ -37,6 +37,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :subscriptions
   map.resources :themes
   
+  # promotional routes here
+  map.resources :articles
+  map.resources :draft_articles, :member => {:publish => :put}
+  
   # map subdomains to the projects controller
   map.projects_root '', :controller => 'projects', :action => 'index', :conditions => { :subdomain => /.+/}
   

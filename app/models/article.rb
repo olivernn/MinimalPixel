@@ -21,4 +21,8 @@ class Article < ActiveRecord::Base
   def create_permalink
     self.permalink = self.title.parameterize.to_s if self.title
   end
+  
+  def date
+    self.created_at.strftime("%d %B %Y") if self.created_at
+  end
 end

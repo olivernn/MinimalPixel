@@ -1,0 +1,14 @@
+<table>
+	<tr>
+		<th>Title</th>
+	</tr>
+	<% for article in @articles %>
+		<tr>
+			<td><%=h article.title %></td>
+			<td><%= link_to "Publish", publish_draft_article_path(article), :method => :put %></td>
+		</tr>
+	<% end -%>
+</table>
+
+<%= link_to "New Article", new_draft_article_path %>
+	

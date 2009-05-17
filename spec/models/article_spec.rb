@@ -6,7 +6,6 @@ describe Article do
       :title => 'Welcome To Minimal Pixel',
       :content => 'Simply the easiest way to create your own portfolio',
       :permalink => 'welcome-to-minimal-pixel',
-      :date => Time.now,
       :status => 'active'
     }
     @article = Article.new
@@ -81,5 +80,11 @@ describe Article do
     @article.save
     @article.publish!
     @article.status.should == 'active'
+  end
+  
+  it "should display the date the article was created at in the format DD Month YYYY" do
+    @article.attributes = @valid_attributes.except(:c)
+    @article.save
+    @article.date.should == Time.now.strftime("%d %B %Y")
   end
 end

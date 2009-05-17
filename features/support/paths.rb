@@ -10,7 +10,10 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
-    
+    when /the list of articles/
+      articles_path
+    when /the list of draft articles/
+      draft_articles_path
     # Add more mappings here.
     # Here is a more fancy example:
     #

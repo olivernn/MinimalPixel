@@ -405,3 +405,10 @@ Press [q] to stop encoding
 frame=    1 fps=  0 q=3.6 Lsize=      10kB time=1.00 bitrate=  78.6kbits/s    
 video:10kB audio:0kB global headers:0kB muxing overhead 0.000000%
 ** Exiting
+=> Loading Rails...
+/Users/Oliver/Documents/rails_projects/iPortfolio/hosted/config/initializers/gateway.rb:1: warning: already initialized constant RAILS_ENV
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
