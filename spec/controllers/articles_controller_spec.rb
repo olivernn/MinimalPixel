@@ -62,4 +62,15 @@ describe ArticlesController do
       end
     end
   end
+  
+  describe "responding to a DELETE destroy" do
+    it "should destroy the required article" do
+      Article.should_receive(:find).with("1").and_return(mock_article)
+      mock_article.should_receive(:destroy)
+      delete :destroy, :id => "1"
+      assigns[:article].should == mock_article
+      flash[:notice].should == "Succesfully destroyed article"
+      response.should redirect_to(articles_path)
+    end
+  end
 end

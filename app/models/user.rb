@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
     list.include?(role.to_s) || list.include?('admin')
   end
   
+  def admin?
+    self.has_role?("admin")
+  end
+  
   # Not using open id
   def not_using_openid?
     identity_url.blank?
