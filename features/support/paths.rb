@@ -14,6 +14,8 @@ module NavigationHelpers
       articles_path
     when /the list of draft articles/
       draft_articles_path
+    when /the (.*) article page/
+      article_path(Article.find_by_title($1))
     # Add more mappings here.
     # Here is a more fancy example:
     #

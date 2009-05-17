@@ -36,6 +36,18 @@ Feature: Manage Articles
 	  When I follow "Publish"
 	  Then I should see "Successfully published article"
 		And I should have 1 active article
+		
+	Scenario: Amend an article
+	  Given I have articles titled Welcome To Minimal Pixel
+	  And I am on the Welcome To Minimal Pixel article page
+	  When I follow "Edit"
+		And I fill in "Title" with "Edited Welcome To Minimal Pixel"
+		And I press "Update"
+	  Then I should see "Successfully updated article"
+		And I should see "Edited Welcome To Minimal Pixel"
+	
+	
+	
 	
 	
 	
