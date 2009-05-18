@@ -1,0 +1,50 @@
+#header h1{
+	font-size:5em;
+	font-family:Arial;
+	text-transform:uppercase;
+	text-align:left;
+	font-weight:bolder;
+	color:#303030;
+	margin-top:10px;
+	margin-bottom:0px;
+}
+
+#header p{
+	margin-top:0px;
+	color:#AAAAAA;
+}
+
+#header{
+	border-bottom:1px solid #AAAAAA;
+	float:left;
+	width:720px;
+}
+
+#container{
+	color:#303030;
+}
+
+#sub_section{
+	
+}
+
+#content{
+	padding-left:5px;
+	margin-left:0px;
+}
+
+h1 a{
+	color:#FF2782;
+}
+
+h1, h3, h5{
+	color:#FF2782;
+}
+
+h2, h4{
+	color:#2093A8;
+}
+
+a{
+	color:#2093A8;
+}

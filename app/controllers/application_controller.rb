@@ -40,7 +40,11 @@ class ApplicationController < ActionController::Base
   end
   
   def current_subdomain_user
-    @user ||= User.find_by_subdomain(current_subdomain)
+    begin
+      @user ||= User.find_by_subdomain(current_subdomain)
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_url
+    end
   end
   
   def user_required

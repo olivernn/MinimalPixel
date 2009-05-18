@@ -1,5 +1,5 @@
 <% for article in @articles %>
 	<h1><%= link_to article.title, article_path(article) %></h1>
 	
-	<%=h article.content %>
+	<%= truncate(article.content, :length => 600, :omission => "... #{link_to 'continue reading', article_path(article)}") %>
 <% end -%>
