@@ -48,3 +48,11 @@ h2, h4{
 a{
 	color:#2093A8;
 }
+
+/* === ARTICLE INDEX === */
+p.article_date{
+	margin:0px;
+	padding:0px;
+	color:#AAAAAA;
+	font-size:0.6em;
+}
