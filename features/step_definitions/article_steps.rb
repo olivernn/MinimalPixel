@@ -21,3 +21,11 @@ end
 Then /^I should have ([0-9]+) active articles?$/ do |count|
   Article.active.size.should == count.to_i
 end
+
+Given /^the article (.+) has no comments$/ do |title|
+  Article.find_by_title(title).comments.delete_all
+end
+
+Then /^the article (.+) should have ([0-9]+) comments?$/ do |title, count|
+  Article.find_by_title(title).comments.size.should == count.to_i
+end

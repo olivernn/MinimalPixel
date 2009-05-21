@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090516152129) do
+ActiveRecord::Schema.define(:version => 20090519204812) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(:version => 20090516152129) do
   end
 
   add_index "articles", ["permalink"], :name => "index_articles_on_permalink"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "article_id",                           :null => false
+    t.string   "name",       :default => "Annonymous", :null => false
+    t.text     "content",                              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["article_id"], :name => "index_comments_on_article_id"
 
   create_table "fonts", :force => true do |t|
     t.string   "name",              :null => false

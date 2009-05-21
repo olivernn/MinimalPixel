@@ -6,6 +6,10 @@ describe ArticlesController do
     @mock_article ||= mock_model(Article, stubs)
   end
   
+  def mock_comment(stubs={})
+    @mock_comment ||= mock_model(Comment, stubs)
+  end
+  
   describe "responding to a GET index" do
     it "expose all published articles as @articles, with 5 per page" do
       # Article.should_receive(:active).and_return([mock_article])
@@ -18,9 +22,24 @@ describe ArticlesController do
   
   describe "responding to a GET show" do
     it "should expose the requested article as @article" do
-      Article.should_receive(:find).with("1").and_return(mock_article)
+      Article.should_receive(:find).with("1").and_return(mock_article(:comments => [mock_comment]))
       get :show, :id => "1"
       assigns[:article].should == mock_article
+    end
+    
+    it "should expose a new comment as @comment" do
+      Article.stub!(:find).and_return(mock_article(:comments => [mock_comment]))
+      Comment.should_receive(:new).and_return(mock_comment)
+      get :show, :id => "1"
+      assigns[:comment].should == mock_comment
+    end
+    
+    it "should expose all the articles comments as @comments" do
+      Article.stub!(:find).and_return(mock_article)
+      Comment.stub!(:new).and_return(mock_comment)
+      mock_article.should_receive(:comments).and_return([mock_comment])
+      get :show, :id => "1"
+      assigns[:comments].should == [mock_comment]
     end
   end
   

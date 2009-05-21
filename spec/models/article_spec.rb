@@ -87,4 +87,10 @@ describe Article do
     @article.save
     @article.date.should == Time.now.strftime("%d %B %Y")
   end
+  
+  it "should have many comments" do
+    association = Article.reflect_on_association(:comments)
+    association.should_not be_nil
+    association.macro.should eql(:has_many)
+  end
 end

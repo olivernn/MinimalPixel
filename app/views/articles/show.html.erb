@@ -5,4 +5,23 @@
 <% if current_user && current_user.admin? %>
 	<%= link_to "Edit", edit_article_path(@article) %>
 	<%= link_to "Destroy", article_path(@article), :method => :delete, :confirmation => "are you sure?" %>
-<% end -%>	
+<% end -%>
+
+<h2>Comments</h2>
+<ul class="comments">
+<% @comments.each do |comment| %>
+	<li>
+		<h3><%= comment.name %></h3>
+		<p><%= comment.content %></p>
+	</li>
+<% end -%>
+
+<h2>New Comment</h2>
+
+<% form_for([@article, @comment]) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'comments/form', :locals => {:f => f} %>
+  <p>
+    <%= f.submit "Add" %>
+  </p>
+<% end %>

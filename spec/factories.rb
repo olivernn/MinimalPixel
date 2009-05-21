@@ -45,3 +45,8 @@ Factory.define :font do |f|
   f.font_file_size 8749
   f.font_content_type "application/x-shockwave-flash"
 end
+
+Factory.define :comment do |f|
+  f.name "Bob"
+  f.content "This is just a comment!"
+end

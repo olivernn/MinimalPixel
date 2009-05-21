@@ -38,7 +38,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :themes
   
   # promotional routes here
-  map.resources :articles
+  map.resources :articles do |article|
+    article.resources :comments
+  end
+  
   map.resources :draft_articles, :member => {:publish => :put}
   
   # mapping the blog root

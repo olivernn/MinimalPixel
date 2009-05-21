@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   
   acts_as_textiled :content
   
+  has_many :comments
   
   # note that initial state must also be declared as a state
   include AASM
