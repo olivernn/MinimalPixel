@@ -37,6 +37,15 @@ describe CommentsController do
         post :create, :article_id => "1"
         response.should redirect_to(article_path(mock_article))
       end
+      
+      describe "responding to an ajax request" do
+        it "should not redirect instead rendering some javascript" do
+          mock_article.comments.stub!(:build).and_return(mock_comment(:save => true))
+          mock_comment.stub!(:save).and_return(true)
+          post :create, :article_id => "1", :format => "js"
+          response.should_not redirect_to(article_path(mock_article))
+        end
+      end
     end
     
     describe "with invalid parameters" do
@@ -53,6 +62,16 @@ describe CommentsController do
         post :create, :article_id => "1"
         response.should render_template('articles/show')
       end
+    end
+  end
+  
+  describe "responding to a DELETE destroy" do
+    it "should find and destroy the comment identified by :comment_id" do
+      mock_article.comments.should_receive(:find).with("1").and_return(mock_comment)
+      mock_comment.should_receive(:destroy)
+      delete :destroy, :article_id => "1", :id => "1"
+      flash[:notice].should == "Successfully destroyed comment"
+      response.should redirect_to(article_path(mock_article))
     end
   end
 end

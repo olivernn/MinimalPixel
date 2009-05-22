@@ -83,7 +83,7 @@ describe Article do
   end
   
   it "should display the date the article was created at in the format DD Month YYYY" do
-    @article.attributes = @valid_attributes.except(:c)
+    @article.attributes = @valid_attributes
     @article.save
     @article.date.should == Time.now.strftime("%d %B %Y")
   end
@@ -92,5 +92,11 @@ describe Article do
     association = Article.reflect_on_association(:comments)
     association.should_not be_nil
     association.macro.should eql(:has_many)
+  end
+  
+  it "should have a friendly url including the title" do
+    @article.attributes = @valid_attributes
+    @article.save
+    @article.to_param.should == "#{@article.id}-#{@article.title.parameterize.to_s}"
   end
 end

@@ -32,4 +32,10 @@ describe Comment do
     association.should_not be_nil
     association.macro.should eql(:belongs_to)
   end
+  
+  it "should have a nicely formatted created at date time" do
+    @comment.attributes = @valid_attributes
+    @comment.save
+    @comment.datetime.should == @comment.created_at.strftime("%d %b %Y at %I:%M%p")
+  end
 end

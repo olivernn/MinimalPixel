@@ -1,0 +1,4 @@
+$("#new_comment").before('<div id="flash-notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+$('ul.comments').append("<%= escape_javascript(render :partial => 'comments/comment', :locals => {:comment => @comment}) %>");
+$('ul.comments li:last-child').effect("highlight", {}, 1000);
+$("#new_comment")[0].reset();

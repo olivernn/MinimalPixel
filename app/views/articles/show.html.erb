@@ -10,11 +10,9 @@
 <h2>Comments</h2>
 <ul class="comments">
 <% @comments.each do |comment| %>
-	<li>
-		<h3><%= comment.name %></h3>
-		<p><%= comment.content %></p>
-	</li>
+	<%= render :partial => "comments/comment", :locals => {:comment => comment} %>
 <% end -%>
+</ul>
 
 <h2>New Comment</h2>
 
@@ -25,3 +23,5 @@
     <%= f.submit "Add" %>
   </p>
 <% end %>
+
+<p><%= link_to "Back", blog_root_path %></p>

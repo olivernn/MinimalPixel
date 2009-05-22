@@ -1,6 +1,6 @@
 <% for article in @articles %>
 	<h1><%= link_to article.title, article_path(article) %></h1>
-	<p class="article_date"><%= article.date %></p>
+	<p class="datetime"><%= article.date %></p>
 	
 	
 	<p><%= truncate(article.content, :length => 600, :omission => "... #{link_to 'continue reading', article_path(article)}") %></p>

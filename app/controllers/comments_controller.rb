@@ -17,9 +17,19 @@ class CommentsController < ApplicationController
     
     if @comment.save
       flash[:notice] = "Thank you for your comment"
-      redirect_to(article_path(@article))
+      respond_to do |format|
+        format.html {redirect_to(article_path(@article))}
+        format.js
+      end
     else
       render :template => "articles/show"
     end
+  end
+  
+  def destroy
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    flash[:notice] = "Successfully destroyed comment"
+    redirect_to article_path(@article)
   end
 end

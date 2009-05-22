@@ -26,4 +26,8 @@ class Article < ActiveRecord::Base
   def date
     self.created_at.strftime("%d %B %Y") if self.created_at
   end
+  
+  def to_param
+    self.id.to_s + "-" + self.title.parameterize.to_s
+  end
 end

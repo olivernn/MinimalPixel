@@ -1,0 +1,43 @@
+/* === NEW STYLE FORMS === */
+fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea, fieldset.new_style select{
+	display:inline;
+	float:none;
+	width:640px;
+	margin-left:20px;
+}
+
+fieldset.new_style label{
+	font-size:0.8em;
+}
+
+fieldset fieldset legend{
+	font-size:1em;
+}
+
+input.medium{
+	width:200px;
+}
+
+fieldset fieldset p{
+	font-size:0.8em;
+}
+
+fieldset.new_style input{
+	margin-bottom:20px;
+}
+
+fieldset.new_style img{
+	margin-left:20px;
+	margin-bottom:10px;
+}
+
+fieldset.new_style input[type=radio]{
+	margin-top:10px;
+	width:15px;
+}
+
+#remember_me{
+	width:20px;
+	padding-left:0px;
+	margin-left:0px;
+}
