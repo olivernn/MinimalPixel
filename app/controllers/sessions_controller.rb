@@ -48,8 +48,8 @@ class SessionsController < ApplicationController
   def successful_login
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
-    # redirect_to(projects_root_path :subdomain => current_user.subdomain)
-    redirect_back_or_default(projects_root_path :subdomain => current_user.subdomain)
+    redirect_to(projects_root_path :subdomain => current_user.subdomain)
+    # redirect_back_or_default(projects_root_path :subdomain => current_user.subdomain)
     flash[:notice] = "Logged in successfully"
   end
 

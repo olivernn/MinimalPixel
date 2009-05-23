@@ -14,6 +14,9 @@ config.cache_classes = true
 config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 
+# Allow the login session to be used from any subdomain
+config.action_controller.session[:domain] = '.minimalpixel.net'
+
 # Use a different cache store in production
 # config.cache_store = :mem_cache_store
 

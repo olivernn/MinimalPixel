@@ -7,7 +7,7 @@
 		</div>
 	<% end %>
 <% else %>
-	<% if logged_in? %>
+	<% if logged_in? && current_subdomain_user == current_user %>
 		<div class="get_started">
 			<p>Get started with your portfolio by <%= link_to 'adding', new_draft_project_path %> a new project.</p>
 		</div>
