@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
-  
+  layout 'promotional'
+  skip_filter :load_profile
   # This whole resource requires admin privalidges
   require_role :admin, :except => :index
   
