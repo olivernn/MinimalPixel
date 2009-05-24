@@ -1,13 +1,15 @@
-<fieldset class='new_style'><div id="accordion">
-	<h3><a>Colour</a></h3>
-	<div>
+<fieldset class='new_style'>
+	<legend>Your portfolio styles</legend>
+
+	<fieldset>
+		<legend>Colors</legend>
 		<p class='style_desc'>Select a colour scheme for your portfolio</p>
 		<label for="style_heading_colour">Colour</label>
 		<%= f.text_field :heading_colour, :class => 'iColorPicker' %>
-	</div>
+	</fieldset>
 	
-	<h3><a>Theme</a></h3>
-	<div>
+	<fieldset>
+		<legend>Theme</legend>
 		<p class='style_desc'>Select a theme for your portfolio</p>
 		<ul class="style_form">
 			<% @themes.each do |theme| %>
@@ -17,10 +19,10 @@
 				</li>
 			<% end %>
 			</ul>
-	</div>
+	</fieldset>
 	
-	<h3><a>Borders</a></h3>
-	<div>
+	<fieldset>
+		<legend>Image Borders</legend>
 		<p class='style_desc'>Choose the kind of border you would like to see around your images</p>
 		<label for="style_border_type_thin">Thin:</label>
 		<%= f.radio_button :border_type, "thin" %>
@@ -32,11 +34,12 @@
 		<%= f.radio_button :border_type, "fat" %>
 		
 		<%= image_tag 'pig.png', :class => 'image' %>
-	</div>
+	</fieldset>
 	
-	<h3><a>Heading Font</a></h3>
-	<div>
-		<p class='style_desc'>Choose the font that will be used for all headings in your portfolio</p>
+	<fieldset>
+		<legend>Font</legend>
+		<p class='style_desc'>Choose the font that will be used for all headings in your portfolio, see the preview below</p>
 		<%= f.select(:font_id, @fonts.collect {|font| [font.name, font.id]}) %>
-	</div>
-</div></fieldset>
+		<h4>The quick brown fox jumped over the lazy dog</h4>
+	</fieldset>
+</fieldset>
