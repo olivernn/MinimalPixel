@@ -316,19 +316,6 @@ fieldset.new_style input[type=radio]{
 	margin-left:0px;
 }
 
-/* === SIGN UP FORM === */
-#user_subdomain{
-	width:150px;
-}
-
-span.subdomain{
-	margin-left:20px;
-}
-
-span.subdomain input{
-	margin:0px;
-}
-
 /* === ITEMS CAROUSEL === */
 
 #items_carosel{

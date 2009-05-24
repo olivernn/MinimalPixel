@@ -12,7 +12,7 @@
 		
 		<div class="action">
 			<% if f.nil? %>
-				<%= link_to "Signup", new_plan_user_path(plan) %>
+				<%= link_to image_tag('/images/select.png', :class => 'button'), new_plan_user_path(plan) %>
 			<% else %>
 				<%= f.label :plan_id, "Pick" %>
 				<%= f.radio_button :plan_id, plan.id %>

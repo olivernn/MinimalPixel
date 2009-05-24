@@ -4,6 +4,7 @@ fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea,
 	float:none;
 	width:640px;
 	margin-left:20px;
+	font-size:1.2em;
 }
 
 fieldset.new_style label{

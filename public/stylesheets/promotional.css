@@ -40,7 +40,7 @@
 	border-style:outset;
 	border-color:#FF2782;
 	margin-left:2px;
-	width:135px;
+	width:130px;
 }
 
 #content{
@@ -94,6 +94,12 @@ ul.comments li{
 	background:url(/images/shadowAlpha.png) no-repeat bottom right;
 }
 
+.button{
+	border-style:outset;
+	border-color:#FF2782;
+	width:130px;
+}
+
 #login a{
 	font-size:0.8em;
 }
@@ -135,7 +141,7 @@ li.plan div.details{
 
 li.plan div.action{
 	margin-top:10px;
-	margin-left:100px;
+	margin-left:70px;
 }
 
 ul.plans_display ul{
@@ -144,4 +150,88 @@ ul.plans_display ul{
 
 ul.plans_display h3{
 	font-size:1.1em;
+}
+
+img.button{
+	border-style:outset;
+	border-color:#FF2782;
+	width:130px;
+}
+
+/* === SIGN UP FORM === */
+#new_user input{
+	width:250px;
+}
+
+#user_subdomain{
+	width:150px;
+}
+
+span.subdomain{
+	margin-left:20px;
+}
+
+span.subdomain input{
+	margin:0px;
+}
+
+#new_user p{
+	color:#AAAAAA;
+}
+
+#new_user fieldset fieldset{
+	margin-top:10px;
+	border:none;
+	background:url(/images/shadowAlpha.png) no-repeat bottom right;
+	
+}
+
+#new_user legend{
+	color:#2093A8;
+	font-size:1.2em;
+}
+
+#new_user fieldset fieldset legend{
+	font-size:1em;
+	color:#FF2782;
+}
+
+#new_user input.button{
+	width:130px;
+	margin-top:20px;
+	margin-left:547px;
+	margin-bottom:10px;
+}
+
+/* === FORMS === */
+
+fieldset{
+	border:1px #AAAAAA solid;
+}
+
+/* === ERROR MESSAGES === */
+div#errorExplanation {
+	
+}
+
+div#errorExplanation h2 {
+	
+}
+
+div#errorExplanation p {
+	
+}
+
+div#errorExplanation ul {
+	
+}
+
+div#errorExplanation ul li {
+	
+}
+
+span.errorMessage{
+	font-size:0.8em;
+	color:red;
+	font-style:italic;
 }
