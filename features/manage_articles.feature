@@ -47,9 +47,9 @@ Feature: Manage Articles
 	  Given the following draft article records
 		 | title                    |
 		 | Welcome To Minimal Pixel |
-	  And  the following admins
-		 | name   | password |
-		 | admin  | secret   |
+		And the following admins
+		 | login | password |
+ 		 | admin | secret   |
 		And I am logged in as "admin" with password "secret"
 		When I am on the Welcome To Minimal Pixel article page
 	  And I follow "Edit"
@@ -63,9 +63,9 @@ Feature: Manage Articles
 	  Given the following active article records
 		 | title                    |
 		 | Welcome To Minimal Pixel |
-	  And  the following admins
-		 | name   | password |
-		 | admin  | secret   |
+		And the following admins
+		 | login | password |
+ 		 | admin | secret   |
 		And I am logged in as "admin" with password "secret"
 		When I am on the Welcome To Minimal Pixel article page
 	  And I follow "Destroy"

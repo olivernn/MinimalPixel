@@ -18,10 +18,14 @@ Feature: Article Comments
 		And I should see "Bob"
 		And I should see "I'm very happy to be here"
 		
+	# this will fail because of webrat not being able to work 
 	Scenario: Removing spam comments
 	  Given the following active articles records
 	 	| title                    | content                      |
 	 	| Welcome to Minimal Pixel | We're very happy to see you! |
+		And the following admins
+		 | login | password |
+ 		 | admin | secret   |
 	  And I am on the Welcome To Minimal Pixel article page
 		And the article Welcome to Minimal Pixel has no comments
 		And I fill in "Name" with "Spammy bot"
@@ -29,7 +33,7 @@ Feature: Article Comments
 		And I press "Add"
 		When I am logged in as "admin" with password "secret"
 	  And I am on the Welcome To Minimal Pixel article page
-	  And I follow "Delete comment" # this will not find it because of problems with logging in and cucumber
+	  And I follow "Delete comment"
 		Then the article Welcome to Minimal Pixel has no comments
 		And I should see "Successfully destroyed comment"
 	
