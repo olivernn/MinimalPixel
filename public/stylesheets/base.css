@@ -76,20 +76,10 @@ span.errorMessage{
 }
 
 /* === STYLE FORM === */
-a.accordion_header{
-	font-size:1.4em;
-	background-color:black;
-	width:400px;
-}
-
-#accordion div{
-	border: 1px solid #aaaaaa;
-	border-top:0px;
-}
-
-#accordion h3{
-	border: 1px solid #aaaaaa;
-	border-bottom:0px;
+.edit_style input[type=radio]{
+	margin-top:10px;
+	margin-left:1px;
+	width:15px;
 }
 
 #style_font_id{
