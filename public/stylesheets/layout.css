@@ -26,8 +26,10 @@ body{
 }
 
 #menu{
-	margin-top:-3px;
-	border:1px solid #f0f0f0;
+	float:left;
+/*	width:726px;*/
+	width:720px;
+	margin-top:-21px;
 }
 
 #content{

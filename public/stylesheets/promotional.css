@@ -250,3 +250,45 @@ h3.question a{
 div.answer a{
 	font-size:0.8em;
 }
+
+/* === TAB NAVIGATION === */
+#tabs{
+	list-style:none;
+	padding:8px;
+	padding-bottom:10px;
+	background:url(/images/tab_background.png);
+}
+
+#tabs li{
+	display:inline;
+	margin-right:20px;
+	padding:8px;
+}
+
+#tabs li.active{
+	border-bottom:1px solid #AAAAAA;
+}
+
+#tabs li.active a{
+	color:#FF2782;
+	font-size:1em;
+}
+
+#tabs li a{
+	color:#AAAAAA;
+	font-size:0.8em;
+	text-decoration:none;
+	margin-bottom:10px;
+}
+
+#tabs li a:hover{
+	color:#2093A8;
+}
+
+#menu{
+	padding:0px;
+}
+
+#content{
+	margin-top:-40px;
+}

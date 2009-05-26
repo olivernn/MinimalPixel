@@ -1,7 +1,5 @@
-class CommentsController < ApplicationController
-  layout "promotional"
-  skip_filter :load_profile
-  
+class CommentsController < PromotionalController
+    
   before_filter :load_article
   
   protected

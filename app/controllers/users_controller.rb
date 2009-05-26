@@ -1,8 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < PromotionalController
   skip_before_filter :verify_authenticity_token, :only => [:create, :validate]
   before_filter :load_plan, :except => [:complete, :validate]
-  skip_filter :load_profile
-  layout 'promotional'
   
   # GET /plans/:id/users/validate
   def validate

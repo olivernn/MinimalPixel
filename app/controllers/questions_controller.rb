@@ -1,7 +1,7 @@
-class QuestionsController < ApplicationController
-  layout 'promotional'
-  skip_filter :load_profile
+class QuestionsController < PromotionalController
   require_role :admin, :except => [:index, :show]
+  
+  tab :questions
   
   def index
     @questions = Question.find(:all)

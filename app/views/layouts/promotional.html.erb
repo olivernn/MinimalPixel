@@ -18,6 +18,12 @@
 				<h1 class="site">Minimal<br/>Pixel</h1>
 				<p><strong>Simply</strong> the <strong>easiest</strong> way to create your online <strong>portfolio</strong>.</p>
 			</div>
+			<div id="menu">
+				<ul id='tabs'>
+					<%= tab(blog_root_path, :articles, :name => 'Blog') %>
+					<%= tab(questions_path, :questions, :name => 'Help') %>
+				</ul>
+			</div>
 			<div id="content">
 				<%= flash_messages %>
 				<%= yield :layout %>

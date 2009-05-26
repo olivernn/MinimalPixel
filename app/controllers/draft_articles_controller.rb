@@ -1,6 +1,4 @@
-class DraftArticlesController < ApplicationController
-  skip_filter :load_profile
-  layout "promotional"
+class DraftArticlesController < PromotionalController
   
   def index
     @articles = Article.draft
