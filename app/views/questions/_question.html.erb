@@ -1,0 +1,9 @@
+<p><%= @question.answer %></p>
+
+<% if current_user && current_user.admin? %>
+	<p><%= link_to 'Edit Question', edit_question_path(@question) %></p>
+<% end -%>
+
+<% if request.xhr? %>
+	<p><a href='#' class='close_link' id='<%= @question.id %>'>Close</a></p>
+<% end -%>

@@ -50,3 +50,8 @@ Factory.define :comment do |f|
   f.name "Bob"
   f.content "This is just a comment!"
 end
+
+Factory.define :question do |f|
+  f.question "How are you?"
+  f.answer "I'm fine thank you."
+end

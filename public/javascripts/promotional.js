@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 // live validation on the sign-up form
 // still need some work on the live validation part!
-// var forms = new Array(".new_user input");
+var forms = new Array(".new_user input");
 	
 $(document).ready(function(){
 	$(forms.join(", ")).keyup(function(){
@@ -41,3 +41,11 @@ function display_validation_errors(data){
 	});
 	window.current_element.focus();
 }
+
+// hiding and showing the answers to questions
+$(document).ready(function(){
+	$('.question_link').click(function(){
+		$.get($(this).attr("href"), null, null, "script");
+		return false;
+	})
+})

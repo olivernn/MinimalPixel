@@ -1,0 +1,11 @@
+$("#answer_<%= @question.id.to_s %>").hide();
+$("#answer_<%= @question.id.to_s %>").html("<%= escape_javascript(render :partial => 'question') %>");
+$("#answer_<%= @question.id.to_s %>").slideDown(1000);
+
+$(document).ready(function(){
+	$('.close_link').click(function(){
+		var id = $(this).attr("id");
+		$('#answer_' + id).slideUp(1000);
+		return false;
+	});
+})

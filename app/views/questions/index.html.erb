@@ -1,0 +1,14 @@
+<h2>Frequently Asked Questions</h2>
+
+<ul class='questions'>
+	<% for question in @questions %>
+		<li>
+			<h3 id='question_<%= question.id %>' class='question'><%= link_to question.question, question_path(question), :class => 'question_link' %></h3>
+			<div id='answer_<%= question.id %>' class='answer'></div>
+		</li>
+	<% end -%>
+</ul>
+
+<% if current_user && current_user.admin? %>
+	<%= link_to "New Question", new_question_path %>
+<% end -%>
