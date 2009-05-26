@@ -35,7 +35,8 @@
 					<p>Every portfolio has its own unique web address.  This is where you will login and where all
 						 of your work will be displayed.  If you wanted your portfolio site to be http://blah.minimalpixel.net
 						 then enter blah.  <strong>Letters and numbers only - no spaces please.</strong></p>
-					<span class="subdomain">http://<%= f.text_field :subdomain %>.minimalpixel.net</span><br/>
+						<%= f.label :subdomain, 'Web Address' %><br/>
+					http://<%= f.text_field :subdomain %>.minimalpixel.net<br/>
 				</fieldset>
 				
 				<input class='button' type='image' src='/images/sign_up.png' alt='Form Submit Button'>

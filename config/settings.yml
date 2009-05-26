@@ -1,7 +1,7 @@
 development: &non_production_settings
   site_url: http://localhost:3000
-  site_name: minimalpixel
-  admin_email: admin@minimalpixel.com
+  site_name: MinimalPixel
+  admin_email: admin@minimalpixel.net
   
 test:
   <<: *non_production_settings
@@ -12,6 +12,6 @@ staging:
   admin_email: bort@bort.com  
   
 production:
-  site_url: http://www.example.com
-  site_name: Bort
-  admin_email: bort@bort.com
+  site_url: http://MinimalPixel.net
+  site_name: MinimalPixel
+  admin_email: admin@minimalpixel.net

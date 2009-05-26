@@ -14,6 +14,12 @@ body{
 	font-size:3em;
 }
 
+a.tag{
+	float:right;
+	margin-top:80px;
+	margin-right:10px;
+}
+
 #header, #menu, #content, #sub_section, #footer{
 	overflow:hidden;
 	display:inline-block;

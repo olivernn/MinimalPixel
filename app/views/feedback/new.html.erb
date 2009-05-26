@@ -1,0 +1,13 @@
+<h2>Contact Us</h2>
+
+<p>Whether you need some help, have a suggestion for the site or just want to give us some feedback, please don't hesitate to get in touch, we love to hear from you, so send us a message!</p>
+
+<% form_for(@contact_form, :url => {:controller => 'feedback', :action => 'create'}) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'contact/form', :locals => {:f => f} %>
+  <p>
+    <%= f.submit "Send" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

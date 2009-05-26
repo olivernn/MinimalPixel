@@ -23,7 +23,7 @@
 #header .logo{
 	float:right;
 	margin-right:40px;
-	margin-top:20px;
+	margin-top:25px;
 }
 
 #container{
@@ -215,6 +215,25 @@ fieldset{
 	border:1px #AAAAAA solid;
 }
 
+legend{
+	color:#FF2782;
+}
+
+div.fieldWithErrors {
+	margin:0px;
+}
+
+div.fieldWithErrors label {
+	color:#ee1d24;
+}
+
+div.fieldWithErrors input, div.fieldWithErrors select, 
+div.fieldWithErrors textarea
+{
+	border:5px solid #ee1d24;
+	background-color:#FF8282;
+}
+
 /* === ERROR MESSAGES === */
 div#errorExplanation {
 	
@@ -237,6 +256,7 @@ div#errorExplanation ul li {
 }
 
 span.errorMessage{
+	padding-left:2px;
 	font-size:0.8em;
 	color:red;
 	font-style:italic;

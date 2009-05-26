@@ -13,4 +13,4 @@ development:
   listens_on: localhost:22122
   
 test:
-  listens_on: localhost:12345
+  listens_on: localhost:22122

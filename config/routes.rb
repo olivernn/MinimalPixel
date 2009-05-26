@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :questions
-  
+  map.resources :feedback, :collection => {:validate => :get}
   map.resources :draft_articles, :member => {:publish => :put}
   
   # mapping the blog root

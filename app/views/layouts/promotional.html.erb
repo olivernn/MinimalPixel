@@ -23,6 +23,7 @@
 				<ul id='tabs'>
 					<%= tab(blog_root_path, :articles, :name => 'Blog') %>
 					<%= tab(questions_path(:subdomain => false), :questions, :name => 'Help') %>
+					<%= tab(new_feedback_path(:subdomain => false), :feedback, :name => 'Contact Us') %>
 				</ul>
 			</div>
 			<div id="content">

@@ -1,3 +1,9 @@
+jQuery.fn.unwrap = function () {
+   return this.each( function(){
+      $(this.childNodes).insertBefore(this);
+   });
+};
+
 // adding ajax to the comments form
 $(document).ready(function(){
 	$("#new_comment").submit(function(){
@@ -8,7 +14,14 @@ $(document).ready(function(){
 
 // live validation on the sign-up form
 // still need some work on the live validation part!
-var forms = new Array(".new_user input");
+var forms = new Array(
+	   ".new_project input",
+	   ".new_project textarea",
+	   ".new_page input",
+	   ".new_page textarea",
+	   ".new_user input",
+	   ".new_style input",
+	   ".new_style textarea");
 	
 $(document).ready(function(){
 	$(forms.join(", ")).keyup(function(){
@@ -35,8 +48,10 @@ function display_validation_errors(data){
 		var field = $("#" + data.model + "_" + name);
 		var label = $("label[for=" + data.model + "_" + name +"]");
 		if(!field.parent().hasClass("fieldWithErrors")){
-			label.after("<span class='errorMessage'>"+ name + " " + message + " </span>");
-			field.wrap("<div class='fieldWithErrors'></div>");
+			label.after("<span class='errorMessage'> - "+ name + " " + message + " </span>");
+			if(name != "subdomain"){
+				field.wrap("<div class='fieldWithErrors'></div>");
+			}
 		}
 	});
 	window.current_element.focus();

@@ -9,7 +9,7 @@ module NavigationHelpers
     case page_name
     
     when /the homepage/
-      '/'
+      root_path
     when /the list of articles/
       articles_path
     when /the list of draft articles/
