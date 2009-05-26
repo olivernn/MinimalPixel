@@ -15,13 +15,14 @@
 	<body>
 		<div id="container">
 			<div id="header">
+				<%= image_tag '/images/logo.png', :class => 'logo' %>
 				<h1 class="site">Minimal<br/>Pixel</h1>
 				<p><strong>Simply</strong> the <strong>easiest</strong> way to create your online <strong>portfolio</strong>.</p>
 			</div>
 			<div id="menu">
 				<ul id='tabs'>
 					<%= tab(blog_root_path, :articles, :name => 'Blog') %>
-					<%= tab(questions_path, :questions, :name => 'Help') %>
+					<%= tab(questions_path(:subdomain => false), :questions, :name => 'Help') %>
 				</ul>
 			</div>
 			<div id="content">

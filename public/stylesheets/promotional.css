@@ -20,6 +20,12 @@
 	width:720px;
 }
 
+#header .logo{
+	float:right;
+	margin-right:40px;
+	margin-top:20px;
+}
+
 #container{
 	color:#303030;
 }
