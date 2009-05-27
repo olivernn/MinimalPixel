@@ -2,6 +2,8 @@ class ImagesController < ApplicationController
   # filters
   before_filter :user_required, :load_project
   
+  cache_sweeper :item_sweeper, :only => [:create, :update]
+  
   public
   
   # GET /projects/:project_id/images/new

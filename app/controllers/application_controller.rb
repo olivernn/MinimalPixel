@@ -1,6 +1,13 @@
 class ApplicationController < GlobalController
   before_filter :load_profile
   
+  protected
+  
+  # only perform action caching if the user is not logged in and the flash is empty
+  def do_caching?
+    !logged_in? && flash.empty?
+  end
+  
   def user_required
     unless current_subdomain_user
       flash[:error] = "Couldn't find the user #{current_subdomain}"

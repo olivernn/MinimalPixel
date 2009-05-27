@@ -2,6 +2,8 @@ class DraftProjectsController < ApplicationController
   skip_filter :load_profile, :only => :validate
   before_filter :user_required, :login_required, :except => :validate
   
+  cache_sweeper :project_sweeper, :only => [:create, :publish]
+  
   # GET /draft_projects/validate.js
   def validate
     @project = Project.new(params[:project])

@@ -44,6 +44,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
@@ -67,7 +68,13 @@ Rails::Initializer.run do |config|
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")
   config.action_controller.session_store = :active_record_store
-
+  
+  # Setting the caching store for action and fragment caching
+  config.cache_store = :file_store, File.join(RAILS_ROOT, 'tmp', 'cache')
+  
+  # setting the page cache to store files in a cache directory
+  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+  
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
