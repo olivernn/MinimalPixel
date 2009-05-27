@@ -72,7 +72,7 @@ Rails::Initializer.run do |config|
   # Setting the caching store for action and fragment caching
   config.cache_store = :file_store, File.join(RAILS_ROOT, 'tmp', 'cache')
   
-  # setting the page cache to store files in a cache directory
+  # setting the page cache to store files in a /public/cache directory
   config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
   
   # Use SQL instead of Active Record's schema dumper when creating the test database.

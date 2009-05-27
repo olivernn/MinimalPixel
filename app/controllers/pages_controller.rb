@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
-  skip_filter :load_profile, :only => :validate
   before_filter :user_required, :except => :validate
   before_filter :login_required, :except => [:validate, :show]
+  
+  skip_filter :load_profile, :only => :validate
+  
+  caches_action :show, :if => Proc.new {|controller| controller.send(:do_caching?) }
+  cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
   
   # GET /pages/validate.js
   def validate

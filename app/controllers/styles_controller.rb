@@ -2,6 +2,11 @@ class StylesController < ApplicationController
   before_filter :user_required
   before_filter :login_required, :except => :index
   
+  skip_filter :load_profile, :only => :index
+  
+  caches_action :index
+  cache_sweeper :style_sweeper, :except => :edit
+  
   # GET /styles
   # GET /styles.css
   def index

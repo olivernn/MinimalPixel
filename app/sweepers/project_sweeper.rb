@@ -14,6 +14,7 @@ class ProjectSweeper < ActionController::Caching::Sweeper
   end
   
   private
+  
   def expire_project_cache(project)
     # expire the index page action cache
     # expire_fragment(%r{projects.cache}) #-- not sure what this will be yet

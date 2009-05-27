@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
   before_filter :user_required
   
+  caches_action :show, :if => Proc.new {|controller| controller.send(:do_caching?) }
+  cache_sweeper :profile_sweeper, :only => [:update]
+  
   # GET /profiles/1
   # GET /profiles/1.xml
   def show
