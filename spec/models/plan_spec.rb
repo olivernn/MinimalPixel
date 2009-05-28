@@ -8,6 +8,7 @@ describe Plan do
       :price => 19.95,
       :payment_frequency => "Month",
       :available => true,
+      :description => "This plan is perfect for the professional user",
       :project_limit => 99,
       :image_limit => 999,
       :video_limit => 999,
@@ -83,6 +84,25 @@ describe Plan do
   it "should be invalid without a numeric video limit" do
     @plan.attributes = @valid_attributes.except(:video_limit)
     @plan.project_limit = "BLAH!"
+    @plan.should_not be_valid
+  end
+  
+  it "should be invalid without a description" do
+    @plan.attributes = @valid_attributes.except(:description)
+    @plan.should_not be_valid
+  end
+  
+  it "should be invalid with a description of length less than 35 characters" do
+    @plan.attributes = @valid_attributes.except(:description)
+    @plan.description = ""
+    34.times { @plan.description << "x"} # having a description of 34 chars
+    @plan.should_not be_valid
+  end
+  
+  it "should be invalid with a description greater than 60 characters" do
+    @plan.attributes = @valid_attributes.except(:description)
+    @plan.description = ""
+    61.times { @plan.description << "x"} # having a description of 61 chars
     @plan.should_not be_valid
   end
   

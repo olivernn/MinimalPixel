@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090524225229) do
+ActiveRecord::Schema.define(:version => 20090528165330) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20090524225229) do
     t.integer  "project_limit",     :null => false
     t.integer  "image_limit",       :null => false
     t.integer  "video_limit",       :null => false
+    t.text     "description"
   end
 
   create_table "profiles", :force => true do |t|

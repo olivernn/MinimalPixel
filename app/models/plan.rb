@@ -1,8 +1,9 @@
 class Plan < ActiveRecord::Base
   # validation statements
-  validates_presence_of :name, :price, :payment_frequency, :available, :project_limit, :image_limit, :video_limit
+  validates_presence_of :name, :price, :payment_frequency, :available, :project_limit, :image_limit, :video_limit, :description
   validates_numericality_of :price, :project_limit, :image_limit, :video_limit
   validates_inclusion_of :payment_frequency, :in => %w(Day Week Month Year)
+  validates_length_of :description, :in => 35..60
   
   # named scopes
   named_scope :offerable, :conditions => {:available => true}
