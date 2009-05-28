@@ -1,7 +1,7 @@
 <li class="plan">
 	<div class="details">
 		<h2><%= plan.name %></h2>
-		<h3><%= number_to_currency(plan.price) %> per <%= plan.payment_frequency %></h3>
+		<h3><%= display_plan_price(plan) %></h3>
 		<h4><%= plan.description %></h4>
 
 		<ul class="plan_features">

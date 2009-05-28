@@ -13,6 +13,9 @@ class Plan < ActiveRecord::Base
   has_many :users, :through => :accounts, :source => :user
   has_many :accounts
   
+  # scopes
+  default_scope :order => "price DESC"
+  
   def free?
     !(self.price > 0)    
   end

@@ -114,4 +114,12 @@ module ApplicationHelper
     end
     html
   end
+  
+  def display_plan_price(plan)
+    if plan.free?
+      "<em>Free!</em>"
+    else
+      "#{number_to_currency(plan.price)} per #{plan.payment_frequency}"
+    end
+  end
 end
