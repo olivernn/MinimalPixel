@@ -4,6 +4,7 @@ class Plan < ActiveRecord::Base
   validates_numericality_of :price, :project_limit, :image_limit, :video_limit
   validates_inclusion_of :payment_frequency, :in => %w(Day Week Month Year)
   validates_length_of :description, :in => 35..60
+  validates_uniqueness_of :name
   
   # named scopes
   named_scope :offerable, :conditions => {:available => true}
@@ -15,6 +16,10 @@ class Plan < ActiveRecord::Base
   
   # scopes
   default_scope :order => "price DESC"
+  
+  def to_param
+    self.name
+  end
   
   def free?
     !(self.price > 0)    

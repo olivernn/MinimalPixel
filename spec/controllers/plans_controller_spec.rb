@@ -61,8 +61,8 @@ describe PlansController do
     it "should expose the requested plan as @plan" do
       controller.should_receive(:current_user).and_return(mock_admin_user)
       mock_admin_user.should_receive(:has_role?).and_return(true)
-      Plan.should_receive(:find).with("37").and_return(mock_plan)
-      get :show, :id => "37"
+      Plan.should_receive(:find_by_name).with("name").and_return(mock_plan)
+      get :show, :id => "name"
       assigns[:plan].should equal(mock_plan)
     end
     
@@ -71,9 +71,9 @@ describe PlansController do
         request.env["HTTP_ACCEPT"] = "application/xml"
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.should_receive(:find).with("37").and_return(mock_plan)
+        Plan.should_receive(:find_by_name).with("name").and_return(mock_plan)
         mock_plan.should_receive(:to_xml).and_return("generated XML")
-        get :show, :id => "37"
+        get :show, :id => "name"
         response.body.should == "generated XML"
       end
     end
@@ -111,8 +111,8 @@ describe PlansController do
     it "should expose the requested plan as @plan" do
       controller.should_receive(:current_user).and_return(mock_admin_user)
       mock_admin_user.should_receive(:has_role?).and_return(true)
-      Plan.should_receive(:find).with("37").and_return(mock_plan)
-      get :edit, :id => "37"
+      Plan.should_receive(:find_by_name).with("name").and_return(mock_plan)
+      get :edit, :id => "name"
       assigns[:plan].should equal(mock_plan)
     end
     
@@ -120,7 +120,7 @@ describe PlansController do
       it "should redirect to the login path" do
         controller.should_receive(:current_user).and_return(mock_basic_user)
         mock_basic_user.should_receive(:has_role?).and_return(false)
-        get :edit, :id => "37"
+        get :edit, :id => "name"
         response.should redirect_to(login_path)
       end
     end
@@ -178,15 +178,15 @@ describe PlansController do
       it "should update the requested plan" do
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.should_receive(:find).with("37").and_return(mock_plan)
+        Plan.should_receive(:find_by_name).with("name").and_return(mock_plan)
         mock_plan.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :plan => {:these => 'params'}
+        put :update, :id => "name", :plan => {'these' => 'params'}
       end
 
       it "should expose the requested plan as @plan" do
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.stub!(:find).and_return(mock_plan(:update_attributes => true))
+        Plan.stub!(:find_by_name).and_return(mock_plan(:update_attributes => true))
         put :update, :id => "1"
         assigns(:plan).should equal(mock_plan)
       end
@@ -194,7 +194,7 @@ describe PlansController do
       it "should redirect to the plan" do
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.stub!(:find).and_return(mock_plan(:update_attributes => true))
+        Plan.stub!(:find_by_name).and_return(mock_plan(:update_attributes => true))
         put :update, :id => "1"
         response.should redirect_to(plan_url(mock_plan))
       end
@@ -204,24 +204,24 @@ describe PlansController do
       it "should update the requested plan" do
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.should_receive(:find).with("37").and_return(mock_plan)
+        Plan.should_receive(:find_by_name).with("name").and_return(mock_plan)
         mock_plan.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :plan => {:these => 'params'}
+        put :update, :id => "name", :plan => {:these => 'params'}
       end
 
       it "should expose the plan as @plan" do
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.stub!(:find).and_return(mock_plan(:update_attributes => false))
-        put :update, :id => "1"
+        Plan.stub!(:find_by_name).and_return(mock_plan(:update_attributes => false))
+        put :update, :id => "name"
         assigns(:plan).should equal(mock_plan)
       end
 
       it "should re-render the 'edit' template" do
         controller.should_receive(:current_user).and_return(mock_admin_user)
         mock_admin_user.should_receive(:has_role?).and_return(true)
-        Plan.stub!(:find).and_return(mock_plan(:update_attributes => false))
-        put :update, :id => "1"
+        Plan.stub!(:find_by_name).and_return(mock_plan(:update_attributes => false))
+        put :update, :id => "name"
         response.should render_template('edit')
       end
     end
@@ -240,16 +240,16 @@ describe PlansController do
     it "should destroy the requested plan" do
       controller.should_receive(:current_user).and_return(mock_admin_user)
       mock_admin_user.should_receive(:has_role?).and_return(true)
-      Plan.should_receive(:find).with("37").and_return(mock_plan)
+      Plan.should_receive(:find_by_name).with("name").and_return(mock_plan)
       mock_plan.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      delete :destroy, :id => "name"
     end
   
     it "should redirect to the plans list" do
       controller.should_receive(:current_user).and_return(mock_admin_user)
       mock_admin_user.should_receive(:has_role?).and_return(true)
-      Plan.stub!(:find).and_return(mock_plan(:destroy => true))
-      delete :destroy, :id => "1"
+      Plan.stub!(:find_by_name).and_return(mock_plan(:destroy => true))
+      delete :destroy, :id => "name"
       response.should redirect_to(plans_url)
     end
     

@@ -12,8 +12,9 @@ class UsersController < PromotionalController
   
   def load_plan
     begin
-      @plan = Plan.find(params[:plan_id])
+      @plan = Plan.find_by_name(params[:plan_id])
     rescue ActiveRecord::RecordNotFound
+      logger.error "**** Couldn't find plan using #{params[:plan_id]} in load_plan ****"
       redirect_to root_url
     end
   end

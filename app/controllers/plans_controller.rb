@@ -16,7 +16,7 @@ class PlansController < PromotionalController
   # GET /plans/1
   # GET /plans/1.xml
   def show
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_name(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class PlansController < PromotionalController
 
   # GET /plans/1/edit
   def edit
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_name(params[:id])
   end
 
   # POST /plans
@@ -60,7 +60,7 @@ class PlansController < PromotionalController
   # PUT /plans/1
   # PUT /plans/1.xml
   def update
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_name(params[:id])
 
     respond_to do |format|
       if @plan.update_attributes(params[:plan])
@@ -77,7 +77,7 @@ class PlansController < PromotionalController
   # DELETE /plans/1
   # DELETE /plans/1.xml
   def destroy
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_name(params[:id])
     @plan.destroy
 
     respond_to do |format|

@@ -106,6 +106,18 @@ describe Plan do
     @plan.should_not be_valid
   end
   
+  it "should be invalid with a duplicate name" do
+    @plan.attributes = @valid_attributes
+    @plan.save
+    @another_plan = Plan.new(@valid_attributes)
+    @another_plan.should_not be_valid
+  end
+  
+  it "should use its name for the param" do
+    @plan.attributes = @valid_attributes
+    @plan.to_param.should == @plan.name
+  end
+  
   it "should have an available named scope" do
     Plan.offerable.proxy_options.should == {:conditions => {:available => true}}
   end
