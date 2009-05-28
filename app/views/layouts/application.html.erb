@@ -19,7 +19,7 @@
 	<body>
 		<div id="container">
 			<div id="header">
-					<%= link_to image_tag('/images/dark_tag.png'), root_path(:subdomain => false), :class => 'tag' %>
+					<%= display_brand_tag(current_subdomain_user.style) %>
 				<% if current_subdomain %>
 					<h1><%= link_to current_subdomain_user.name, projects_root_url(:subdomain => current_subdomain_user.subdomain) %></h1>
 				<% end %>

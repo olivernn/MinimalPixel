@@ -122,4 +122,8 @@ module ApplicationHelper
       "#{number_to_currency(plan.price)} per #{plan.payment_frequency}"
     end
   end
+  
+  def display_brand_tag(style)
+      link_to image_tag("/images/#{style.theme.name.downcase}_tag.png"), root_path(:subdomain => false), :class => 'tag'
+  end
 end
