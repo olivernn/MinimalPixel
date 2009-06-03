@@ -27,7 +27,7 @@ class UsersController < PromotionalController
     logout_keeping_session!
     @user = User.new(params[:user])
     if @user.save
-      @user.register!
+      # @user.register!
       create_account(@user, @plan)
     else
       render :action => :new

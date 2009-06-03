@@ -8,7 +8,7 @@
 				<fieldset>
 					<legend>Create your account</legend>
 					<p>Your name will be displayed as the heading for your portfolio.  We absolutley promise not to spam you or
-						 pass your name or email address onto any nasty spammers!</p>
+						 pass your name or email address onto anyone!</p>
 					<%= f.label :name, 'Name' %><br/>
 					<%= f.text_field :name, :class => 'medium' %><br/>
 				
@@ -18,7 +18,7 @@
 				
 				<fieldset>
 					<legend>Set up your login details</legend>
-					<p>You will use your username to log into the site.  Use letters and numbers only please.
+					<p>You will use your username to log into your portfolio.  Use letters and numbers only please.
 						 Choose a password that is memorable and is at least 6 letters long.</p>
 					<%= f.label :login, 'Username' %><br/>
 					<%= f.text_field :login, :class => 'medium' %><br/>
@@ -33,10 +33,26 @@
 				<fieldset>
 					<legend>Create your portfolio address</legend>
 					<p>Every portfolio has its own unique web address.  This is where you will login and where all
-						 of your work will be displayed.  If you wanted your portfolio site to be http://blah.minimalpixel.net
-						 then enter blah.  <strong>Letters and numbers only - no spaces please.</strong></p>
+						 of your work will be displayed.  If you wanted your portfolio site to be http://monkey.minimalpixel.net
+						 then enter monkey.  <strong>Letters and numbers only - no spaces please.</strong></p>
 						<%= f.label :subdomain, 'Web Address' %><br/>
 					http://<%= f.text_field :subdomain %>.minimalpixel.net<br/>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Review &amp; Accept Terms</legend>
+					<% unless @plan.free? %>
+						<h5>Your plan is <%= display_plan_price(@plan) %></h5>
+						<p>After submitting your application you will be re-directed to PayPal's website and prompted to enter payment, after your payment has been set up you will be re-directed back to MinimalPixel.  Your billing date will start today and you will be billed on the same date every month until you cancel your account.</p>
+						
+						<h5>MinimalPixel is a month by month service which you can cancel at anytime</h5>
+						<p>We never charge any set-up or cancelation fees and there are no long-term contracts, we'll be sad to see you leave but you can still cancel your account at any time.</p>
+					<% end -%>
+					
+					<h5>Terms &amp; Conditions</h5>
+					<p>Please read and review our <a href='#'>Terms &amp; Conditions</a> and <a href='#'>Privacy Policy</a></p>
+					<%= f.label :terms_and_conditions, "I have read and agree to the terms and conditions" %>
+					<%= f.check_box :terms_and_conditions %>
 				</fieldset>
 				
 				<input class='button' type='image' src='/images/sign_up.png' alt='Form Submit Button'>

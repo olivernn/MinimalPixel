@@ -164,9 +164,17 @@ img.button{
 	width:130px;
 }
 
+#plan_questions{
+	font-size:0.8em;
+}
+
 /* === SIGN UP FORM === */
 #new_user input{
 	width:250px;
+}
+
+#new_user h5{
+	color:#2093A8;
 }
 
 #user_subdomain{

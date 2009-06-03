@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_format_of :login, :with => RE_LOGIN_OK, :message => MSG_LOGIN_BAD, :if => :not_using_openid?
   validates_format_of :name, :with => RE_NAME_OK, :message => MSG_NAME_BAD, :allow_nil => true
   validates_length_of :name, :maximum => 100
+  validates_presence_of :name
   validates_presence_of :email, :if => :not_using_openid?
   validates_length_of :email, :within => 6..100, :if => :not_using_openid?
   validates_uniqueness_of :email, :case_sensitive => false, :if => :not_using_openid?
@@ -36,7 +37,11 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :subdomain
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :identity_url, :subdomain, :terms_and_conditions
+  
+  # confirms terms and conditions have been accepted
+  attr_accessor :terms_and_conditions
+  validates_acceptance_of :terms_and_conditions
   
   # callbacks
   before_save :prepare_subdomain
