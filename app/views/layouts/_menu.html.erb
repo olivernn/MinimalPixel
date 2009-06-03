@@ -25,10 +25,11 @@
 		<li><a class="top_level">Account</a>
 			<ul>
 				<li><%= link_to 'Logout', logout_path %></li>
+				<li><%= link_to 'Home', projects_root_path %></li>
 				<li><%= link_to 'Summary', account_path(current_subdomain_user.account) %></li>
 				<li><%= link_to 'Change Plan', edit_account_path(current_subdomain_user.account) %></li>
 				<li><%= link_to 'Edit Profile', edit_profile_path(current_subdomain_user.profile) %></li>
-				<li><%= link_to "Edit Style", edit_style_path(current_user.style) %></li>
+				<li><%= link_to "Edit Style", edit_style_path(current_subdomain_user.style) %></li>
 				<li><%= link_to 'Close Account', account_path(current_subdomain_user.account, :method => :delete), :confirm => "This will delete your account, are you sure?" %></li>
 			</ul>
 		</li>

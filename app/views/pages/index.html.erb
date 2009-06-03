@@ -16,4 +16,10 @@
 
 <br />
 
+<% if logged_in? && current_subdomain_user == current_user %>
+	<div class="get_started">
+		<p>Pages are a great way of adding extra content to your portfolio.  Write about your influences, any upcoming projects or just use them as a resume.  Why not <%= link_to 'create', new_page_path %> one right now.</p>
+	</div>
+<% end -%>
+
 <%= link_to 'New page', new_page_path %>

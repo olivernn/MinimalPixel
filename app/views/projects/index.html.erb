@@ -10,6 +10,10 @@
 	<% if logged_in? && current_subdomain_user == current_user %>
 		<div class="get_started">
 			<p>Get started with your portfolio by <%= link_to 'adding', new_draft_project_path %> a new project.</p>
+			
+			<p>You can <%= link_to 'customize', edit_style_path(current_subdomain_user.style) %> the look and style of your portfolio.</p>
+			
+			<p>Start <%= link_to 'adding', edit_profile_path(current_subdomain_user.profile) %> contact information and a profile picture to personalize your portfolio.</p>
 		</div>
 	<% end -%>
 <% end -%>
