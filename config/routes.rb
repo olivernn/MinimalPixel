@@ -52,9 +52,9 @@ ActionController::Routing::Routes.draw do |map|
   # map subdomains to the projects controller
   map.projects_root '', :controller => 'projects', :action => 'index', :conditions => { :subdomain => /.+/}
   
-  # Home Page
-  map.root :controller => 'sessions', :action => 'new'
-
+  # static page re-writes
+  map.root :controller => 'static', :action => 'welcome'
+  
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

@@ -326,3 +326,10 @@ div.answer a{
 #content{
 	margin-top:-40px;
 }
+
+/* === WELCOME PAGE === */
+#features{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
