@@ -42,3 +42,24 @@ fieldset.new_style input[type=radio]{
 	padding-left:0px;
 	margin-left:0px;
 }
+
+/* === ERROR MESSAGES === */
+div#errorExplanation {
+	border:1px solid red;
+	padding:10px;
+	margin-bottom:10px;
+}
+
+div#errorExplanation h2 {
+	color:red;
+}
+
+div#errorExplanation p {
+	color:red;
+}
+
+span.errorMessage{
+	font-size:0.8em;
+	color:red;
+	font-style:italic;
+}
