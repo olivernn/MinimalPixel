@@ -50,7 +50,7 @@
 					<% end -%>
 					
 					<h5>Terms &amp; Conditions</h5>
-					<p>Please read and review our <a href='#'>Terms &amp; Conditions</a> and <a href='#'>Privacy Policy</a></p>
+					<p>Please read and review our <%= link_to 'terms of service', terms_path %></p>
 					<%= f.label :terms_and_conditions, "I have read and agree to the terms and conditions" %>
 					<%= f.check_box :terms_and_conditions %>
 				</fieldset>

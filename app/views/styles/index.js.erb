@@ -1,7 +1,10 @@
 // sifr the headings
 $(document).ready(function(){
 	$("h1, h2, h3, h4, th, .font_preview").sifr({
-		font:'<%= @style.font.font.url %>'
+		font:'<%= @style.font.font.url %>',
+		build: 436,
+		version: 3,
+		save: true
 	});
 })
 

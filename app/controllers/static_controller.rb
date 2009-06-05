@@ -5,4 +5,8 @@ class StaticController < PromotionalController
   def welcome
     
   end
+  
+  def terms
+    render :layout => false
+  end
 end

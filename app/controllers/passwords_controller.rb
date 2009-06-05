@@ -1,4 +1,4 @@
-class PasswordsController < ApplicationController
+class PasswordsController < PromotionalController
   def new
     @password = Password.new
   end
@@ -32,7 +32,7 @@ class PasswordsController < ApplicationController
       flash[:notice] = 'Password was successfully updated.'
       redirect_to login_path
     else
-      flash[:notice] = 'EPIC FAIL!'
+      flash[:error] = 'Please enter a valid password.'
       redirect_to :action => :reset, :reset_code => params[:reset_code]
     end
   end

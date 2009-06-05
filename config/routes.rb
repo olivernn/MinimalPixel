@@ -54,6 +54,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # static page re-writes
   map.root :controller => 'static', :action => 'welcome'
+  map.terms '/terms', :controller => 'static', :action => 'terms'
   
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
