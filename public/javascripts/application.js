@@ -44,6 +44,34 @@ $(document).ready(function(){
 	})
 })
 
+// using modal box to display the large images
+$(document).ready(function(){
+	$('a.lightbox').click(function(e){
+		e.preventDefault();
+		$.modal("<img src='" + $(this).attr("href") + "'/>",{
+			opacity: 75,
+			containerCss:{backgroundColor: '#fff'},
+			position:[50,50],
+			onOpen: function(dialog){
+				dialog.overlay.fadeIn('slow', function(){
+					dialog.container.slideDown('slow', function(){
+						dialog.data.fadeIn('slow');
+					});
+				});
+			},
+			onClose: function(dialog){
+				dialog.data.fadeOut('slow', function(){
+					dialog.container.slideUp('slow', function(){
+						dialog.overlay.fadeOut('slow', function(){
+							$.modal.close();
+						})
+					})
+				})
+			}
+		});
+	})
+})
+
 var forms = new Array(
 	   ".new_project input",
 	   ".new_project textarea",
@@ -147,20 +175,47 @@ $(document).ready(function(){
 	});
 })
 
+// getting started notes
+$(document).ready(function(){
+	var getStartedContent = $('.get_started');
+	if (getStartedContent.length){
+		getStartedContent.modal({
+			opacity:75,
+			containerCss:{height:200, width:500},
+			onClose: function(dialog){
+				dialog.data.fadeOut('slow', function(){
+					dialog.container.slideUp('slow', function(){
+						dialog.overlay.fadeOut('slow', function(){
+							$.modal.close();
+						})
+					})
+				})
+			}
+		});
+	}
+});
+
+$(document).ready(function () {
+	$('#basicModal input.basic, #basicModal a.basic').click(function (e) {
+		e.preventDefault();
+		$('#basicModalContent').modal();
+	});
+});
+
 // *********** JQUERY UI ************ \\
 $(document).ready(function(){
 	$('#project_date, #image_date').datepicker();
 });
 
-$(document).ready(function(){
-	$('.get_started').dialog({
-		title: 'Getting Started',
-		width: '350px',
-		height: '250px',
-		buttons: { "Ok": function() { $(this).dialog("close"); } },
-		show: 'blind'
-	});
-});
+// $(document).ready(function(){
+// 	$('.get_started').dialog({
+// 		title: 'Getting Started',
+// 		width: '350px',
+// 		height: '250px',
+// 		buttons: { "Ok": function() { $(this).dialog("close"); } },
+// 		show: 'blind'
+// 	});
+// });
 
 $(document).ready(function(){
 	$("#accordion").accordion({

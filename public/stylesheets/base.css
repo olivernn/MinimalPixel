@@ -393,3 +393,14 @@ ul.plans_display h3{
 	width:500px;
 	height:400px;
 }
+
+/* === GET STARTED NOTES === */
+.get_started{
+	display:none;
+	color:black;
+	padding:25px;
+}
+
+.help_link{
+	color:blue;
+}

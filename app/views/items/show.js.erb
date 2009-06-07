@@ -1,3 +1,27 @@
 $("#item_view").hide().html("<%= escape_javascript(render_item(@item, @project)) %>").fadeIn(1000);
 // need to re_apply the sifr font for the image heading!
 $("#item_view h1").sifr({font:'<%= @style.font.font.url %>', color:'<%= @style.heading_colour %>'});
+$('a.lightbox').click(function(e){
+	e.preventDefault();
+	$.modal("<img src='" + $(this).attr("href") + "'/>",{
+		opacity: 75,
+		containerCss:{backgroundColor: '#fff'},
+		position:[50,50],
+		onOpen: function(dialog){
+			dialog.overlay.fadeIn('slow', function(){
+				dialog.container.slideDown('slow', function(){
+					dialog.data.fadeIn('slow');
+				});
+			});
+		},
+		onClose: function(dialog){
+			dialog.data.fadeOut('slow', function(){
+				dialog.container.slideUp('slow', function(){
+					dialog.overlay.fadeOut('slow', function(){
+						$.modal.close();
+					})
+				})
+			})
+		}
+	});
+})
