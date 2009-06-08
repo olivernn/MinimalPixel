@@ -30,8 +30,11 @@ describe Project do
     @project.should_not be_valid
   end
   
+  # currently there are problems getting the date picker and the validation to work together
+  # will just remove the attribute from the forms and validation altogether for now
   it "should have a valid date if date is populated" do
     @project.attributes = @valid_attributes.except(:date)
+    @project.should be_valid
     @project.date = "not a date"
     @project.should_not be_valid
   end

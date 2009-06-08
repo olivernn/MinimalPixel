@@ -30,6 +30,7 @@ describe Item do
   
   it "should have a valid date if date is populated" do
     @item.attributes = @valid_attributes.except(:date)
+    @item.should be_valid
     @item.date = "not a date"
     @item.should_not be_valid
   end
@@ -56,7 +57,7 @@ describe Item do
   end
   
   it "should have a ready named scope that retrieves only ready items" do
-    Item.ready.proxy_options.should == {:conditions => {:status => "ready"}}
+    Item.ready.proxy_options.should == {:conditions => {:status => "ready"}, :order => "position"}
   end
   
   protected
