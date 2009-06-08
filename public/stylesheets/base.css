@@ -104,6 +104,11 @@ ul.style_form li{
 	font-size:0.8em;
 }
 
+#style_heading_colour{
+	width:100px;
+	margin-right:10px;
+}
+
 /* === PROFILE === */
 #profile{
 	margin-top:15px;
