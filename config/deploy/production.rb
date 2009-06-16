@@ -2,7 +2,7 @@
 #	Application
 #############################################################
 
-set :application, "MinimalPixel.net"
+set :application, "minimalpixel.net"
 set :deploy_to, "/home/admin/public_html/#{application}"
 
 #############################################################
@@ -32,11 +32,13 @@ role :db, domain, :primary => true
 #############################################################
 
 set :scm, :git
-set :branch, "master"
+set :branch, 'master'
 # set :scm_user, 'bort'
 # set :scm_passphrase, "PASSWORD"
 set :repository, "git@github.com:olivernn/MinimalPixel.git"
 set :deploy_via, :copy
+set :runner, user
+set :use_sudo, true
 
 #############################################################
 #	Passenger
@@ -49,7 +51,7 @@ namespace :deploy do
     production:    
       adapter: mysql
       encoding: utf8
-      username: minimalpixel
+      username: rails
       password: computer
       database: minimalpixel_production
       host: localhost
