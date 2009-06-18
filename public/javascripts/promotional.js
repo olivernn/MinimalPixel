@@ -19,9 +19,7 @@ var forms = new Array(
 	   ".new_project textarea",
 	   ".new_page input",
 	   ".new_page textarea",
-	   ".new_user input",
-	   ".new_style input",
-	   ".new_style textarea");
+	   ".new_user input");
 	
 $(document).ready(function(){
 	$(forms.join(", ")).keyup(function(){

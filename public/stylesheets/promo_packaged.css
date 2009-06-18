@@ -1,0 +1,181 @@
+body{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; width:1050px; margin-right:auto; margin-left:auto}
+#container{ margin-right:22px; margin-left:22px}
+#header h1{ font-size:3em}
+a.tag{ float:right; margin-top:80px; margin-right:105px}
+#header, #menu, #content, #sub_section, #footer{ overflow:hidden; display:inline-block; margin:5px}
+#header, #menu, #footer{ width:958px}
+#menu{ float:left; width:720px; margin-top:-21px}
+#content{ float:left; width:720px; padding:10px 10px 10px 10px}
+#sub_section{ padding-left:25px; width:180px; height:600px}
+#footer{ clear:left; font-size:0.7em; text-indent:10px}
+#header h1{ font-size:5em; font-family:Arial; text-transform:uppercase; text-align:left; font-weight:bolder; color:#303030; margin-top:10px; margin-bottom:0px}
+#header p{ margin-top:0px; color:#AAAAAA}
+#header{ border-bottom:1px solid #AAAAAA; float:left; width:720px}
+#header .logo{ float:right; margin-right:40px; margin-top:25px}
+#container{ color:#303030}
+#signup{ margin-top:50px; margin-left:2px; width:144px; padding:10px; text-align:center; background:url(/images/shadowAlpha.png) no-repeat bottom right}
+#signup img{ border-style:outset; border-color:#FF2782; margin-left:2px; width:130px}
+#content{ padding-left:5px; margin-left:0px}
+h1 a{ color:#FF2782; text-decoration:none}
+h1, h3, h5{ color:#FF2782}
+h2, h4{ color:#2093A8}
+a{ color:#2093A8}
+p.datetime{ margin:0px; padding:0px; color:#AAAAAA; font-size:0.6em}
+ul.comments{ list-style:none; margin:0px; padding:0px; border-bottom:1px solid #AAAAAA}
+ul.comments li{ border-top:1px solid #AAAAAA}
+#login fieldset{ width:140px; border:0px; padding-bottom:20px; background:url(/images/shadowAlpha.png) no-repeat bottom right}
+.button{ border-style:outset; border-color:#FF2782; width:130px}
+#login a{ font-size:0.8em}
+#login legend{ color:#FF2782}
+#login label{ font-size:0.8em}
+#login input{ width:130px}
+ul.plans_display{ padding:0; margin-top:0; list-style:none}
+li.plan{ float:left; display:block; padding:10px; margin:10px; width:300px}
+li.plan div.details{ background:url(/images/shadowAlpha.png) no-repeat bottom right; padding-left:10px; padding-right:10px; padding-bottom:20px}
+li.plan div.action{ margin-top:10px; margin-left:70px}
+ul.plans_display ul{ list-style:none}
+ul.plans_display h3{ font-size:1.1em}
+img.button{ border-style:outset; border-color:#FF2782; width:130px}
+#plan_questions{ font-size:0.8em}
+#new_user input{ width:250px}
+#new_user h5{ color:#2093A8}
+#user_subdomain{ width:150px}
+span.subdomain{ margin-left:20px}
+span.subdomain input{ margin:0px}
+#new_user p{ color:#AAAAAA}
+#new_user fieldset fieldset{ margin-top:10px; border:none; background:url(/images/shadowAlpha.png) no-repeat bottom right}
+#new_user legend{ color:#2093A8; font-size:1.2em}
+#new_user fieldset fieldset legend{ font-size:1em; color:#FF2782}
+#new_user input.button{ width:130px; margin-top:20px; margin-left:547px; margin-bottom:10px}
+fieldset{ border:1px #AAAAAA solid}
+legend{ color:#FF2782}
+div.fieldWithErrors {margin:0px}
+div.fieldWithErrors label {color:#ee1d24}
+div.fieldWithErrors input, div.fieldWithErrors select, div.fieldWithErrors textarea {border:5px solid #ee1d24; background-color:#FF8282}
+div#errorExplanation {}
+div#errorExplanation h2 {}
+div#errorExplanation p {}
+div#errorExplanation ul {}
+div#errorExplanation ul li {}
+span.errorMessage{ padding-left:2px; font-size:0.8em; color:red; font-style:italic}
+ul.questions{ list-style:none; padding:0px; margin:0px}
+h3.question a{ color:#FF2782; text-decoration:none}
+div.answer a{ font-size:0.8em}
+#tabs{ list-style:none; padding:8px; padding-bottom:10px; background:url(/images/tab_background.png)}
+#tabs li{ display:inline; margin-right:20px; padding:8px}
+#tabs li.active{ border-bottom:1px solid #AAAAAA}
+#tabs li.active a{ color:#FF2782; font-size:1em}
+#tabs li a{ color:#AAAAAA; font-size:0.8em; text-decoration:none; margin-bottom:10px}
+#tabs li a:hover{ color:#2093A8}
+#menu{ padding:0px}
+#content{ margin-top:-40px}
+#features{ list-style:none; margin:0px; padding:0px}
+fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea, fieldset.new_style select{ display:inline; float:none; width:640px; margin-left:20px; font-size:1.2em}
+fieldset.new_style label{ font-size:0.8em}
+fieldset fieldset legend{ font-size:1em}
+input.medium{ width:200px}
+fieldset fieldset p{ font-size:0.8em}
+fieldset.new_style input{ margin-bottom:20px}
+fieldset.new_style img{ margin-left:20px; margin-bottom:10px}
+fieldset.new_style input[type=radio]{ margin-top:10px; width:15px}
+#remember_me{ width:20px; padding-left:0px; margin-left:0px}
+div#errorExplanation {border:1px solid red; padding:10px; margin-bottom:10px}
+div#errorExplanation h2 {color:red}
+div#errorExplanation p {color:red}
+span.errorMessage{ font-size:0.8em; color:red; font-style:italic}
+div#flash-notice {border-top:2px solid #14401A; border-bottom:2px solid #14401A; color:#14401A; background-color:#85FF97; padding-top:5px; padding-bottom:5px; text-align:center}
+div#flash-warning {border-top:2px solid #7E8700; border-bottom:2px solid #7E8700; background-color:#FFFC57; color:#7E8700; padding-top:5px; padding-bottom:5px; text-align:center}
+div#flash-error {border-top:2px solid #B20C00; border-bottom:2px solid #B20C00; background-color:#FF7A70; color:#B20C00; padding-top:5px; padding-bottom:5px; text-align:center}
+.ui-accordion {.ui-tabs-nav {.ui-slider {.ui-dialog {body .ui-resizable-autohide .ui-resizable-handle {display: none}
+.ui-resizable-n {cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0px}
+.ui-resizable-s {cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0px}
+.ui-resizable-e {cursor: e-resize; width: 7px; right: -5px; top: 0px; height: 100%}
+.ui-resizable-w {cursor: w-resize; width: 7px; left: -5px; top: 0px; height: 100%}
+.ui-resizable-se {cursor: se-resize; width: 13px; height: 13px; right: 0px; bottom: 0px; background: url(images/222222_11x11_icon_resize_se.gif) no-repeat 0 0}
+.ui-resizable-sw {cursor: sw-resize; width: 9px; height: 9px; left: 0px; bottom: 0px}
+.ui-resizable-nw {cursor: nw-resize; width: 9px; height: 9px; left: 0px; top: 0px}
+.ui-resizable-ne {cursor: ne-resize; width: 9px; height: 9px; right: 0px; top: 0px}
+.ui-dialog-titlebar {.ui-dialog.ui-draggable .ui-dialog-titlebar, .ui-dialog.ui-draggable .ui-dialog-titlebar {cursor: move}
+.ui-datepicker-div, .ui-datepicker-inline, #ui-datepicker-div {display: none}
+.ui-datepicker-inline {float: left; display: block}
+.ui-datepicker-control {display: none}
+.ui-datepicker-current {display: none}
+.ui-datepicker-next, .ui-datepicker-prev {position: absolute; left: .5em; top: .5em; background: #e6e6e6 url(images/e6e6e6_40x100_textures_02_glass_75.png) 0 50% repeat-x}
+.ui-datepicker-next {left: 14.6em}
+.ui-datepicker-next:hover, .ui-datepicker-prev:hover {background: #f0f0f0 url(images/f0f0f0_40x100_textures_02_glass_75.png) 0 50% repeat-x}
+.ui-datepicker-next a, .ui-datepicker-prev a {text-indent: -999999px; width: 1.3em; height: 1.4em; display: block; font-size: 1em; background: url(images/888888_7x7_arrow_left.gif) 50% 50% no-repeat; border: 1px solid #d3d3d3; cursor: pointer}
+.ui-datepicker-next a {background: url(images/888888_7x7_arrow_right.gif) 50% 50% no-repeat}
+.ui-datepicker-prev a:hover {background: url(images/454545_7x7_arrow_left.gif) 50% 50% no-repeat}
+.ui-datepicker-next a:hover {background: url(images/454545_7x7_arrow_right.gif) 50% 50% no-repeat}
+.ui-datepicker-prev a:active {background: url(images/454545_7x7_arrow_left.gif) 50% 50% no-repeat}
+.ui-datepicker-next a:active {background: url(images/454545_7x7_arrow_right.gif) 50% 50% no-repeat}
+.ui-datepicker-header select {border: 1px solid #d3d3d3; color: #2093A8; background: #e6e6e6; font-size: 1em; line-height: 1.4em; position: absolute; top: .5em; margin: 0 !important}
+.ui-datepicker-header option:focus, .ui-datepicker-header option:hover {background: #f0f0f0}
+.ui-datepicker-header select.ui-datepicker-new-month {width: 7em; left: 2.2em}
+.ui-datepicker-header select.ui-datepicker-new-year {width: 5em; left: 9.4em}
+table.ui-datepicker {width: 15.5em; text-align: right}
+table.ui-datepicker td a {padding: .1em .3em .1em 0; display: block; color: #2093A8; background: #e6e6e6 url(images/e6e6e6_40x100_textures_02_glass_75.png) 0 50% repeat-x; cursor: pointer; border: 1px solid #ffffff}
+table.ui-datepicker td a:hover {border: 1px solid #FF2782; color: #FF2782; background: #f0f0f0 url(images/f0f0f0_40x100_textures_02_glass_75.png) 0 50% repeat-x}
+table.ui-datepicker td a:active {border: 1px solid #aaaaaa; color: #FF2782; background: #ffffff url(images/ffffff_40x100_textures_02_glass_65.png) 0 50% repeat-x}
+table.ui-datepicker .ui-datepicker-title-row td {padding: .3em 0; text-align: center; font-size: .9em; color: #222222; text-transform: uppercase}
+table.ui-datepicker .ui-datepicker-title-row td a {color: #222222}
+.ui-datepicker-cover {display: none; display.ui-component {.ui-component-content {border: 1px solid #aaaaaa; background: #ffffff url(images/ffffff_40x100_textures_01_flat_75.png) 0 0 repeat-x; color: #222222}
+.ui-component-content a {color: #222222; text-decoration: underline}
+.ui-default-state {border: 1px solid #d3d3d3; background: #e6e6e6 url(images/e6e6e6_40x100_textures_02_glass_75.png) 0 50% repeat-x; font-weight: normal; color: #2093A8 !important}
+.ui-default-state a {color: #2093A8}
+.ui-default-state:hover, .ui-hover-state {border: 1px solid #FF2782; background: #f0f0f0 url(images/f0f0f0_40x100_textures_02_glass_75.png) 0 50% repeat-x; font-weight: normal; color: #FF2782 !important}
+.ui-hover-state a {color: #FF2782}
+.ui-default-state:active, .ui-active-state {border: 1px solid #aaaaaa; background: #ffffff url(images/ffffff_40x100_textures_02_glass_65.png) 0 50% repeat-x; font-weight: normal; color: #FF2782 !important; outline: none}
+.ui-active-state a {color: #FF2782; outline: none}
+.ui-arrow-right-default {background: url(images/888888_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.ui-arrow-right-default:hover, .ui-arrow-right-hover {background: url(images/454545_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.ui-arrow-right-default:active, .ui-arrow-right-active {background: url(images/454545_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.ui-arrow-right-content {background: url(images/222222_7x7_arrow_right.gif) no-repeat 50% 50%;}
+.ui-arrow-left-default {background: url(images/888888_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.ui-arrow-left-default:hover, .ui-arrow-left-hover {background: url(images/454545_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.ui-arrow-left-default:active, .ui-arrow-left-active {background: url(images/454545_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.ui-arrow-left-content {background: url(images/222222_7x7_arrow_left.gif) no-repeat 50% 50%;}
+.ui-arrow-down-default {background: url(images/888888_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.ui-arrow-down-default:hover, .ui-arrow-down-hover {background: url(images/454545_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.ui-arrow-down-default:active, .ui-arrow-down-active {background: url(images/454545_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.ui-arrow-down-content {background: url(images/222222_7x7_arrow_down.gif) no-repeat 50% 50%;}
+.ui-arrow-up-default {background: url(images/888888_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.ui-arrow-up-default:hover, .ui-arrow-up-hover {background: url(images/454545_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.ui-arrow-up-default:active, .ui-arrow-up-active {background: url(images/454545_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.ui-arrow-up-content {background: url(images/222222_7x7_arrow_up.gif) no-repeat 50% 50%;}
+.ui-close-default {background: url(images/888888_11x11_icon_close.gif) no-repeat 50% 50%;}
+.ui-close-default:hover, .ui-close-hover {background: url(images/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
+.ui-close-default:active, .ui-close-active {background: url(images/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
+.ui-close-content {background: url(images/454545_11x11_icon_close.gif) no-repeat 50% 50%;}
+.ui-folder-closed-default {background: url(images/888888_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.ui-folder-closed-default:hover, .ui-folder-closed-hover {background: url(images/454545_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.ui-folder-closed-default:active, .ui-folder-closed-active {background: url(images/454545_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.ui-folder-closed-content {background: url(images/888888_11x11_icon_folder_closed.gif) no-repeat 50% 50%;}
+.ui-folder-open-default {background: url(images/888888_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.ui-folder-open-default:hover, .ui-folder-open-hover {background: url(images/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.ui-folder-open-default:active, .ui-folder-open-active {background: url(images/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.ui-folder-open-content {background: url(images/454545_11x11_icon_folder_open.gif) no-repeat 50% 50%;}
+.ui-doc-default {background: url(images/888888_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.ui-doc-default:hover, .ui-doc-hover {background: url(images/454545_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.ui-doc-default:active, .ui-doc-active {background: url(images/454545_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.ui-doc-content {background: url(images/222222_11x11_icon_doc.gif) no-repeat 50% 50%;}
+.ui-arrows-leftright-default {background: url(images/888888_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.ui-arrows-leftright-default:hover, .ui-arrows-leftright-hover {background: url(images/454545_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.ui-arrows-leftright-default:active, .ui-arrows-leftright-active {background: url(images/454545_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.ui-arrows-leftright-content {background: url(images/222222_11x11_icon_arrows_leftright.gif) no-repeat 50% 50%;}
+.ui-arrows-updown-default {background: url(images/888888_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.ui-arrows-updown-default:hover, .ui-arrows-updown-hover {background: url(images/454545_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.ui-arrows-updown-default:active, .ui-arrows-updown-active {background: url(images/454545_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.ui-arrows-updown-content {background: url(images/222222_11x11_icon_arrows_updown.gif) no-repeat 50% 50%;}
+.ui-minus-default {background: url(images/888888_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.ui-minus-default:hover, .ui-minus-hover {background: url(images/454545_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.ui-minus-default:active, .ui-minus-active {background: url(images/454545_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.ui-minus-content {background: url(images/222222_11x11_icon_minus.gif) no-repeat 50% 50%;}
+.ui-plus-default {background: url(images/888888_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.ui-plus-default:hover, .ui-plus-hover {background: url(images/454545_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.ui-plus-default:active, .ui-plus-active {background: url(images/454545_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.ui-plus-content {background: url(images/222222_11x11_icon_plus.gif) no-repeat 50% 50%;}
+.ui-hidden {display: none;.ui-reset {.ui-clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden}
+.ui-clearfix {display: inline-block;}
+* html .ui-clearfix {height: 1%;}
+.ui-clearfix {display: block;}

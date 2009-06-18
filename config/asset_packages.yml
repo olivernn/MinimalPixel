@@ -1,12 +1,33 @@
 --- 
 javascripts: 
-- base: 
-  - prototype
-  - effects
-  - dragdrop
-  - controls
+- app: 
+  - jquery
+  - iColorPicker
+  - jquery.sifr.min
+  - jquery.media
+  - 1jquery.flash
+  - jquery.dwFadingLinks
+  - superfish
+  - ufo
+  - jquery.delay
+  - jquery.tableDnD
+  - jquery.simplemodal
   - application
-stylesheets: 
-- base:
+- promo:
+  - jquery
+  - jquery.delay
+  - promotional
+stylesheets:
+- app:
   - base
+  - layout
+  - common
+  - superfish-vertical
+  - basic
+- promo:
+  - layout
+  - promotional
+  - forms
+  - flash
+  - promotional_theme
 

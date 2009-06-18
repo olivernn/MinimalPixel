@@ -1,0 +1,95 @@
+div#flash-notice {border-top:2px solid #14401A; border-bottom:2px solid #14401A; color:#14401A; background-color:#85FF97; padding-top:5px; padding-bottom:5px; text-align:center}
+div#flash-warning {border-top:2px solid #7E8700; border-bottom:2px solid #7E8700; background-color:#FFFC57; color:#7E8700; padding-top:5px; padding-bottom:5px; text-align:center}
+div#flash-error {border-top:2px solid #B20C00; border-bottom:2px solid #B20C00; background-color:#FF7A70; color:#B20C00; padding-top:5px; padding-bottom:5px; text-align:center}
+div#errorExplanation {}
+div#errorExplanation h2 {}
+div#errorExplanation p {}
+div#errorExplanation ul {}
+div#errorExplanation ul li {}
+span.errorMessage{ font-size:0.8em; color:red; font-style:italic}
+#main_menu{ padding:0px; margin-top:20px; list-style:none}
+#main_menu li{ padding-bottom:5px}
+#main_menu ul li{ padding-bottom:2px}
+#main_menu ul{ list-style:none}
+.edit_style input[type=radio]{ margin-top:10px; margin-left:1px; width:15px}
+#style_font_id{ margin-top:10px; width:200px}
+ul.style_form{ list-style:none; margin:0px; padding:0px; padding-top:10px}
+ul.style_form li{ display:inline}
+.style_desc{ padding:5px; margin:0px; font-size:0.8em}
+#style_heading_colour{ width:100px; margin-right:10px}
+#profile{ margin-top:15px}
+#profile_attributes{ padding:0; margin:0; list-style:none; font-size:0.7em}
+#sub_section #pages ul{ padding:0; margin:0; margin-top:10px; list-style:none; font-size:0.7em}
+.project_title{ margin-left:10px; margin-right:10px}
+#gallery{ list-style:none; padding:0; margin:0; float:left}
+.project_status{ font-size:0.6em; margin-bottom:10px}
+#item_index{ float:left; width:180px; height:600px; padding:0px}
+#item_view{ margin:10px; width:500px; float:right}
+ul.items{ list-style:none; padding:0px; margin:0px; width:140px}
+ul.items li{ display:inline}
+table{ padding:5px; font-size:0.9em; line-height:1.4em}
+th{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; font-size:1.1em; font-weight:normal; text-align:left; padding-left:5px; padding-right:5px}
+td{ padding-left:5px; padding-right:5px}
+caption{ font-style:italic; font-size:0.85em; text-align:left}
+legend{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; font-size:1.4em; font-weight:normal}
+fieldset label{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; text-align:right; width:75px; padding-right:20px}
+fieldset label, fieldset input, fieldset textarea, fieldset select{ display:block; width:250px; float:left; margin-bottom:10px}
+#font_fieldset input[type=radio]{ margin-left:275px; width:15px}
+fieldset select{ width:81px; margin-right:5px}
+form input, form textarea, form select{ font-size:1.2em}
+textarea{ height:150px}
+form br{ clear:left}
+div.fieldWithErrors {margin:0px}
+div.fieldWithErrors label {color:#ee1d24}
+div.fieldWithErrors input, div.fieldWithErrors select, div.fieldWithErrors textarea {border:5px solid #ee1d24; background-color:#FF8282}
+fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea, fieldset.new_style select{ display:inline; float:none; width:640px; margin-left:20px}
+fieldset.new_style label{ font-size:0.8em}
+fieldset fieldset legend{ font-size:1em}
+input.medium{ width:200px}
+fieldset fieldset p{ font-size:0.8em}
+fieldset.new_style input{ margin-bottom:20px}
+fieldset.new_style img{ margin-left:20px; margin-bottom:10px}
+fieldset.new_style input[type=radio]{ margin-top:10px; width:15px}
+#remember_me{ width:20px; padding-left:0px; margin-left:0px}
+#items_carosel{ margin-top:10px}
+#carousel{ border:1px solid; padding-left:15px; width:125px}
+#carousel_list{ list-style:none; padding:0px; margin-right:auto; margin-left:auto}
+#carousel_list li{ padding-top:10px; padding-bottom:10px}
+#carousel_controls{ margin-right:auto; margin-left:auto}
+#carousel_holder{ float:left; margin:25px; margin-right:50px; margin-left:0px; height:650px}
+a.carousel{ color:#646464}
+a.carousel img{ border:5px solid #f0f0f0; border-bottom:15px solid #f0f0f0}
+ul.plans_display{ padding:0; margin-top:0; list-style:none}
+li.plan{ float:left; display:block; padding:10px; margin:10px; width:300px}
+li.plan div.details{ border:1px solid #f0f0f0; padding-left:10px; padding-right:10px; padding-bottom:10px; min-height:500px}
+li.plan div.action{ margin-top:10px; margin-left:100px}
+ul.plans_display ul{ list-style:none}
+ul.plans_display h3{ font-size:1.1em}
+#flash_player{ width:500px; height:400px}
+.get_started{ display:none; color:black; padding:25px}
+.help_link{ color:blue}
+body{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; width:1050px; margin-right:auto; margin-left:auto}
+#container{ margin-right:22px; margin-left:22px}
+#header h1{ font-size:3em}
+a.tag{ float:right; margin-top:80px; margin-right:105px}
+#header, #menu, #content, #sub_section, #footer{ overflow:hidden; display:inline-block; margin:5px}
+#header, #menu, #footer{ width:958px}
+#menu{ float:left; width:720px; margin-top:-21px}
+#content{ float:left; width:720px; padding:10px 10px 10px 10px}
+#sub_section{ padding-left:25px; width:180px; height:600px}
+#footer{ clear:left; font-size:0.7em; text-indent:10px}
+.project_image{ margin-top:10px; padding-top:100px}
+h2.project{ margin:5px; margin-left:10px; margin-right:10px; padding:2px}
+h2.project a{ text-decoration:none}
+.sf-vertical, .sf-vertical li {width: 10em}
+.sf-vertical li:hover ul, .sf-vertical li.sfHover ul {left: 10em; top: 0}
+.sf-vertical .sf-sub-indicator {background-position: -10px 0}
+.sf-vertical a > .sf-sub-indicator {background-position: 0 0}
+.sf-vertical a:focus > .sf-sub-indicator, .sf-vertical a:hover > .sf-sub-indicator, .sf-vertical a:active > .sf-sub-indicator, .sf-vertical li:hover > a > .sf-sub-indicator, .sf-vertical li.sfHover > a > .sf-sub-indicator {background-position: -10px 0}
+#simplemodal-overlay {background-color:#000; cursor:wait;}
+#lightbox-container {height:600px;width:600px;background-color:#fff; border:3px solid #ccc;}
+#lightbox-container a.modalCloseImg {background:url(/images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-18px; cursor:pointer;}
+#lightbox-container #basicModalContent {padding:8px;}
+#simplemodal-container {background:url(/images/post_it.png) no-repeat bottom right; background-color:#fff17b; border:3px solid #ccc;}
+#simplemodal-container a.modalCloseImg {background:url(/images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-18px; cursor:pointer;}
+#simplemodal-container #basicModalContent {padding:8px;}

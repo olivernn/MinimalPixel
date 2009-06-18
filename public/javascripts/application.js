@@ -139,17 +139,6 @@ $(document).ready(function(){
 	});
 })
 
-//this loads the corousel for the items on the project page
-$(window).load(function(){
-	$("#carousel").jCarouselLite({
-      btnNext: "#carousel-prev",
-      btnPrev: "#carousel-next",
-			speed:   1000,
-			vertical: true,
-			visible: 3
-  });
-})
-
 //making the items on the items index page sortable
 //also adds the callback to persist the order in the db
 $().ready(function() {
@@ -201,27 +190,3 @@ $(document).ready(function () {
 		$('#basicModalContent').modal();
 	});
 });
-
-// *********** JQUERY UI ************ \\
-$(document).ready(function(){
-	$('#project_date, #image_date').datepicker();
-});
-
-// $(document).ready(function(){
-// 	$('.get_started').dialog({
-// 		title: 'Getting Started',
-// 		width: '350px',
-// 		height: '250px',
-// 		buttons: { "Ok": function() { $(this).dialog("close"); } },
-// 		show: 'blind'
-// 	});
-// });
-
-$(document).ready(function(){
-	$("#accordion").accordion({
-		autoHeight: false,
-		header: 'h3',
-		icons: { 'header': 'ui-icon-plus', 'headerSelected': 'ui-icon-minus' },
-		effect: 'bounce'
-	});
-})
