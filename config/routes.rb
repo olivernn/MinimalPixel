@@ -50,7 +50,7 @@ ActionController::Routing::Routes.draw do |map|
   map.blog_root '', :controller => 'articles', :action => 'index', :subdomain => 'blog', :conditions => { :subdomain => /blog/ }
   
   # map subdomains to the projects controller
-  map.projects_root '', :controller => 'projects', :action => 'index', :conditions => { :subdomain => /.+/}
+  map.projects_root '', :controller => 'projects', :action => 'index', :conditions => { :subdomain => /www+|.+/}
   
   # static page re-writes
   map.root :controller => 'static', :action => 'welcome'
