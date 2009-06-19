@@ -14,5 +14,10 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @style %> |
-<%= link_to 'Back', styles_path %>
+<%= link_to 'Back', projects_path %>
+
+<script>$(document).ready(function(){
+	$('#iColorPicker').click(function(){
+		$('.iColorPicker').change();
+	});
+})</script>

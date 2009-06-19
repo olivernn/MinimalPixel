@@ -15,9 +15,18 @@ body{
 }
 
 a.tag{
-	float:right;
+/*	float:right;
 	margin-top:80px;
-	margin-right:105px;
+	margin-right:105px;*/
+	
+	position:relative;
+	top:100px;
+	left:780px;
+}
+
+a.tag img{
+	padding:10px;
+	color:white;
 }
 
 #header, #menu, #content, #sub_section, #footer{
