@@ -2,7 +2,6 @@
 javascripts: 
 - app: 
   - jquery
-  - iColorPicker
   - jquery.sifr.min
   - jquery.media
   - 1jquery.flash
