@@ -1,4 +1,4 @@
-<%= meta_title(@item.name) %>
+<%= title(@item.name + " - " + @project.name + " - " + current_subdomain_user.name + " - MinimalPixel") %>
 <%= meta_description(@item.description) %>
 
 <%= render_item(@item, @project) %>

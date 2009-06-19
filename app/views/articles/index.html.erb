@@ -1,3 +1,5 @@
+<%= title("Blog - MinimalPixel") %>
+
 <% for article in @articles %>
 	<h1><%= link_to article.title, article_path(article) %></h1>
 	<p class="datetime"><%= article.date %></p>
