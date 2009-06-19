@@ -11,12 +11,12 @@ class StylesController < ApplicationController
   # GET /styles.css
   def index
     @style = @user.style
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @style }
-      format.js   # show.js.erb
-      format.css  # show.css.erb
+    
+    if stale?(:last_modified => @style.updated_at.utc, :etag => @style)
+      respond_to do |format|
+        format.js   # show.js.erb
+        format.css  # show.css.erb
+      end
     end
   end
 
