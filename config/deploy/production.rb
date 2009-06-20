@@ -67,6 +67,7 @@ namespace :deploy do
     desc "Create symlink to shared folder"
     task :create_symlink do
       run "ln -nfs #{shared_path}/sources #{release_path}/public/system/sources"
+      run "ln -nfs #{shared_path}/fonts #{release_path}/public/fonts"
     end
   end
   
