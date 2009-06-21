@@ -34,7 +34,7 @@ class Video < Item
   # paperclip validations, these break the rspec tests
   validates_attachment_presence :source 
   #validates_attachment_content_type :source, :content_type => 'video/quicktime' # only allowing quicktime videos to be uploaded
-  validates_attachment_size :source, :less_than => 20.megabytes
+  validates_attachment_size :source, :less_than => 16.megabytes
   
   def queue_conversion
     ProcessorWorker.async_video_processor(:video_id => self.id)
