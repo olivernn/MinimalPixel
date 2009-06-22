@@ -24,7 +24,7 @@ describe Project do
     @project.should_not be_valid
   end
   
-  it "should be invalid with a name longer than 30 characters" do
+  it "should be invalid with a name longer than 20 characters" do
     @project.attributes = @valid_attributes.except(:name)
     @project.name = "This is a really reall long name, far longer than the 30 characters allowed"
     @project.should_not be_valid

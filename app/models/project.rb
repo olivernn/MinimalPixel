@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   
   # validation statements
   validates_presence_of :name
-  validates_length_of :name, :maximum => 30
+  validates_length_of :name, :maximum => 20
   validates_date :date, :allow_nil => true
   
   # state machine modelling
