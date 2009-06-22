@@ -45,10 +45,6 @@ class GlobalController < ActionController::Base
   end
   
   def current_subdomain_user
-    begin
-      @user ||= User.find_by_subdomain(current_subdomain)
-    rescue ActiveRecord::RecordNotFound
-      redirect_to root_url :subdomain => false
-    end
+    @user ||= User.find_by_subdomain!(current_subdomain)
   end
 end

@@ -9,9 +9,11 @@ class ApplicationController < GlobalController
   end
   
   def user_required
-    unless current_subdomain_user
+    begin
+      current_subdomain_user # this method will raise an exception if the current subdomain user can't be found
+    rescue ActiveRecord::RecordNotFound
       flash[:error] = "Couldn't find the user #{current_subdomain}"
-      redirect_to root_url
+      redirect_to root_url(:subdomain => false)
     end
   end
   
@@ -19,7 +21,7 @@ class ApplicationController < GlobalController
     begin
       @profile ||= current_subdomain_user.profile
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_url
+      redirect_to root_url(:subdomain => false)
     end
   end
   
