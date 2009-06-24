@@ -29,10 +29,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_one :plan, :through => :account, :source => :plan
   has_one :account
-  has_one :profile
-  has_one :style
-  has_many :projects
-  has_many :pages
+  has_one :profile, :dependent => :destroy
+  has_one :style, :dependent => :destroy
+  has_many :projects, :dependent => :destroy
+  has_many :pages, :dependent => :destroy
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
