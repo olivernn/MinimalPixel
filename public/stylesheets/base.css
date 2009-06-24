@@ -171,6 +171,13 @@ ul.items li{
 	display:inline;
 }
 
+#project_description{
+	margin-top:20px;
+	font-size:0.8em;
+	margin-right:20px;
+	text-align:justify;
+}
+
 #breadcrumbs{
 	font-size:0.6em;
 	margin-bottom:10px;
