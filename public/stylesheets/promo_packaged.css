@@ -16,6 +16,7 @@ a.tag img{ padding:10px; color:white}
 #container{ color:#303030}
 #signup{ margin-top:50px; margin-left:2px; width:144px; padding:10px; text-align:center; background:url(/images/shadowAlpha.png) no-repeat bottom right}
 #signup img{ border-style:outset; border-color:#FF2782; margin-left:2px; width:130px}
+#signup img:hover{ border-style:inset}
 #content{ padding-left:5px; margin-left:0px}
 h1 a{ color:#FF2782; text-decoration:none}
 h1, h3, h5{ color:#FF2782}
@@ -26,6 +27,7 @@ ul.comments{ list-style:none; margin:0px; padding:0px; border-bottom:1px solid #
 ul.comments li{ border-top:1px solid #AAAAAA}
 #login fieldset{ width:140px; border:0px; padding-bottom:20px; background:url(/images/shadowAlpha.png) no-repeat bottom right}
 .button{ border-style:outset; border-color:#FF2782; width:130px}
+.button:hover{ border-style:inset}
 #login a{ font-size:0.8em}
 #login legend{ color:#FF2782}
 #login label{ font-size:0.8em}
@@ -62,11 +64,11 @@ span.errorMessage{ padding-left:2px; font-size:0.8em; color:red; font-style:ital
 ul.questions{ list-style:none; padding:0px; margin:0px}
 h3.question a{ color:#FF2782; text-decoration:none}
 div.answer a{ font-size:0.8em}
-#tabs{ list-style:none; padding:8px; padding-bottom:10px; background:url(/images/tab_background.png)}
+#tabs{ list-style:none; padding:8px; padding-bottom:10px; background:url(/images/tab_background.png); clear:both}
 #tabs li{ display:inline; margin-right:20px; padding:8px}
 #tabs li.active{ border-bottom:1px solid #AAAAAA}
 #tabs li.active a{ color:#FF2782; font-size:1em}
-#tabs li a{ color:#AAAAAA; font-size:0.8em; text-decoration:none; margin-bottom:10px}
+#tabs li a{ color:#AAAAAA; font-size:0.8em; text-decoration:none; margin-bottom:10px; padding-top:20px}
 #tabs li a:hover{ color:#2093A8}
 #menu{ padding:0px}
 #content{ margin-top:-40px}

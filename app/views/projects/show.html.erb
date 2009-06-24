@@ -1,7 +1,6 @@
 <%= title(@project.name + " - " + current_subdomain_user.name + " - MinimalPixel") %>
 <%= meta_description(@project.description) %>
 
-
 <div id="item_index">
 	<h2><%=h @project.name %></h2>
 	<% if logged_in? %>

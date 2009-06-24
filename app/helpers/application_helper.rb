@@ -126,4 +126,12 @@ module ApplicationHelper
   def display_brand_tag(style)
       link_to image_tag("/images/#{style.theme.name.downcase}_tag.png"), root_path(:subdomain => false), :class => 'tag'
   end
+  
+  def breadcrumbs
+    @item = @items.first if @items
+    s = [ link_to(current_subdomain.titleize, projects_root_path(:subdomain => current_subdomain)) ]
+    s << link_to(@project.name, project_path(@project, :subdomain => current_subdomain)) if @project
+    s << link_to(@item.name, project_item_path(@project, @item, :subdomain => current_subdomain)) if @item
+    s.join(' &gt ')
+  end
 end

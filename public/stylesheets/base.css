@@ -170,17 +170,11 @@ ul.items{
 ul.items li{
 	display:inline;
 }
-/*.get_started{
-	border:1px solid;
-	margin-top:50px;
-	padding:10px;
-	width:40%;
-	margin-left:200px;
-}
 
-.get_started p{
-	text-align:center;
-}*/
+#breadcrumbs{
+	font-size:0.6em;
+	margin-bottom:10px;
+}
 
 /* === TABLES === */
 table{
