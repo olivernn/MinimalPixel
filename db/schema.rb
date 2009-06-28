@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090528165330) do
+ActiveRecord::Schema.define(:version => 20090628172730) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(:version => 20090528165330) do
     t.datetime "updated_at"
     t.string   "profile_id"
   end
+
+  add_index "accounts", ["plan_id"], :name => "index_accounts_on_plan_id"
+  add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
 
   create_table "articles", :force => true do |t|
     t.string   "title",      :null => false
@@ -68,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20090528165330) do
 
   add_index "items", ["position"], :name => "index_items_on_position"
   add_index "items", ["project_id"], :name => "index_items_on_project_id"
+  add_index "items", ["status"], :name => "index_items_on_status"
   add_index "items", ["type"], :name => "index_items_on_type"
 
   create_table "open_id_authentication_associations", :force => true do |t|
@@ -186,6 +190,8 @@ ActiveRecord::Schema.define(:version => 20090528165330) do
     t.text     "palette",           :null => false
   end
 
+  add_index "styles", ["font_id"], :name => "index_styles_on_font_id"
+  add_index "styles", ["theme_id"], :name => "index_styles_on_theme_id"
   add_index "styles", ["user_id"], :name => "index_styles_on_user_id"
 
   create_table "themes", :force => true do |t|
@@ -229,5 +235,6 @@ ActiveRecord::Schema.define(:version => 20090528165330) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+  add_index "users", ["subdomain"], :name => "index_users_on_subdomain"
 
 end

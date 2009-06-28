@@ -152,6 +152,7 @@ ul.style_form li{
 	width:180px;
 	height:600px;
 	padding:0px;
+	margin-top:-12px;
 }
 
 #item_view{
@@ -175,7 +176,6 @@ ul.items li{
 	margin-top:20px;
 	font-size:0.8em;
 	margin-right:20px;
-	text-align:justify;
 }
 
 #breadcrumbs{
