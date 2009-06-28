@@ -20,5 +20,8 @@ class StyleSweeper < ActionController::Caching::Sweeper
   def expire_style_cache(style)
     expire_fragment :controller => :styles, :action => :index, :format => :js
     expire_fragment :controller => :styles, :action => :index, :format => :css
+    
+    # need to also sweep the item js show action as the item title doesn't pick-up the new styles
+    expire_fragment(%r{/items/})
   end
 end

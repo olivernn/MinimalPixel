@@ -39,3 +39,8 @@ ActionMailer::Base.smtp_settings = {:address => "smtp.gmail.com",
 :authentication => :plain,
 :user_name => "notifications@minimalpixel.net",
 :password => 'begflas555'}
+
+config.after_initialize do
+  # Setting up Workling to talk to the Starling message server
+  Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
+end

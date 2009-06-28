@@ -22,12 +22,14 @@ class ItemSweeper < ActionController::Caching::Sweeper
     # expire all the formats for item controllers show action, the expire_action method
     # seems to ignore the format part of the action cache
     # expire_action :controller => :item, :action => :show, :id => item 
-    expire_fragment(%r{/items/show/#{item.to_param}})
+    # expire_fragment(%r{/items/show/#{item.to_param}})
+    expire_action :controller => :items, :action => :show, :id => item, :format => :js
+    expire_action :controller => :items, :action => :show, :id => item
     
     # expire the projects show action, need to do this explicitly because of the 
     # name in filename of the cache which is not available to the item
     # expire_action :controller => :projects, :action => :show, :id => item.project_id
-    expire_fragment(%r{/projects/show/#{item.project_id}-})
+    expire_fragment(%r{/projects/#{item.project_id}-})
     
     # we can rely on the built in expire_action methods for the index pages
     expire_action :controller => :projects, :action => :index
