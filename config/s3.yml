@@ -2,3 +2,8 @@ development:
   access_key_id:04RHXNYRBGG51PZEZ702
   secret_access_key:uv3BXC9d83OSnVr8NeuT6X751bCZ2nXCOXnIui81
   bucket_name: iportfolio_hosted_development
+  
+production:
+  access_key_id:04RHXNYRBGG51PZEZ702
+  secret_access_key:uv3BXC9d83OSnVr8NeuT6X751bCZ2nXCOXnIui81
+  bucket_name: minimalpixel

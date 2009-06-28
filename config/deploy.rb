@@ -35,3 +35,17 @@ namespace :db do
     remote_db_cleanup
   end
 end
+
+task :pictures do
+  filename = "pictures_backup_#{Time.now.to_s.gsub(/ /, "_")}.tar.gz"
+  
+  server_filename = "/home/admin/tmp/#{filename}"
+  local_filename = "/Users/Oliver/Documents/rails_projects/LondonFlatmate.net/picture_backups/#{filename}"
+  
+  on_rollback { run "rm #{server_filename}"}
+  
+  run "tar -zcvf #{server_filename} /home/admin/public_html/londonflatmate.net/current/public/pictures/"
+  
+  get server_filename, local_filename
+  sudo "rm #{server_filename}"
+end
