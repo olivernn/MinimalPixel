@@ -155,6 +155,10 @@ ul.style_form li{
 	margin-top:-12px;
 }
 
+#item_index h2{
+	position:relative;
+}
+
 #item_view{
 	margin:10px;
 	width:500px;

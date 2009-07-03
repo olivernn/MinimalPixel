@@ -24,6 +24,7 @@ ul.style_form li{ display:inline}
 #gallery{ list-style:none; padding:0; margin:0; float:left}
 .project_status{ font-size:0.6em; margin-bottom:10px}
 #item_index{ float:left; width:180px; height:600px; padding:0px; margin-top:-12px}
+#item_index h2{ position:relative}
 #item_view{ margin:10px; width:500px; float:right}
 ul.items{ list-style:none; padding:0px; margin:0px; width:140px}
 ul.items li{ display:inline}

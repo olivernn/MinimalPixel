@@ -108,7 +108,7 @@ end
 namespace :starling do
   desc "Start Starling"
   task :start do
-    run "starling -d -p #{starling_port}"
+    run "starling -d -q ##{shared_path}/log/ -P #{shared_path}/pids/starling.pid -p #{starling_port}"
   end
 end
 

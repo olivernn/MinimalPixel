@@ -1,9 +1,8 @@
 <div id='breadcrumbs'>
 	<%= breadcrumbs %>
 </div>
-
-<%= ready_image(image) %>
 <h1><%=h image.name %></h1>
+<%= ready_image(image) %>
 <p class="project_description"><%=h image.description %></p>
 
 <% if logged_in? && image.ready? %>
