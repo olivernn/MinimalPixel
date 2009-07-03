@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  before_filter :user_role_required, :only => [:edit, :update, :upgrade, :destroy]
   before_filter :user_required, :login_required
   
   # GET /accounts/1

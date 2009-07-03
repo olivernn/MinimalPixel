@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :user_required
   before_filter :login_required, :only => [:edit, :update, :destroy]
+  before_filter :user_role_required, :only => [:destroy]
   
   caches_action :index, :show, :if => Proc.new{ |controller| controller.send(:do_caching?) }
   cache_sweeper :project_sweeper, :only => [:update, :destroy]

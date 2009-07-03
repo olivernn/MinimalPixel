@@ -32,5 +32,12 @@ class ApplicationController < GlobalController
       redirect_to projects_url
     end
   end
+  
+  def user_role_required
+    unless current_subdomain_user.has_role?(:user)
+      flash[:warning] = "Insufficient Authority"
+      redirect_to projects_url
+    end
+  end
 end
 

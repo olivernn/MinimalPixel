@@ -1,5 +1,6 @@
 class DraftArticlesController < PromotionalController
-  
+  require_role :admin
+    
   def index
     @articles = Article.draft
   end

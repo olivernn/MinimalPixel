@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   # filters
   before_filter :user_required, :load_project
   before_filter :login_required, :only => [:destroy, :index, :sort]
+  before_filter :user_role_required, :only => [:destroy]
   
   # caching
   caches_action :show, :if => Proc.new {|controller| controller.send(:do_caching?) }

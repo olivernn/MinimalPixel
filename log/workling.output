@@ -433,3 +433,44 @@ cleanup_timer: Previous SIG_ALRM handler not initialized!:
 	from /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/daemons-1.0.9/lib/daemons.rb:135:in `run'
 	from script/workling_client:17
 ** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
