@@ -1,3 +1,7 @@
+body{
+	font-family:Helvetica;
+}
+
 /* === FLASH MESSAGES === */
 div#flash-notice {
 	border-top:2px solid #14401A;

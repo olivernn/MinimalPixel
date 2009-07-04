@@ -9,10 +9,11 @@ a.tag img{ padding:10px; color:white}
 #content{ float:left; width:720px; padding:10px 10px 10px 10px}
 #sub_section{ padding-left:25px; width:180px; height:700px}
 #footer{ clear:left; font-size:0.7em; text-indent:10px}
-#header h1{ font-size:5em; font-family:Arial; text-transform:uppercase; text-align:left; font-weight:bolder; color:#303030; margin-top:10px; margin-bottom:0px}
+body{ font-family:Helvetica}
+#header h1{ font-size:5em; font-family:Helvetica; text-align:left; font-weight:900; color:#303030; margin-top:10px; margin-bottom:0px}
 #header p{ margin-top:0px; color:#AAAAAA}
 #header{ border-bottom:1px solid #AAAAAA; float:left; width:720px}
-#header .logo{ float:right; margin-right:40px; margin-top:25px}
+#header .logo{ float:right; margin-right:10px; margin-top:15px}
 #container{ color:#303030}
 #demo{ margin-top:50px; margin-left:2px; width:144px; padding:10px; text-align:center; background:url(/images/shadowAlpha.png) no-repeat bottom right}
 #signup{ margin-top:50px; margin-left:2px; width:144px; padding:10px; text-align:center; background:url(/images/shadowAlpha.png) no-repeat bottom right}
@@ -20,8 +21,8 @@ a.tag img{ padding:10px; color:white}
 #signup img:hover{ border-style:inset}
 #content{ padding-left:5px; margin-left:0px}
 h1 a{ color:#FF2782; text-decoration:none}
-h1, h3, h5{ color:#FF2782}
-h2, h4{ color:#2093A8}
+h1, h3, h5{ color:#FF2782; font-family:helvetica}
+h2, h4{ font-family:helvetica; color:#2093A8}
 a{ color:#2093A8}
 p.datetime{ margin:0px; padding:0px; color:#AAAAAA; font-size:0.6em}
 ul.comments{ list-style:none; margin:0px; padding:0px; border-bottom:1px solid #AAAAAA}
@@ -68,7 +69,7 @@ div.answer a{ font-size:0.8em}
 #tabs{ list-style:none; padding:8px; padding-bottom:10px; background:url(/images/tab_background.png); clear:both}
 #tabs li{ display:inline; margin-right:20px; padding:8px}
 #tabs li.active{ border-bottom:1px solid #AAAAAA}
-#tabs li.active a{ color:#FF2782; font-size:1em}
+#tabs li.active a{ color:#FF2782; font-size:1em; font-weight:700}
 #tabs li a{ color:#AAAAAA; font-size:0.8em; text-decoration:none; margin-bottom:10px; padding-top:20px}
 #tabs li a:hover{ color:#2093A8}
 #menu{ padding:0px}

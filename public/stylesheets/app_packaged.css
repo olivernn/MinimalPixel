@@ -1,3 +1,4 @@
+body{ font-family:Helvetica}
 div#flash-notice {border-top:2px solid #14401A; border-bottom:2px solid #14401A; color:#14401A; background-color:#85FF97; padding-top:5px; padding-bottom:5px; text-align:center}
 div#flash-warning {border-top:2px solid #7E8700; border-bottom:2px solid #7E8700; background-color:#FFFC57; color:#7E8700; padding-top:5px; padding-bottom:5px; text-align:center}
 div#flash-error {border-top:2px solid #B20C00; border-bottom:2px solid #B20C00; background-color:#FF7A70; color:#B20C00; padding-top:5px; padding-bottom:5px; text-align:center}
