@@ -4,7 +4,12 @@
 <div id="item_index">
 	<h2><%=h @project.name %></h2>
 	<% if logged_in? %>
-	  <p class="project_status"><%= @project.status.titlecase %> - <%= link_to 'Publish',  publish_draft_project_path(@project) %></p>
+	  <p class="project_status">
+			<%= @project.status.titlecase %>
+			<% if @project.draft? %>
+				- <%= link_to 'Publish',  publish_draft_project_path(@project) %>
+			<% end -%>
+		</p>
 	<% end %>
 	<ul class="items">
 		<% unless @items.empty? %>
