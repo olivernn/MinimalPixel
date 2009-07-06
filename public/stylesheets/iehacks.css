@@ -4,3 +4,14 @@
 #tabs{
 	zoom:1;
 }
+
+#menu,
+#content{
+	clear:both;
+}
+
+#tabs{
+	background:none;
+  margin-top:20px;
+	margin-left:-15px;
+}

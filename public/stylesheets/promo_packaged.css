@@ -66,7 +66,7 @@ span.errorMessage{ padding-left:2px; font-size:0.8em; color:red; font-style:ital
 ul.questions{ list-style:none; padding:0px; margin:0px}
 h3.question a{ color:#FF2782; text-decoration:none}
 div.answer a{ font-size:0.8em}
-#tabs{ list-style:none; padding:8px; padding-bottom:10px; background:url(/images/tab_background.png); clear:both}
+#tabs{ list-style:none; padding:8px; padding-bottom:10px; background:url(/images/tab_background.png)}
 #tabs li{ display:inline; margin-right:20px; padding:8px}
 #tabs li.active{ border-bottom:1px solid #AAAAAA}
 #tabs li.active a{ color:#FF2782; font-size:1em; font-weight:700}
