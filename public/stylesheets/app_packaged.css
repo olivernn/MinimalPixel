@@ -82,7 +82,7 @@ a.tag img{ padding:10px; color:white}
 #menu{ float:left; width:720px; margin-top:-21px}
 #content{ float:left; width:720px; padding:10px 10px 10px 10px}
 #sub_section{ padding-left:25px; width:180px; height:700px}
-#footer{ clear:left; font-size:0.7em; text-indent:10px}
+#footer{ clear:both; font-size:0.7em; text-indent:10px}
 .project_image{ margin-top:10px; padding-top:100px}
 h2.project{ margin:5px; margin-left:10px; margin-right:10px; padding:2px}
 h2.project a{ text-decoration:none}

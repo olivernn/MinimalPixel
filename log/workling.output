@@ -3380,3 +3380,9 @@ cleanup_timer: Previous SIG_ALRM handler not initialized!:
 cleanup_timer: Previous SIG_ALRM handler not initialized!: 
 cleanup_timer: Previous SIG_ALRM handler not initialized!: 
 cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting

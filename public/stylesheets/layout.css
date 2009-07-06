@@ -14,11 +14,7 @@ body{
 	font-size:3em;
 }
 
-a.tag{
-/*	float:right;
-	margin-top:80px;
-	margin-right:105px;*/
-	
+a.tag{	
 	position:relative;
 	top:100px;
 	left:780px;
@@ -42,7 +38,6 @@ a.tag img{
 
 #menu{
 	float:left;
-/*	width:726px;*/
 	width:720px;
 	margin-top:-21px;
 }
@@ -60,7 +55,7 @@ a.tag img{
 }
 
 #footer{
-	clear:left;
+	clear:both;
 	font-size:0.7em;
 	text-indent:10px;
 }
