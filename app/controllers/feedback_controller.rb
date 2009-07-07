@@ -15,7 +15,8 @@ class FeedbackController < PromotionalController
   
   def create
     @contact_form = ContactForm.new(params[:contact_form])
-    @contact_form.recipient = APP_CONFIG[:admin_email]
+    # @contact_form.recipient = APP_CONFIG[:admin_email]
+    @contact_form.recipient = "admin@minimalpixel.net"
     
     if @contact_form.valid?
       MailWorker.async_contact_us(:contact_form => @contact_form)

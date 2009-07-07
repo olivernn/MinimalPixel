@@ -33,8 +33,6 @@ role :db, domain, :primary => true
 
 set :scm, :git
 set :branch, 'master'
-# set :scm_user, 'bort'
-# set :scm_passphrase, "PASSWORD"
 set :repository, "git@github.com:olivernn/MinimalPixel.git"
 set :deploy_via, :copy
 set :runner, user
@@ -58,17 +56,6 @@ namespace :deploy do
     EOF
     
     put db_config, "#{release_path}/config/database.yml"
-
-    #########################################################
-    # Uncomment the following to symlink an uploads directory.
-    # Just change the paths to whatever you need.
-    #########################################################
-    
-    desc "Create symlink to shared folder"
-    task :create_symlink do
-      run "ln -nfs #{shared_path}/sources #{release_path}/public/system/sources"
-      run "ln -nfs #{shared_path}/fonts #{release_path}/public/fonts"
-    end
   end
   
   # Restart passenger on deploy
@@ -76,11 +63,18 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
   end
-  
-  [:start, :stop].each do |t|
-    desc "#{t} task is a no-op with mod_rails"
-    task t, :roles => :app do ; end
-  end  
+end
+
+namespace :symlink do
+  desc "Create symlink to shared folder for sources"
+  task :sources do
+    run "ln -nfs #{shared_path}/sources #{release_path}/public/system/sources"
+  end
+
+  desc "Create symlink to shared folder for fonts"
+  task :fonts do
+    run "ln -nfs #{shared_path}/fonts #{release_path}/public/fonts"
+  end
 end
 
 #############################################################
@@ -116,5 +110,5 @@ end
 #	callbacks
 #############################################################
 
-after :deploy, "deploy:cleanup"
-after :update_code, "workling:restart"
+after "deploy:restart", "deploy:cleanup", "workling:restart"
+after "deploy:symlink", "symlink:sources", "symlink:fonts"
