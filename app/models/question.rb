@@ -3,6 +3,8 @@ class Question < ActiveRecord::Base
   
   before_save :add_question_mark
   
+  acts_as_textiled :answer
+  
   def add_question_mark
     unless self.question.include?('?')
       self.question = self.question << "?"
