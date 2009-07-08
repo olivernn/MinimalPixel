@@ -5,6 +5,7 @@ doc/api
 doc/app
 coverage
 db/*.sqlite3
+db/production_data.sql
 public/system
 public/cache
 public/fonts
