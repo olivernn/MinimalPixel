@@ -9,7 +9,7 @@
 			<td><%= project.name %></td>
 	  	<td><%= link_to 'Show', project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
 	  	<td><%= link_to 'Edit', edit_project_path(project, :subdomain => current_subdomain_user.subdomain) %></td>
-			<td><%= link_to 'Publish', publish_draft_project_path(project, :subdomain => current_subdomain_user.subdomain), :method => :put %></td>
+			<td><%= publish_project_link(project) %></td>
 	  	<td><%= link_to 'Destroy', project_path(project, :subdomain => current_subdomain_user.subdomain), :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
 	<% end %>

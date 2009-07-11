@@ -134,4 +134,8 @@ module ApplicationHelper
     s << link_to(@item.name, project_item_path(@project, @item, :subdomain => current_subdomain)) if @item
     s.join(' &gt ')
   end
+  
+  def publish_project_link(project)
+    link_to('Publish Project', publish_draft_project_path(project), :method => :put) if project.status == 'draft' && !project.items.empty?
+  end
 end

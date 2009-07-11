@@ -7,7 +7,7 @@
 	  <p class="project_status">
 			<%= @project.status.titlecase %>
 			<% if @project.draft? %>
-				- <%= link_to 'Publish',  publish_draft_project_path(@project) %>
+				- <%= publish_project_link(@project) %>
 			<% end -%>
 		</p>
 	<% end %>
