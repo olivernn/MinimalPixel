@@ -99,4 +99,8 @@ describe Article do
     @article.save
     @article.to_param.should == "#{@article.id}-#{@article.title.parameterize.to_s}"
   end
+  
+  it "should have a active named_scrop on status ordered by created_at descending" do
+    Article.active.proxy_options.should == {:conditions => {:status => "active"}, :order => 'created_at DESC'}
+  end
 end

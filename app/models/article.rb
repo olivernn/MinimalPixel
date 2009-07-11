@@ -19,6 +19,8 @@ class Article < ActiveRecord::Base
     transitions :to => :active, :from => [:draft]
   end
   
+  named_scope :active,  :conditions => {:status => "active"}, :order => 'created_at DESC'
+  
   def create_permalink
     self.permalink = self.title.parameterize.to_s if self.title
   end
