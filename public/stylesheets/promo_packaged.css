@@ -75,6 +75,8 @@ div.answer a{ font-size:0.8em}
 #menu{ padding:0px}
 #content{ margin-top:-40px}
 #features{ list-style:none; margin:0px; padding:0px}
+#content img.float_right{ float:right; margin-left:30px; margin-bottom:30px; margin-top:30px}
+#content img.float_left{ float:left; margin-right:30px; margin-bottom:30px; margin-top:30px}
 fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea, fieldset.new_style select{ display:inline; float:none; width:640px; margin-left:20px; font-size:1.2em}
 fieldset.new_style label{ font-size:0.8em}
 fieldset fieldset legend{ font-size:1em}
