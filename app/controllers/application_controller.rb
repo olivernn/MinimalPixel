@@ -3,9 +3,16 @@ class ApplicationController < GlobalController
   
   protected
   
-  # only perform action caching if the user is not logged in and the flash is empty
+  # custom cache path, takes into account pagination, format and if this should be in the public or private cache
+  def cache_path   
+    path = [current_subdomain, params[:controller], params[:action], params[:id] ].compact.join("/")
+    {:format => request.format.to_s.split("/").last, :public => !authorized?, :page => params[:page] || 1}.each {|key, value| path << "?" +  key.to_s + "=" + value.to_s}
+    path
+  end
+  
+  # don't cache if there is a flash message to display
   def do_caching?
-    !logged_in? && flash.empty?
+    flash.empty?
   end
   
   def user_required

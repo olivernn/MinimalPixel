@@ -62,18 +62,4 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  private
-  
-  def cache_path
-    if authorized?
-      "/#{current_subdomain}/#{params[:controller]}/#{params[:action]}/user?page=#{params[:page]}?format=#{request.format.to_s.split("/").last}"
-    else
-      "/#{current_subdomain}/#{params[:controller]}/#{params[:action]}/public?page=#{params[:page]}?format=#{request.format.to_s.split("/").last}"
-    end
-  end
-  
-  def do_caching?
-    flash.empty?
-  end
 end
