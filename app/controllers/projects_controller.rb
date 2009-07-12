@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :login_required, :only => [:edit, :update, :destroy]
   before_filter :user_role_required, :only => [:destroy]
   
-  caches_action :index, :show, :if => Proc.new{ |controller| controller.send(:do_caching?) }
+  caches_action :index, :show, :if => :do_caching?.to_proc, :cache_path => :cache_path.to_proc
   cache_sweeper :project_sweeper, :only => [:update, :destroy]
   
   # GET /projects
@@ -61,5 +61,19 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(projects_url(:subdomain => @user.subdomain)) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def cache_path
+    if authorized?
+      "/#{current_subdomain}/#{params[:controller]}/#{params[:action]}/user?page=#{params[:page]}?format=#{request.format.to_s.split("/").last}"
+    else
+      "/#{current_subdomain}/#{params[:controller]}/#{params[:action]}/public?page=#{params[:page]}?format=#{request.format.to_s.split("/").last}"
+    end
+  end
+  
+  def do_caching?
+    flash.empty?
   end
 end
