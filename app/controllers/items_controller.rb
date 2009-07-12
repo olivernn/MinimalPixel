@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_filter :user_role_required, :only => [:destroy]
   
   # caching
-  caches_action :show, :if => Proc.new {|controller| controller.send(:do_caching?) }
+  caches_action :show, :if => :do_caching?.to_proc, :cache_path => :cache_path.to_proc
   cache_sweeper :item_sweeper, :only => [:destroy, :sort]
   
   public

@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :user_required
   before_filter :user_role_required, :only => [:edit, :update]
   
-  caches_action :show, :if => Proc.new {|controller| controller.send(:do_caching?) }
+  caches_action :show, :if => :do_caching?.to_proc, :cache_path => :cache_path.to_proc
   cache_sweeper :profile_sweeper, :only => [:update]
   
   # GET /profiles/1

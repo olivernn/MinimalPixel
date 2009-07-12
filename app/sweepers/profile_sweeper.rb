@@ -17,6 +17,7 @@ class ProfileSweeper < ActionController::Caching::Sweeper
   
   def expire_profile_cache(profile)
     # expire the entire cache since the changes to profile are displayed everywhere!
-    expire_fragment(%r{.})
+    # expire_fragment(%r{.})
+    expire_fragment(%r{#{profile.user.subdomain}/*})
   end
 end

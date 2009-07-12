@@ -17,6 +17,7 @@ class PageSweeper < ActionController::Caching::Sweeper
   
   def expire_page_cache(page)
     # expire the entire cache since the changes to page headings are displayed everywhere!
-    expire_fragment(%r{.})
+    # expire_fragment(%r{.})
+    expire_fragment(%r{#{page.user.subdomain}/*})
   end
 end

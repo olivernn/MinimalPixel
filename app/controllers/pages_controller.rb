@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   
   skip_filter :load_profile, :only => :validate
   
-  caches_action :show, :if => Proc.new {|controller| controller.send(:do_caching?) }
+  caches_action :index, :show, :if => :do_caching?.to_proc, :cache_path => :cache_path.to_proc
   cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
   
   # GET /pages/validate.js
