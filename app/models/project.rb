@@ -9,6 +9,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_length_of :name, :maximum => 20
   validates_date :date, :allow_nil => true
+  validate_on_create :project_limits
+  
   
   # state machine modelling
   include AASM
@@ -36,5 +38,11 @@ class Project < ActiveRecord::Base
   
   def to_param
     "#{self.id}-#{self.name.parameterize.to_s}"
+  end
+  
+  def project_limits
+    unless self.user.can_create_projects?
+      errors.add_to_base("You cannot add any more projects, upgrade plan or remove old projects.")
+    end
   end
 end
