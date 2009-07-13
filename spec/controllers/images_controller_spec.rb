@@ -15,7 +15,7 @@ describe ImagesController do
   end
   
   before(:each) do
-    controller.stub!(:load_profile).and_return(true)
+    # controller.stub!(:load_profile).and_return(true)
     mock_user.projects.stub!(:find).with("1").and_return(mock_project)
     # using 'test' as this is what the subdomain is when running the tests
     User.stub!(:find_by_subdomain).with("test").and_return(mock_user)
@@ -54,12 +54,24 @@ describe ImagesController do
   end
 
   describe "responding to GET new" do
-    it "should expose a new image as @image" do
-      mock_project.images.should_receive(:build).and_return(mock_image)
-      get :new, :project_id => "1"
-      assigns[:image].should equal(mock_image)
+    describe "with image limit not exceded" do
+      it "should expose a new image as @image" do
+        mock_user.should_receive(:can_add_images?).and_return(true)
+        mock_project.images.should_receive(:build).and_return(mock_image)
+        get :new, :project_id => "1"
+        assigns[:image].should equal(mock_image)
+      end
     end
-
+    
+    describe "with image limit exceded" do
+      it "should redirect to the project page and display a warning message" do
+        mock_user.should_receive(:can_add_images?).and_return(false)
+        mock_project.images.should_receive(:build).and_return(mock_image)
+        get :new, :project_id => "1"
+        response.should redirect_to(project_url(mock_project))
+        flash[:warning].should equal("You cannot add any more images, upgrade your plan or delete old images.")
+      end
+    end
   end
 
   describe "responding to GET edit" do

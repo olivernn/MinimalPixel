@@ -10,10 +10,16 @@ class VideosController < ApplicationController
   # GET /projects/:project_id/videos/new.xml
   def new
     @video = @project.videos.build
-
+    
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @video }
+      if @user.can_add_videos?
+        format.html # new.html.erb
+        format.xml  { render :xml => @video }
+      else
+        flash[:warning] = "You cannot add any more videos, upgrade plan or remove old videos."
+        format.html { redirect_to(project_url(@project, :subdomain => @user.subdomain)) }
+        format.xml  { render :xml => @video.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

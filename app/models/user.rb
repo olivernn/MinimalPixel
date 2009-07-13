@@ -92,6 +92,14 @@ class User < ActiveRecord::Base
   def can_create_projects?
     self.projects_available > 0
   end
+  
+  def can_add_images?
+    self.images_available > 0
+  end
+  
+  def can_add_videos?
+    self.videos_available > 0    
+  end
 
   protected
     

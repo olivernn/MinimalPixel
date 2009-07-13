@@ -337,7 +337,15 @@ describe User do
     user.can_create_projects?.should eql(true)
   end
   
-  it "should say how many images they can add"
+  it "should say how many images they can add" do
+    user = create_account_for_user
+    user.images_available.should eql(50)
+  end
+  
+  it "should say if it can add any more images" do
+    user = create_account_for_user
+    user.can_add_images.should eql(true)
+  end
   
   it "should say how many videos they can add"
 

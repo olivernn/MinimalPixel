@@ -10,10 +10,16 @@ class ImagesController < ApplicationController
   # GET /projects/:project_id/images/new.xml
   def new
     @image = @project.images.build
-
+    
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @image }
+      if @user.can_add_images?
+        format.html # new.html.erb
+        format.xml  { render :xml => @image }
+      else
+        flash[:warning] = "You cannot add any more images, upgrade plan or remove old images."
+        format.html { redirect_to(project_url(@project, :subdomain => @user.subdomain)) }
+        format.xml  { render :xml => @image.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
