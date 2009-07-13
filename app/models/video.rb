@@ -1,6 +1,9 @@
 require 'aasm'
 class Video < Item
   # state machine modelling
+  
+  validate_on_create :video_limits
+  
   include AASM
   aasm_column :status
   aasm_initial_state :pending
@@ -35,6 +38,12 @@ class Video < Item
   validates_attachment_presence :source 
   #validates_attachment_content_type :source, :content_type => 'video/quicktime' # only allowing quicktime videos to be uploaded
   validates_attachment_size :source, :less_than => 16.megabytes
+  
+  def video_limits
+    unless self.project.user.can_add_videos?
+      errors.add_to_base("You cannot add any more videos, upgrade plan or remove old videos.")
+    end
+  end
   
   def queue_conversion
     ProcessorWorker.async_video_processor(:video_id => self.id)
