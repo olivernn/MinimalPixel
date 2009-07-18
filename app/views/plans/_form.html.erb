@@ -16,11 +16,11 @@
 	<%= f.text_field :video_limit %><br/>
 	
 	<label for="plan_price">Price</label>
-	$<%= f.text_field :price, :disabled => true %><br/>
+	$<%= f.text_field :price %><br/>
 	
 	<label for="plan_price">Available</label>
 	<%= f.check_box :available %><br/>
 	
 	<label for="profile_date_of_birth">Payment Frequency</label>
-	<select name='plan[payment_frequency]' disabled='true'><%= options_for_select %w(Day Week Month Year) %></select><br/>
+	<select name='plan[payment_frequency]'><%= options_for_select %w(Day Week Month Year) %></select><br/>
 </fieldset>

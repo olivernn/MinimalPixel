@@ -54,6 +54,12 @@ describe Plan do
     @plan.should_not be_valid
   end
   
+  it "should be valid with availability set to false" do
+    @plan.attributes = @valid_attributes
+    @plan.available = false
+    @plan.should be_valid
+  end
+  
   it "should be invalid without a project limit" do
     @plan.attributes = @valid_attributes.except(:project_limit)
     @plan.should_not be_valid
