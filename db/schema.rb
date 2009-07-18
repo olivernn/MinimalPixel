@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090628172730) do
+ActiveRecord::Schema.define(:version => 20090718185742) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20090628172730) do
   end
 
   add_index "articles", ["permalink"], :name => "index_articles_on_permalink"
+  add_index "articles", ["status"], :name => "index_articles_on_status"
 
   create_table "comments", :force => true do |t|
     t.integer  "article_id",                           :null => false
@@ -121,6 +122,9 @@ ActiveRecord::Schema.define(:version => 20090628172730) do
     t.integer  "video_limit",       :null => false
     t.text     "description"
   end
+
+  add_index "plans", ["available"], :name => "index_plans_on_available"
+  add_index "plans", ["name"], :name => "index_plans_on_name"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id",            :null => false
