@@ -3,6 +3,7 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
-
-# allow for cross-submission sitemaps
-Sitemap: http://MinimalPixel.net/sitemap.xml
+#
+# allow for cross-site submission sitemaps
+Sitemap: http://minimalpixel.net/sitemap.xml
+Sitemap: http://www.minimalpixel.net/sitemap.xml

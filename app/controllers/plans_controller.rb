@@ -5,7 +5,7 @@ class PlansController < PromotionalController
   # GET /plans
   # GET /plans.xml
   def index
-    @plans = Plan.find(:all)
+    @plans = Plan.offerable
 
     respond_to do |format|
       format.html # index.html.erb
