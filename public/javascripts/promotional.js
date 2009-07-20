@@ -62,3 +62,11 @@ $(document).ready(function(){
 		return false;
 	})
 })
+
+$(document).ready(function(){
+	$(".feature_carousel").jCarouselLite({
+		btnNext: ".next",
+		btnPrev: ".prev",
+		visible: 1
+	});
+});

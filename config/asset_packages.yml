@@ -15,6 +15,7 @@ javascripts:
 - promo:
   - jquery
   - jquery.delay
+  - jquery.jcarousellite
   - promotional
 stylesheets:
 - app:
