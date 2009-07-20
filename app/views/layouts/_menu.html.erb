@@ -1,5 +1,5 @@
 <ul id="main_menu" class="sf-vertical">
-<% if logged_in? && current_subdomain_user == current_user %>
+<% if authorized? %>
 		<% unless @project.try(:id).nil? %>
 		<li><a class="top_level"><%= @project.name %></a>		
 			<ul>

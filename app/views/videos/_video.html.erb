@@ -6,7 +6,7 @@
 
 <p class="project_description"><%=h video.description %></p>
 
-<% if logged_in? %>
+<% if authorized? %>
   <%= link_to 'Edit', edit_project_video_path(project, video) %>
 <% end %>
 

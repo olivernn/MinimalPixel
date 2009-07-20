@@ -8,6 +8,14 @@ class ItemsController < ApplicationController
   caches_action :show, :if => :do_caching?.to_proc, :cache_path => :cache_path.to_proc
   cache_sweeper :item_sweeper, :only => [:destroy, :sort]
   
+  protected
+  
+  # override the do_caching? method so that there is no caching done when the user is logged in
+  # this prevents the 'processing' page being cached, see http://londonflatmate.lighthouseapp.com/projects/31657/tickets/30-item-processing-page
+  def do_caching?
+    !authorized? && flash.empty?
+  end
+  
   public
   
   # GET /projects/:project_id/items

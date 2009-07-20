@@ -28,7 +28,7 @@
 		<%= render_item(@items.first, @project) %>
 	</div>
 <% else %>
-	<% if logged_in? %>
+	<% if authorized? && @project.items.empty? %>
 		<div class="get_started">
 			<p>Get started with your project by adding images and videos</p>
 			<p><%= link_to 'Add an Image', new_project_image_path(@project) %>
