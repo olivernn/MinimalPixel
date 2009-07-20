@@ -73,8 +73,10 @@ $(document).ready(function(){
 })
 
 var forms = new Array(
-	   ".new_project input",
-	   ".new_project textarea",
+		 // ** removed this because not sure there is any benefit in live validation for the draft projects
+		 // ** also it was causing a problem with many errors.
+	   // ".new_project input",
+	   // ".new_project textarea",
 	   ".new_page input",
 	   ".new_page textarea",
 	   ".new_user input",

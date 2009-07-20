@@ -1,13 +1,13 @@
 class DraftProjectsController < ApplicationController
   skip_filter :load_profile, :only => :validate
-  before_filter :user_required, :login_required, :except => :validate
+  before_filter :user_required, :login_required #, :except => :validate
   
   caches_action :index, :if => :do_caching?.to_proc, :cache_path => :cache_path.to_proc
   cache_sweeper :project_sweeper, :only => [:create, :publish]
   
   # GET /draft_projects/validate.js
   def validate
-    @project = Project.new(params[:project])
+    @project = @user.projects.build(params[:project])
     @project.valid?
     respond_to do |format|
       format.js { render :json => {:model => 'project', :success => @project.valid?, :errors => @project.errors }}
