@@ -34,6 +34,10 @@ class ItemSweeper < ActionController::Caching::Sweeper
     # expire_fragment(%r{/projects/#{item.project_id}-})
     expire_fragment(%r{#{item.project.user.subdomain}/projects/show/#{item.project.to_param}*})
     
+    # check to see if this item belongs to a draft_project if so then we want to expire the draft project index page
+    if item.project.draft?
+      expire_fragment(%r{#{item.project.user.subdomain}/draft_projects/index*})
+    end
     # we can rely on the built in expire_action methods for the index pages
     expire_action :controller => :projects, :action => :index
     expire_action :controller => :draft_projects, :action => :index
