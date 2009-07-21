@@ -40,6 +40,16 @@
 				<li><%= link_to 'New Page', new_page_path(:subdomain => current_subdomain_user.subdomain) %></li>
 			</ul>
 		</li>
+		
+		<% if current_subdomain_user.admin? %>
+			<li><a class="top_level">Admin</a>
+				<ul>
+					<li><%= link_to 'Fonts', fonts_path %></li>
+					<li><%= link_to 'New Plan', new_plan_path(:subdomain => false) %></li>
+				</ul>
+			</li>
+		<% end -%>
+		
 <% else %>
 	<li><%= link_to 'Login', login_path %></li>
 <% end -%>
