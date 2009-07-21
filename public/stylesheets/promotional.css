@@ -89,7 +89,7 @@ a{
 	color:#2093A8;
 }
 
-/* === ARTICLE INDEX === */
+/* === ARTICLES === */
 p.datetime{
 	margin:0px;
 	padding:0px;
@@ -97,7 +97,6 @@ p.datetime{
 	font-size:0.6em;
 }
 
-/* === ARTICLE SHOW === */
 ul.comments{
 	list-style:none;
 	margin:0px;
