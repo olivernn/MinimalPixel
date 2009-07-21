@@ -14,10 +14,14 @@ body{
 	font-size:3em;
 }
 
-a.tag{	
-	position:relative;
+a.tag{
+	float:right;
+	margin-top:25px;
+	margin-right:25px;
+	
+/*	position:relative;
 	top:100px;
-	left:780px;
+	left:780px;*/
 }
 
 a.tag img{
