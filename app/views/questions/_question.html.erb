@@ -1,3 +1,5 @@
+<%= title(@question.question + " - MinimalPixel") %>
+
 <p><%= @question.answer %></p>
 
 <% if current_user && current_user.admin? %>
