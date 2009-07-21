@@ -19,6 +19,8 @@ ul.style_form li{ display:inline}
 .style_desc{ padding:5px; margin:0px; font-size:0.8em}
 #style_heading_colour{ width:100px; margin-right:10px}
 #profile{ margin-top:15px}
+.email_links{ margin-top:15px; padding:0; list-style:none; font-size:0.7em}
+.email_links li{ margin-bottom:5px}
 #profile_attributes{ padding:0; margin:0; list-style:none; font-size:0.7em}
 #sub_section #pages ul{ padding:0; margin:0; margin-top:10px; list-style:none; font-size:0.7em}
 .project_title{ margin-left:10px; margin-right:10px}
@@ -75,7 +77,7 @@ ul.plans_display h3{ font-size:1.1em}
 body{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; width:1050px; margin-right:auto; margin-left:auto}
 #container{ margin-right:22px; margin-left:22px}
 #header h1{ font-size:3em}
-a.tag{ position:relative; top:100px; left:780px}
+a.tag{ float:right; margin-top:25px; margin-right:25px}
 a.tag img{ padding:10px; color:white}
 #header, #menu, #content, #sub_section, #footer{ overflow:hidden; display:inline-block; margin:5px}
 #header, #menu, #footer{ width:958px}
