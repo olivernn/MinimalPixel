@@ -15,16 +15,17 @@ body{
 }
 
 a.tag{
-	float:right;
+/*	float:right;
 	margin-top:25px;
-	margin-right:25px;
+	margin-right:25px;*/
 	
-/*	position:relative;
-	top:100px;
-	left:780px;*/
+	position:absolute;
+	top:50px;
+	left:790px;
 }
 
 a.tag img{
+	border:none;
 	padding:10px;
 	color:white;
 }
