@@ -5,6 +5,8 @@ class PlansController < PromotionalController
   # GET /plans
   # GET /plans.xml
   def index
+    tab :plans
+    
     @plans = Plan.offerable
 
     respond_to do |format|
