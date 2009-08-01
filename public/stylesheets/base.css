@@ -203,6 +203,10 @@ ul.items li{
 	margin-bottom:10px;
 }
 
+.pagination{
+	margin-top:30px;
+}
+
 /* === TABLES === */
 table{
 	padding:5px;
