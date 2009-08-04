@@ -39,9 +39,8 @@
 				<%= yield :layout %>
 			</div>
 			<div id="sub_section">
-				<div id="signup">
-					<h2>Get your own free portfolio now!</h2>
-					<%= link_to image_tag('sign_up.png'), signup_path %>
+				<div id="login">
+					<%= render :partial => 'layouts/login' %>
 				</div>
 				
 				<div id="demo">
@@ -49,8 +48,9 @@
 					<%= render :partial => 'layouts/demo' %>
 				</div>
 				
-				<div id="login">
-					<%= render :partial => 'layouts/login' %>
+				<div id="signup">
+					<h2>Get your own free portfolio now!</h2>
+					<%= link_to image_tag('sign_up.png'), signup_path %>
 				</div>
 			</div>
 			<div id="footer">

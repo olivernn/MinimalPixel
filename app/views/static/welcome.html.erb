@@ -2,25 +2,26 @@
 
 <h1>Just look what you could do with a MinimalPixel portfolio:</h1>
 
-<ul id='features'>
-	<li><h2>Fully customize the look and design of your portfolio, no HTML knowledge needed!</h2></li>
-	<li><h2>Display your images and videos in high definition on a clean backdrop.</h2></li>
-	<li><h2>Easily manage your portfolio with intuitive uploading tools.</h2></li>
-	<li><h2>Get up and running in less than 60 seconds.</h2></li>
-</ul>
-
-<button class="prev">Previous</button>
-<button class="next">Next</button>
-
 <div class="feature_carousel">
 	<ul>
-		<li>
-			<h2>Fully customize the look and design of your portfolio, no HTML knowledge needed!</h2>
-			<div>This will hold the video</div>
+		<li class="feature">
+			<%= flv_player :file => '/videos/edit_styles.flv', :autostart => true, :showicons => false, :showdigits => false %>
+			<a href="#"><%= image_tag 'play_button.png', :class => 'show_video' %></a>
+			<div><h2>Fully customize the look and design of your portfolio</h2>
+			<p>No coding or technical know-how is needed to really make your portfolio yours with our simple customization tools.  See how in this video tutorial.</p>
+			<button class="prev">Previous</button>
+			<button class="next">Next</button>
+			</div>
 		</li>
-		<li>
+		<li class="feature">
+			<h2>Easily manage your portfolio with intuitive uploading tools.</h2>
+		</li>
+		<li class="feature">
 			<h2>Display your images and videos in high definition on a clean backdrop.</h2>
 			<div>This will hold the video</div>
+		</li>
+		<li class="feature">
+			<h2>Get up and running in less than 60 seconds.</h2>
 		</li>
 	</ul>
 </div>

@@ -70,3 +70,12 @@ $(document).ready(function(){
 		visible: 1
 	});
 });
+
+// displaying the video
+$(document).ready(function(){
+	$(".show_video").click(function(e){
+		$('#flash_player_container').css("display", "inline");
+		$('.show_video').css("display", "none");
+		e.preventDefault();
+	});
+});

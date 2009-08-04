@@ -376,3 +376,37 @@ div.answer a{
 	margin-bottom:30px;
 	margin-top:30px;
 }
+
+/*=== VIDEO PLAYER ===*/
+#flash_player{
+/*	width:400px;
+	height:320px;*/
+	float:right;
+	margin-top:20px;
+	margin-left:20px;
+}
+
+/* === FEATURE CAROUSEL === */
+li.feature{
+	width:720px;
+	height:340px;
+	border-top:1px solid #AAAAAA;
+	border-bottom:1px solid #AAAAAA;
+}
+
+li.feature div p{
+	line-height:30px;
+}
+
+#flash_player_container{
+	display:none;
+}
+
+.show_video{
+	float:right;
+	margin-top:20px;
+	margin-left:20px;
+	height:300px;
+	width:300px;
+	border:1px solid #AAAAAA;
+}

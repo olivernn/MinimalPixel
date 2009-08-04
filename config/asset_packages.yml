@@ -16,6 +16,7 @@ javascripts:
   - jquery
   - jquery.delay
   - jquery.jcarousellite
+  - ufo
   - promotional
 stylesheets:
 - app:
