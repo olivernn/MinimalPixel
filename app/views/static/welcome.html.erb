@@ -5,23 +5,47 @@
 <div class="feature_carousel">
 	<ul>
 		<li class="feature">
-			<%= flv_player :file => '/videos/edit_styles.flv', :autostart => true, :showicons => false, :showdigits => false %>
-			<a href="#"><%= image_tag 'play_button.png', :class => 'show_video' %></a>
-			<div><h2>Fully customize the look and design of your portfolio</h2>
-			<p>No coding or technical know-how is needed to really make your portfolio yours with our simple customization tools.  See how in this video tutorial.</p>
-			<button class="prev">Previous</button>
-			<button class="next">Next</button>
+			<%= flv_player({:file => '/videos/edit_styles.flv', :autostart => true, :showicons => false, :showdigits => false }, {:id => 'video_1'})%>
+			<a href="#"><%= image_tag 'play_button.png', :class => 'show_video_1' %></a>
+			<div>
+				<div class="feature_description">
+					<h2>Fully customize the look and design of your portfolio</h2>
+					<p>No coding or technical know-how is needed to really make your portfolio yours with our simple customization tools.  See how in this video tutorial.</p>
+				</div>
+				<p class="carousel_buttons">
+					<%= image_tag '/images/previous.png', :class => 'prev' %>
+					<%= image_tag '/images/next.png', :class => 'next' %>
+				</p>
 			</div>
 		</li>
 		<li class="feature">
-			<h2>Easily manage your portfolio with intuitive uploading tools.</h2>
+			<%= flv_player({:file => '/videos/upload_tools_v1.flv', :autostart => true, :showicons => false, :showdigits => false}, {:id => 'video_2'} )%>
+			<a href="#"><%= image_tag 'play_button.png', :class => 'show_video_2' %></a>
+			<div>
+				<div class="feature_description">
+					<h2>Easily manage your portfolio with intuitive uploading tools.</h2>
+					<p>Quickly get all your images and videos up on your portfolio site with our simple uploading tools.</p>
+				</div>
+				<p class="carousel_buttons">
+					<%= image_tag '/images/previous.png', :class => 'prev' %>
+					<%= image_tag '/images/next.png', :class => 'next' %>
+				</p>
+			</div>
 		</li>
 		<li class="feature">
 			<h2>Display your images and videos in high definition on a clean backdrop.</h2>
 			<div>This will hold the video</div>
+			<p class="carousel_buttons">
+				<%= image_tag '/images/previous.png', :class => 'prev' %>
+				<%= image_tag '/images/next.png', :class => 'next' %>
+			</p>
 		</li>
 		<li class="feature">
 			<h2>Get up and running in less than 60 seconds.</h2>
+			<p class="carousel_buttons">
+				<%= image_tag '/images/previous.png', :class => 'prev' %>
+				<%= image_tag '/images/next.png', :class => 'next' %>
+			</p>
 		</li>
 	</ul>
 </div>

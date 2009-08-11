@@ -73,9 +73,17 @@ $(document).ready(function(){
 
 // displaying the video
 $(document).ready(function(){
-	$(".show_video").click(function(e){
-		$('#flash_player_container').css("display", "inline");
-		$('.show_video').css("display", "none");
+	$(".show_video_1").click(function(e){
+		$('#video_1_container').css("display", "inline");
+		$('.show_video_1').css("display", "none");
+		e.preventDefault();
+	});
+});
+
+$(document).ready(function(){
+	$(".show_video_2").click(function(e){
+		$('#video_2_container').css("display", "inline");
+		$('.show_video_2').css("display", "none");
 		e.preventDefault();
 	});
 });

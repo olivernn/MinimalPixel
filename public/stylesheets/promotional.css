@@ -378,9 +378,10 @@ div.answer a{
 }
 
 /*=== VIDEO PLAYER ===*/
-#flash_player{
-/*	width:400px;
-	height:320px;*/
+#video_2,
+#video_1{
+	width:400px;
+	height:320px;
 	float:right;
 	margin-top:20px;
 	margin-left:20px;
@@ -389,24 +390,43 @@ div.answer a{
 /* === FEATURE CAROUSEL === */
 li.feature{
 	width:720px;
-	height:340px;
+	height:360px;
 	border-top:1px solid #AAAAAA;
 	border-bottom:1px solid #AAAAAA;
 }
 
 li.feature div p{
 	line-height:30px;
+	font-size:1.1em;
 }
 
-#flash_player_container{
+#flash_player_container,
+#video_1_container,
+#video_2_container{
 	display:none;
 }
 
-.show_video{
+.show_video_1,
+.show_video_2{
 	float:right;
 	margin-top:20px;
 	margin-left:20px;
-	height:300px;
-	width:300px;
+/*	height:300px;
+	width:300px;*/
 	border:1px solid #AAAAAA;
+}
+
+.carousel_buttons img{
+	border-style:outset;
+	border-color:#FF2782;
+/*	margin-top:85px;*/
+	width:130px;
+}
+
+.feature_description{
+	height:268px;
+}
+
+.carousel_buttons img.next{
+	margin-left:20px;
 }
