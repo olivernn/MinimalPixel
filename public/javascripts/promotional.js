@@ -107,6 +107,8 @@ function stop_videos(){
 	for (var x in player_ids) {
 		try{
 			document.getElementById(player_ids[x]).sendEvent("STOP");
+			$('#' + player_ids[x] + '_container').css("display", "none");
+			$('.show_' + player_ids[x]).css("display", "inline");
 		}catch(err){
 			null;
 		};
