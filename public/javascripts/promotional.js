@@ -105,7 +105,10 @@ $(document).ready(function(){
 function stop_videos(){
 	var player_ids = new Array('video_1', 'video_2');
 	for (var x in player_ids) {
-		
-		document.getElementById(player_ids[x]).sendEvent("STOP");
+		try{
+			document.getElementById(player_ids[x]).sendEvent("STOP");
+		}catch(err){
+			null;
+		};
 	};
 }
