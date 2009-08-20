@@ -34,8 +34,8 @@ Rails::Initializer.run do |config|
   config.gem "color"
   
   # These cause problems with irb. Left in for reference
-  config.gem 'rspec-rails', :lib => false, :version => '1.2.2'
-  config.gem 'rspec', :lib => false, :version => '1.2.2'
+  config.gem 'rspec-rails', :lib => false, :version => '1.2.7.1'
+  config.gem 'rspec', :lib => false, :version => '1.2.8'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

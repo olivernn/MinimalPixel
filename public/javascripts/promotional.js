@@ -63,6 +63,7 @@ $(document).ready(function(){
 	})
 })
 
+// feature carousel
 $(document).ready(function(){
 	$(".feature_carousel").jCarouselLite({
 		btnNext: ".next",
