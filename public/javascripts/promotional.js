@@ -68,7 +68,8 @@ $(document).ready(function(){
 	$(".feature_carousel").jCarouselLite({
 		btnNext: ".next",
 		btnPrev: ".prev",
-		visible: 1
+		visible: 1,
+		circular: false
 	});
 });
 
@@ -88,3 +89,23 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 });
+
+$(document).ready(function(){
+	$('.next').click(function(){
+		stop_videos();
+	})
+})
+
+$(document).ready(function(){
+	$('.prev').click(function(){
+		stop_videos();
+	})
+})
+
+function stop_videos(){
+	var player_ids = new Array('video_1', 'video_2');
+	for (var x in player_ids) {
+		
+		document.getElementById(player_ids[x]).sendEvent("STOP");
+	};
+}
