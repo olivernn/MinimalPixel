@@ -427,6 +427,10 @@ li.feature div p{
 	height:268px;
 }
 
+.feature_description h2{
+	line-height:1.6em;
+}
+
 .carousel_buttons img.next{
 	margin-left:20px;
 }
