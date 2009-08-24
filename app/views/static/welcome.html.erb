@@ -13,8 +13,7 @@
 					<p>No coding or technical know-how is needed to really make your portfolio yours with our simple customization tools.  See how in this video tutorial.</p>
 				</div>
 				<p class="carousel_buttons">
-					<%= image_tag '/images/previous.png', :class => 'prev' %>
-					<%= image_tag '/images/next.png', :class => 'next' %>
+					<%= image_tag '/images/next.png', :class => 'next', :id => 'first_next' %>
 				</p>
 			</div>
 		</li>
@@ -36,12 +35,12 @@
 			<%= flv_player({:file => '/videos/signup.flv', :autostart => true, :showicons => false, :showdigits => false}, {:id => 'video_3'} )%>
 			<a href="#"><%= image_tag 'play_button.png', :class => 'show_video_3' %></a>
 			<div class="feature_description">
-				<h2>Get up and running in less than 60 seconds.</h2>
-				<p>Simply choose an web address for your portfolio and </p>
+				<h2>Get your portfolio up and running in less than 60 seconds.</h2>
+				<p>Simply choose a web address for your portfolio and a username to log in with, what could be simpler.</p>
 			</div>
 			<p class="carousel_buttons">
 				<%= image_tag '/images/previous.png', :class => 'prev' %>
-				<%= link_to image_tag('sign_up.png'), signup_path %>
+				<%= link_to image_tag('sign_up.png'), signup_path, :class => 'signup' %>
 			</p>
 		</li>
 	</ul>

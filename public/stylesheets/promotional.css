@@ -379,7 +379,8 @@ div.answer a{
 
 /*=== VIDEO PLAYER ===*/
 #video_2,
-#video_1{
+#video_1,
+#video_3{
 	width:400px;
 	height:320px;
 	float:right;
@@ -413,8 +414,6 @@ li.feature div p{
 	float:right;
 	margin-top:20px;
 	margin-left:20px;
-/*	height:300px;
-	width:300px;*/
 	border:1px solid #AAAAAA;
 }
 
@@ -433,6 +432,14 @@ li.feature div p{
 	line-height:1.6em;
 }
 
+.carousel_buttons #first_next{
+	margin-left:150px;
+}
+
 .carousel_buttons img.next{
+	margin-left:20px;
+}
+
+.carousel_buttons .signup{
 	margin-left:20px;
 }
