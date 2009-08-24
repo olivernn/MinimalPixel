@@ -78,6 +78,17 @@ div.answer a{ font-size:0.8em}
 #features{ list-style:none; margin:0px; padding:0px}
 #content img.float_right{ float:right; margin-left:30px; margin-bottom:30px; margin-top:30px}
 #content img.float_left{ float:left; margin-right:30px; margin-bottom:30px; margin-top:30px}
+#video_2, #video_1, #video_3{ width:400px; height:320px; float:right; margin-top:20px; margin-left:20px}
+li.feature{ width:720px; height:360px; border-top:1px solid #AAAAAA; border-bottom:1px solid #AAAAAA}
+li.feature div p{ line-height:30px; font-size:1.1em}
+#flash_player_container, #video_1_container, #video_2_container, #video_3_container{ display:none}
+.show_video_1, .show_video_2, .show_video_3{ float:right; margin-top:20px; margin-left:20px; border:1px solid #AAAAAA}
+.carousel_buttons img{ border-style:outset; border-color:#FF2782; width:130px}
+.feature_description{ height:268px}
+.feature_description h2{ line-height:1.6em}
+.carousel_buttons #first_next{ margin-left:150px}
+.carousel_buttons img.next{ margin-left:20px}
+.carousel_buttons .signup{ margin-left:20px}
 fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea, fieldset.new_style select{ display:inline; float:none; width:640px; margin-left:20px; font-size:1.2em}
 fieldset.new_style label{ font-size:0.8em}
 fieldset fieldset legend{ font-size:1em}
