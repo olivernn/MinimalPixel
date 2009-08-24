@@ -91,6 +91,14 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+	$(".show_video_3").click(function(e){
+		$('#video_3_container').css("display", "inline");
+		$('.show_video_3').css("display", "none");
+		e.preventDefault();
+	});
+});
+
+$(document).ready(function(){
 	$('.next').click(function(){
 		stop_videos();
 	})
@@ -103,7 +111,7 @@ $(document).ready(function(){
 })
 
 function stop_videos(){
-	var player_ids = new Array('video_1', 'video_2');
+	var player_ids = new Array('video_1', 'video_2', 'video_3');
 	for (var x in player_ids) {
 		try{
 			document.getElementById(player_ids[x]).sendEvent("STOP");

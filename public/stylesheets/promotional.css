@@ -402,12 +402,14 @@ li.feature div p{
 
 #flash_player_container,
 #video_1_container,
-#video_2_container{
+#video_2_container,
+#video_3_container{
 	display:none;
 }
 
 .show_video_1,
-.show_video_2{
+.show_video_2,
+.show_video_3{
 	float:right;
 	margin-top:20px;
 	margin-left:20px;
