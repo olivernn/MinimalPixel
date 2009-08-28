@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090718185742) do
+ActiveRecord::Schema.define(:version => 20090828223058) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -236,6 +236,8 @@ ActiveRecord::Schema.define(:version => 20090718185742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "subdomain",                                                       :null => false
+    t.integer  "fb_user_id",                :limit => 8
+    t.string   "email_hash"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
