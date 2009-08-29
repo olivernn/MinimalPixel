@@ -14,7 +14,7 @@ module AuthenticatedSystem
     # Accesses the current user from the session.
     # Future calls avoid the database because nil is not equal to false.
     def current_user
-      @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
+      @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_fb) unless @current_user == false
     end
 
     # Store the given user id in the session.
@@ -109,7 +109,7 @@ module AuthenticatedSystem
     #
     # Login
     #
-
+    
     # Called from #current_user.  First attempt to login by the user id stored in the session.
     def login_from_session
       self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
@@ -119,6 +119,13 @@ module AuthenticatedSystem
     def login_from_basic_auth
       authenticate_with_http_basic do |login, password|
         self.current_user = User.authenticate(login, password)
+      end
+    end
+    
+    # called from #current_user. Now, attempt to login using facebook connect
+    def login_from_fb
+      if facebook_session
+        self.current_user = User.find_by_fb_user(facebook_session.user)
       end
     end
     
