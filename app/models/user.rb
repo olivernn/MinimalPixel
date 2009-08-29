@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
   
   # callbacks
   before_save :prepare_subdomain
+  after_create :register_user_to_fb
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
@@ -100,7 +101,43 @@ class User < ActiveRecord::Base
   def can_add_videos?
     self.videos_available > 0    
   end
-
+  
+  # --- FB CONNECT METHODS --- #
+  def self.find_by_fb_user(fb_user)
+    User.find_by_fb_user_id(fb_user.uid) || User.find_by_email_hash(fb_user.email_hashes)
+  end
+  
+  def self.create_from_fb_connect(fb_user)
+    new_facebooker = User.new(:name => fb_user.name, :login => fb_user.name, :password => "", :email => "", :subdomain => fb_user.name)
+    new_facebooker.fb_user_id = fb_user.uid.to_i
+    new_facebooker.save(false)
+    new_facebooker.register_user_to_fb
+  end
+  
+  def link_fb_connect(fb_user_id)
+    unless fb_user_id.nil?
+      existing_fb_user = User.find_by_fb_user_id(fb_user_id)
+      unless existing_fb_user.nil?
+        existing_fb_user.fb_user_id = nil
+        existing_fb_user.save(false)
+      end
+      self.fb_user_id = fb_user_id
+      save(false)
+    end
+  end
+  
+  def register_user_to_fb
+    users = {:email => email, :account_id => id}
+    Facebooker::User.register([users])
+    self.email_hash = Facebooker::User.hash_email(email)
+    save(false)
+  end
+  
+  def facebook_user?
+    return !fb_user_id.nil? && fb_user_id > 0
+  end
+  # --- FB CONNECT END --- #
+  
   protected
     
   def make_activation_code
