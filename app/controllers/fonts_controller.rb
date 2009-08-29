@@ -1,4 +1,4 @@
-class FontsController < ApplicationController
+class FontsController < MainController
   require_role :admin
   
   # GET /fonts

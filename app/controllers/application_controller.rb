@@ -1,53 +1,53 @@
-class ApplicationController < GlobalController
+class ApplicationController < ActionController::Base
+  # this is the top level controller, all other controllers will inherit from this one,
+  # either through ApplicationController OR PromotionalController
+  
+  # ApplicationController becomes the top level controller for the application controllers
+  # PromotinalController becomes the top level controller for the promotional site controllers
+  
   before_filter :set_facebook_session
   helper_method :facebook_session
   
-  before_filter :load_profile
+  include ExceptionNotifiable
+  include AuthenticatedSystem
+  include RoleRequirementSystem
+  
+  helper :all # include all helpers, all the time
+  filter_parameter_logging :password, :password_confirmation
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  helper_method :current_subdomain_user
+  #protect_from_forgery :secret => 'b0a876313f3f9195e9bd01473bc5cd06'
   
   protected
   
-  # custom cache path, takes into account pagination, format and if this should be in the public or private cache
-  def cache_path   
-    path = [current_subdomain, params[:controller], params[:action], params[:id] ].compact.join("/")
-    {:format => request.format.to_s.split("/").last, :public => !authorized?, :page => params[:page] || 1}.each {|key, value| path << "?" +  key.to_s + "=" + value.to_s}
-    path
+  def set_up_gateway
+    # these are the test credentials -- need changing before live.
+    ActiveMerchant::Billing::PaypalExpressRecurringGateway.new(
+      :login => 'oliver_1218302408_biz_api1.ntlworld.com',
+      :password => '95X5HJ8WG2SRBPB2',
+      :signature => 'AH1eOAAdxH9dz4bJ8jTBB9jd0rv7AUvGZZ3ZuXIXmV77iCPhPlGt9YM.')
   end
   
-  # don't cache if there is a flash message to display
-  def do_caching?
-    flash.empty?
+  def checkout(return_url, cancel_url)
+    @gateway ||= set_up_gateway
+    description = "subscription to minimal pixel"
+    response = @gateway.setup_agreement(:description => description, :return_url => return_url, :cancel_return_url => cancel_url)
+    redirect_to @gateway.redirect_url_for(response.token)
   end
   
-  def user_required
-    begin
-      current_subdomain_user # this method will raise an exception if the current subdomain user can't be found
-    rescue ActiveRecord::RecordNotFound
-      flash[:error] = "Couldn't find the user #{current_subdomain}"
-      redirect_to root_url(:subdomain => false)
-    end
+  # Automatically respond with 404 for ActiveRecord::RecordNotFound
+  def record_not_found
+    render :file => File.join(RAILS_ROOT, 'public', '404.html'), :status => 404
   end
   
-  def load_profile
-    begin
-      @profile ||= current_subdomain_user.profile
-    rescue ActiveRecord::RecordNotFound
-      redirect_to root_url(:subdomain => false)
-    end
+  def access_denied
+    store_location
+    logger.info "unauthorized access attempt from #{request.remote_ip}"
+    redirect_to login_path
+    false
   end
   
-  def load_project
-    begin
-      @project = @user.projects.find(params[:project_id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to projects_url
-    end
-  end
-  
-  def user_role_required
-    unless current_subdomain_user.has_role?(:user)
-      flash[:warning] = "Insufficient Authority"
-      redirect_to projects_url
-    end
+  def current_subdomain_user
+    @user ||= User.find_by_subdomain!(current_subdomain)
   end
 end
-

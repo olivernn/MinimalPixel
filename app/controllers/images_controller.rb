@@ -1,4 +1,4 @@
-class ImagesController < ApplicationController
+class ImagesController < MainController
   # filters
   before_filter :user_required, :load_project
   

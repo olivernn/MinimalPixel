@@ -1,4 +1,4 @@
-class StylesController < ApplicationController
+class StylesController < MainController
   before_filter :user_required
   before_filter :login_required, :except => :index
   

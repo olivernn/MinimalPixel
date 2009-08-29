@@ -1,4 +1,4 @@
-class AccountsController < ApplicationController
+class AccountsController < MainController
   before_filter :user_role_required, :only => [:edit, :update, :upgrade, :destroy]
   before_filter :user_required, :login_required
   

@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class VideosController < MainController
   # filters
   before_filter :user_required, :load_project
   

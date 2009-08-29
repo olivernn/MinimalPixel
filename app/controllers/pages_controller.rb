@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < MainController
   before_filter :user_required, :except => :validate
   before_filter :login_required, :except => [:validate, :show]
   before_filter :user_role_required, :only => [:destroy]

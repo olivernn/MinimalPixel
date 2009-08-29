@@ -1,4 +1,4 @@
-class ThemesController < ApplicationController
+class ThemesController < MainController
   require_role :admin
   
   # GET /themes

@@ -1,4 +1,4 @@
-class ContactController < ApplicationController
+class ContactController < MainController
   # need to make sure that validate doesn't touch the database
   skip_filter :load_profile, :only => :validate
   before_filter :user_required, :except => :validate

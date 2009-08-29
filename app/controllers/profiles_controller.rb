@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class ProfilesController < MainController
   before_filter :user_required
   before_filter :user_role_required, :only => [:edit, :update]
   

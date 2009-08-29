@@ -1,3 +1,3 @@
-class PromotionalController < GlobalController
+class PromotionalController < ApplicationController
   layout 'promotional'
 end

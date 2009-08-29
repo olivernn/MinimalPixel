@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class ItemsController < MainController
   # filters
   before_filter :user_required, :load_project
   before_filter :login_required, :only => [:destroy, :index, :sort]

@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < MainController
   before_filter :user_required
   before_filter :login_required, :only => [:edit, :update, :destroy]
   before_filter :user_role_required, :only => [:destroy]

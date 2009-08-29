@@ -1,4 +1,4 @@
-class DraftProjectsController < ApplicationController
+class DraftProjectsController < MainController
   skip_filter :load_profile, :only => :validate
   before_filter :user_required, :login_required #, :except => :validate
   
