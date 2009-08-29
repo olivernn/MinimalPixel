@@ -24,8 +24,6 @@ ActionController::Routing::Routes.draw do |map|
     plan.resources :users, :collection => {:validate => :get}
   end
   
-  map.resources :users, :collection => {:link_user_accounts => :get}
-  
   map.resources :projects do |project|
     project.resources :items, :collection => {:sort => :put}
     project.resources :images
@@ -47,6 +45,8 @@ ActionController::Routing::Routes.draw do |map|
     article.resources :comments
   end
   
+  map.link_user_accounts '/facebook/link_user_accounts', :controller => 'facebook', :action => 'link_user_accounts'
+  map.facebook_home '/facebook/home', :controller => 'facebook', :action => 'home'
   map.resources :questions
   map.resources :feedback, :collection => {:validate => :get}
   map.resources :draft_articles, :member => {:publish => :put}

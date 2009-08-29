@@ -1,6 +1,6 @@
 class UsersController < PromotionalController
   skip_before_filter :verify_authenticity_token, :only => [:create, :validate]
-  before_filter :load_plan, :except => [:complete, :validate]
+  before_filter :load_plan, :except => [:complete, :validate, :link_user_accounts]
   
   # GET /plans/:id/users/validate
   def validate
