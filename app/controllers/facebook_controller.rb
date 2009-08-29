@@ -9,8 +9,4 @@ class FacebookController < ApplicationController
     redirect_to(projects_root_path :subdomain => current_user.subdomain)
     flash[:notice] = "Logged in successfully"
   end
-  
-  def home
-
-  end
 end
