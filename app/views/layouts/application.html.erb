@@ -16,10 +16,11 @@
 		<!-- adding the generated stylesheets, this should probably be put into a helper -->
 		<%= user_stylesheet %>
 		<%= user_font %>
+		
 	</head>
 	<body>
 		<%= fb_connect_javascript_tag %>
-		<%= init_fb_connect "XFBML" %>
+		<%= init_fb_connect 'XFBML' %>
 		<div id="container">
 			<div id="header">
 					<%= display_brand_tag(current_subdomain_user.style) %>
