@@ -34,4 +34,8 @@ class Plan < ActiveRecord::Base
      :auto_bill_outstanding => false,
      :start_date => Time.now}
   end
+  
+  def self.for_facebook
+    find_by_facebook_default(true)
+  end
 end

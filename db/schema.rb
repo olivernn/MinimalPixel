@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090828223058) do
+ActiveRecord::Schema.define(:version => 20090829130910) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id",           :null => false
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20090828223058) do
     t.integer  "image_limit",       :null => false
     t.integer  "video_limit",       :null => false
     t.text     "description"
+    t.boolean  "facebook_default"
   end
 
   add_index "plans", ["available"], :name => "index_plans_on_available"

@@ -21,6 +21,9 @@
 	<label for="plan_price">Available</label>
 	<%= f.check_box :available %><br/>
 	
+	<label for="plan_price">Facebook Default</label>
+	<%= f.check_box :facebook_default %><br/>
+	
 	<label for="profile_date_of_birth">Payment Frequency</label>
 	<select name='plan[payment_frequency]'><%= options_for_select %w(Day Week Month Year) %></select><br/>
 </fieldset>
