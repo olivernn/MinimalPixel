@@ -24,6 +24,8 @@ ActionController::Routing::Routes.draw do |map|
     plan.resources :users, :collection => {:validate => :get}
   end
   
+  map.resources :users, :collection => {:link_user_accounts => :get}
+  
   map.resources :projects do |project|
     project.resources :items, :collection => {:sort => :put}
     project.resources :images

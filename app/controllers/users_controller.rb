@@ -120,4 +120,14 @@ class UsersController < PromotionalController
     flash[:error] = message
     render :action => :new
   end
+  
+  # --- FB CONNECT --- #
+  def link_user_accounts
+    if self.current_user.nil?
+      User.create_from_fb_connect(facebook_session.user)
+    else
+      self.current_user.link_fb_connect(facebook_session.user.id) unless self.current_user.fb_user_id == facebook_session.user.id
+    end
+    redirect_to root_path
+  end
 end
