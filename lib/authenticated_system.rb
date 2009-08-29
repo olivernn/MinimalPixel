@@ -6,10 +6,6 @@ module AuthenticatedSystem
     def logged_in?
       !!current_user
     end
-    
-    # def logged_in?
-    #   current_subdomain_user.subdomain == current_subdomain if current_subdomain_user
-    # end
 
     # Accesses the current user from the session.
     # Future calls avoid the database because nil is not equal to false.
@@ -153,6 +149,7 @@ module AuthenticatedSystem
       @current_user = false     # not logged in, and don't do it for me
       kill_remember_cookie!     # Kill client-side auth cookie
       session[:user_id] = nil   # keeps the session but kill our variable
+      session[:facebook_session] = nil    # logs out the facebook session
       # explicitly kill any other session variables you set
     end
 

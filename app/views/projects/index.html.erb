@@ -9,7 +9,7 @@
 		</div>
 	<% end %>
 <% else %>
-	<% if logged_in? && current_subdomain_user == current_user %>
+	<% if authorized? %>
 		<div class="get_started">
 			<p>Get started with your portfolio by <%= link_to 'adding', new_draft_project_path, :class => 'help_link' %> a new project.</p>
 			
