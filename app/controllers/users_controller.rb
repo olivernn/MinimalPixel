@@ -124,7 +124,13 @@ class UsersController < PromotionalController
   # --- FB CONNECT --- #
   def link_user_accounts
     if self.current_user.nil?
-      User.create_from_fb_connect(facebook_session.user)
+      plan = Plan.for_facebook
+      user = User.create_from_fb_connect(facebook_session.user)
+      plan.users << user
+      if plan.free?
+        user.account.activate!
+        user.activate!
+      end
     else
       self.current_user.link_fb_connect(facebook_session.user.id) unless self.current_user.fb_user_id == facebook_session.user.id
     end

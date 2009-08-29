@@ -112,6 +112,7 @@ class User < ActiveRecord::Base
     new_facebooker.fb_user_id = fb_user.uid.to_i
     new_facebooker.save(false)
     new_facebooker.register_user_to_fb
+    new_facebooker
   end
   
   def link_fb_connect(fb_user_id)

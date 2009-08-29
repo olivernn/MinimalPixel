@@ -46,7 +46,6 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.link_user_accounts '/facebook/link_user_accounts', :controller => 'facebook', :action => 'link_user_accounts'
-  map.facebook_home '/facebook/home', :controller => 'facebook', :action => 'home'
   map.resources :questions
   map.resources :feedback, :collection => {:validate => :get}
   map.resources :draft_articles, :member => {:publish => :put}
