@@ -4675,3 +4675,22 @@ Press [q] to stop encoding
 frame=    1 fps=  0 q=6.8 Lsize=      32kB time=1.00 bitrate= 262.4kbits/s    
 video:32kB audio:0kB global headers:0kB muxing overhead 0.000000%
 ** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
