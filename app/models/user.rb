@@ -108,9 +108,15 @@ class User < ActiveRecord::Base
   end
   
   def self.create_from_fb_connect(fb_user)
-    new_facebooker = User.new(:name => fb_user.name, :login => fb_user.name, :password => "", :email => "", :subdomain => fb_user.name)
+    new_facebooker = User.new(:name => fb_user.name,
+                              :login => fb_user.first_name,
+                              :password => fb_user.last_name,
+                              :password_confirmation => fb_user.last_name,
+                              :email => fb_user.proxied_email, 
+                              :subdomain => fb_user.name)
+                              
     new_facebooker.fb_user_id = fb_user.uid.to_i
-    new_facebooker.save(false)
+    new_facebooker.save
     new_facebooker.register_user_to_fb
     new_facebooker
   end
@@ -120,7 +126,7 @@ class User < ActiveRecord::Base
       existing_fb_user = User.find_by_fb_user_id(fb_user_id)
       unless existing_fb_user.nil?
         existing_fb_user.fb_user_id = nil
-        existing_fb_user.save(false)
+        existing_fb_user.save
       end
       self.fb_user_id = fb_user_id
       save(false)
@@ -131,7 +137,7 @@ class User < ActiveRecord::Base
     users = {:email => email, :account_id => id}
     Facebooker::User.register([users])
     self.email_hash = Facebooker::User.hash_email(email)
-    save(false)
+    save
   end
   
   def facebook_user?
