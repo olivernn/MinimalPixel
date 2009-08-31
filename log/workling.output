@@ -4291,3 +4291,387 @@ cleanup_timer: Previous SIG_ALRM handler not initialized!:
 cleanup_timer: Previous SIG_ALRM handler not initialized!: 
 cleanup_timer: Previous SIG_ALRM handler not initialized!: 
 ** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+FFmpeg version UNKNOWN, Copyright (c) 2000-2008 Fabrice Bellard, et al.
+  configuration: --prefix=/opt/local --disable-vhook --mandir=/opt/local/share/man --enable-shared --enable-pthreads --disable-mmx --cc=gcc-4.0 --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-gpl --enable-libfaac --enable-libfaad --enable-libxvid --enable-libx264 --enable-liba52
+  libavutil version: 49.7.0
+  libavcodec version: 51.60.0
+  libavformat version: 52.18.0
+  libavdevice version: 52.0.0
+  built on Feb  9 2009 21:29:08, gcc: 4.0.1 (Apple Computer, Inc. build 5367)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1002400]edit list not starting at 0, a/v desync might occur, patch welcome
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/99/original/signup.mp4':
+  Duration: 00:00:37.91, start: 0.000000, bitrate: 422 kb/s
+    Stream #0.0(eng): Audio: libfaad, 44100 Hz, stereo
+    Stream #0.1(eng): Video: h264, yuv420p, 640x480, 29.97 tb(r)
+WARNING: The bitrate parameter is set too low. It takes bits/s as argument, not kbits/s
+Output #0, flv, to '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/99/original/99-video.flv':
+    Stream #0.0(eng): Video: flv, yuv420p, 640x480, q=2-31, 200 kb/s, 25.00 tb(c)
+    Stream #0.1(eng): Audio: libmp3lame, 22050 Hz, stereo, 0 kb/s
+Stream mapping:
+  Stream #0.1 -> #0.0
+  Stream #0.0 -> #0.1
+Press [q] to stop encoding
+frame=    2 fps=  0 q=8.0 size=      35kB time=0.08 bitrate=3607.6kbits/s    frame=   22 fps= 21 q=8.0 size=      80kB time=0.88 bitrate= 741.6kbits/s    frame=   44 fps= 28 q=8.0 size=     159kB time=1.76 bitrate= 740.4kbits/s    frame=   72 fps= 35 q=8.0 size=     259kB time=2.88 bitrate= 737.2kbits/s    frame=   82 fps= 29 q=8.0 size=     312kB time=3.28 bitrate= 779.5kbits/s    frame=  103 fps= 31 q=8.0 size=     456kB time=4.12 bitrate= 906.2kbits/s    frame=  133 fps= 35 q=8.0 size=     584kB time=5.32 bitrate= 899.8kbits/s    frame=  163 fps= 38 q=8.0 size=     674kB time=6.40 bitrate= 862.6kbits/s    frame=  188 fps= 39 q=8.0 size=     807kB time=7.52 bitrate= 879.5kbits/s    frame=  222 fps= 42 q=8.0 size=     900kB time=8.88 bitrate= 829.9kbits/s    frame=  252 fps= 43 q=8.0 size=     974kB time=10.08 bitrate= 791.2kbits/s    frame=  285 fps= 45 q=8.0 size=    1072kB time=11.39 bitrate= 770.8kbits/s    frame=  314 fps= 46 q=8.0 size=    1139kB time=12.41 bitrate= 751.9kbits/s    frame=  345 fps= 47 q=8.0 size=    1240kB time=13.80 bitrate= 736.2kbits/s    frame=  376 fps= 48 q=8.0 size=    1346kB time=15.04 bitrate= 733.1kbits/s    frame=  409 fps= 49 q=8.0 size=    1445kB time=16.36 bitrate= 723.6kbits/s    frame=  434 fps= 49 q=8.0 size=    1513kB time=17.36 bitrate= 714.0kbits/s    frame=  463 fps= 49 q=8.0 size=    1582kB time=18.39 bitrate= 704.7kbits/s    frame=  494 fps= 50 q=8.0 size=    1680kB time=19.76 bitrate= 696.6kbits/s    frame=  527 fps= 51 q=8.0 size=    1749kB time=20.90 bitrate= 685.7kbits/s    frame=  557 fps= 51 q=8.0 size=    1848kB time=22.28 bitrate= 679.5kbits/s    frame=  589 fps= 52 q=8.0 size=    1918kB time=23.51 bitrate= 668.4kbits/s    frame=  621 fps= 52 q=8.0 size=    2016kB time=24.84 bitrate= 665.0kbits/s    frame=  652 fps= 53 q=8.0 size=    2113kB time=26.08 bitrate= 663.8kbits/s    frame=  685 fps= 53 q=8.0 size=    2212kB time=27.40 bitrate= 661.4kbits/s    frame=  715 fps= 53 q=8.0 size=    2289kB time=28.60 bitrate= 655.6kbits/s    frame=  748 fps= 54 q=8.0 size=    2403kB time=29.91 bitrate= 658.2kbits/s    frame=  777 fps= 54 q=8.0 size=    2479kB time=31.08 bitrate= 653.4kbits/s    frame=  809 fps= 54 q=8.0 size=    2581kB time=32.36 bitrate= 653.5kbits/s    frame=  840 fps= 55 q=8.0 size=    2649kB time=33.60 bitrate= 645.9kbits/s    frame=  873 fps= 55 q=8.0 size=    2743kB time=34.90 bitrate= 643.8kbits/s    frame=  897 fps= 55 q=8.0 size=    2861kB time=35.88 bitrate= 653.3kbits/s    frame=  928 fps= 55 q=8.0 size=    2944kB time=37.02 bitrate= 651.6kbits/s    frame=  946 fps= 55 q=8.0 Lsize=    2985kB time=37.84 bitrate= 646.2kbits/s    
+video:2651kB audio:297kB global headers:0kB muxing overhead 1.280924%
+FFmpeg version UNKNOWN, Copyright (c) 2000-2008 Fabrice Bellard, et al.
+  configuration: --prefix=/opt/local --disable-vhook --mandir=/opt/local/share/man --enable-shared --enable-pthreads --disable-mmx --cc=gcc-4.0 --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-gpl --enable-libfaac --enable-libfaad --enable-libxvid --enable-libx264 --enable-liba52
+  libavutil version: 49.7.0
+  libavcodec version: 51.60.0
+  libavformat version: 52.18.0
+  libavdevice version: 52.0.0
+  built on Feb  9 2009 21:29:08, gcc: 4.0.1 (Apple Computer, Inc. build 5367)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1002400]edit list not starting at 0, a/v desync might occur, patch welcome
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/99/original/signup.mp4':
+  Duration: 00:00:37.91, start: 0.000000, bitrate: 422 kb/s
+    Stream #0.0(eng): Audio: libfaad, 44100 Hz, stereo
+    Stream #0.1(eng): Video: h264, yuv420p, 640x480, 29.97 tb(r)
+Output #0, mjpeg, to '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/99/original/99-still.jpg':
+    Stream #0.0(eng): Video: mjpeg, yuvj420p, 640x480, q=2-31, 200 kb/s,  1.00 tb(c)
+Stream mapping:
+  Stream #0.1 -> #0.0
+Press [q] to stop encoding
+frame=    1 fps=  0 q=6.8 Lsize=      32kB time=1.00 bitrate= 262.4kbits/s    
+video:32kB audio:0kB global headers:0kB muxing overhead 0.000000%
+FFmpeg version UNKNOWN, Copyright (c) 2000-2008 Fabrice Bellard, et al.
+  configuration: --prefix=/opt/local --disable-vhook --mandir=/opt/local/share/man --enable-shared --enable-pthreads --disable-mmx --cc=gcc-4.0 --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-gpl --enable-libfaac --enable-libfaad --enable-libxvid --enable-libx264 --enable-liba52
+  libavutil version: 49.7.0
+  libavcodec version: 51.60.0
+  libavformat version: 52.18.0
+  libavdevice version: 52.0.0
+  built on Feb  9 2009 21:29:08, gcc: 4.0.1 (Apple Computer, Inc. build 5367)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1002400]edit list not starting at 0, a/v desync might occur, patch welcome
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/100/original/signup.mp4':
+  Duration: 00:00:37.91, start: 0.000000, bitrate: 422 kb/s
+    Stream #0.0(eng): Audio: libfaad, 44100 Hz, stereo
+    Stream #0.1(eng): Video: h264, yuv420p, 640x480, 29.97 tb(r)
+WARNING: The bitrate parameter is set too low. It takes bits/s as argument, not kbits/s
+Output #0, flv, to '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/100/original/100-video.flv':
+    Stream #0.0(eng): Video: flv, yuv420p, 640x480, q=2-31, 200 kb/s, 25.00 tb(c)
+    Stream #0.1(eng): Audio: libmp3lame, 22050 Hz, stereo, 0 kb/s
+Stream mapping:
+  Stream #0.1 -> #0.0
+  Stream #0.0 -> #0.1
+Press [q] to stop encoding
+frame=   13 fps=  0 q=8.0 size=      39kB time=0.39 bitrate= 824.7kbits/s    frame=   38 fps= 37 q=8.0 size=     156kB time=1.49 bitrate= 857.5kbits/s    frame=   61 fps= 40 q=8.0 size=     202kB time=2.40 bitrate= 689.3kbits/s    frame=   83 fps= 41 q=8.0 size=     324kB time=3.32 bitrate= 799.4kbits/s    frame=  105 fps= 41 q=8.0 size=     457kB time=4.20 bitrate= 891.2kbits/s    frame=  132 fps= 43 q=8.0 size=     547kB time=5.28 bitrate= 848.2kbits/s    frame=  163 fps= 46 q=8.0 size=     674kB time=6.40 bitrate= 862.6kbits/s    frame=  189 fps= 47 q=8.0 size=     808kB time=7.56 bitrate= 875.3kbits/s    frame=  224 fps= 49 q=8.0 size=     900kB time=8.88 bitrate= 829.9kbits/s    frame=  229 fps= 42 q=8.0 size=     929kB time=9.16 bitrate= 831.2kbits/s    frame=  244 fps= 41 q=8.0 size=     970kB time=9.76 bitrate= 813.8kbits/s    frame=  259 fps= 40 q=8.0 size=    1004kB time=10.36 bitrate= 794.1kbits/s    frame=  288 fps= 42 q=8.0 size=    1072kB time=11.39 bitrate= 770.9kbits/s    frame=  317 fps= 43 q=8.0 size=    1169kB time=12.68 bitrate= 755.4kbits/s    frame=  350 fps= 44 q=8.0 size=    1242kB time=13.90 bitrate= 731.9kbits/s    frame=  381 fps= 45 q=8.0 size=    1348kB time=15.24 bitrate= 724.8kbits/s    frame=  409 fps= 46 q=8.0 size=    1445kB time=16.36 bitrate= 723.6kbits/s    frame=  436 fps= 46 q=8.0 size=    1514kB time=17.40 bitrate= 712.7kbits/s    frame=  464 fps= 47 q=8.0 size=    1584kB time=18.56 bitrate= 699.0kbits/s    frame=  496 fps= 47 q=8.0 size=    1681kB time=19.84 bitrate= 694.2kbits/s    frame=  527 fps= 48 q=8.0 size=    1751kB time=21.08 bitrate= 680.6kbits/s    frame=  560 fps= 49 q=8.0 size=    1850kB time=22.40 bitrate= 676.4kbits/s    frame=  592 fps= 49 q=8.0 size=    1947kB time=23.68 bitrate= 673.6kbits/s    frame=  626 fps= 50 q=8.0 size=    2046kB time=25.00 bitrate= 670.3kbits/s    frame=  659 fps= 51 q=8.0 size=    2117kB time=26.36 bitrate= 657.9kbits/s    frame=  690 fps= 51 q=8.0 size=    2221kB time=27.60 bitrate= 659.1kbits/s    frame=  725 fps= 52 q=8.0 size=    2320kB time=28.92 bitrate= 657.1kbits/s    frame=  752 fps= 52 q=8.0 size=    2405kB time=30.08 bitrate= 655.0kbits/s    frame=  784 fps= 52 q=8.0 size=    2508kB time=31.36 bitrate= 655.2kbits/s    frame=  809 fps= 52 q=8.0 size=    2581kB time=32.36 bitrate= 653.5kbits/s    frame=  841 fps= 53 q=8.0 size=    2675kB time=33.64 bitrate= 651.4kbits/s    frame=  872 fps= 53 q=8.0 size=    2742kB time=34.88 bitrate= 644.0kbits/s    frame=  895 fps= 53 q=8.0 size=    2860kB time=35.80 bitrate= 654.4kbits/s    frame=  928 fps= 53 q=8.0 size=    2945kB time=37.04 bitrate= 651.2kbits/s    frame=  946 fps= 53 q=8.0 Lsize=    2985kB time=37.84 bitrate= 646.2kbits/s    
+video:2651kB audio:297kB global headers:0kB muxing overhead 1.280924%
+FFmpeg version UNKNOWN, Copyright (c) 2000-2008 Fabrice Bellard, et al.
+  configuration: --prefix=/opt/local --disable-vhook --mandir=/opt/local/share/man --enable-shared --enable-pthreads --disable-mmx --cc=gcc-4.0 --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-gpl --enable-libfaac --enable-libfaad --enable-libxvid --enable-libx264 --enable-liba52
+  libavutil version: 49.7.0
+  libavcodec version: 51.60.0
+  libavformat version: 52.18.0
+  libavdevice version: 52.0.0
+  built on Feb  9 2009 21:29:08, gcc: 4.0.1 (Apple Computer, Inc. build 5367)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1002400]edit list not starting at 0, a/v desync might occur, patch welcome
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/100/original/signup.mp4':
+  Duration: 00:00:37.91, start: 0.000000, bitrate: 422 kb/s
+    Stream #0.0(eng): Audio: libfaad, 44100 Hz, stereo
+    Stream #0.1(eng): Video: h264, yuv420p, 640x480, 29.97 tb(r)
+Output #0, mjpeg, to '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/100/original/100-still.jpg':
+    Stream #0.0(eng): Video: mjpeg, yuvj420p, 640x480, q=2-31, 200 kb/s,  1.00 tb(c)
+Stream mapping:
+  Stream #0.1 -> #0.0
+Press [q] to stop encoding
+frame=    1 fps=  0 q=6.8 Lsize=      32kB time=1.00 bitrate= 262.4kbits/s    
+video:32kB audio:0kB global headers:0kB muxing overhead 0.000000%
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+** Exiting
+=> Loading Rails...
+** Rails loaded.
+** Starting Workling::Remote::Invokers::ThreadedPoller...
+** Use CTRL-C to stop.
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+cleanup_timer: Previous SIG_ALRM handler not initialized!: 
+FFmpeg version UNKNOWN, Copyright (c) 2000-2008 Fabrice Bellard, et al.
+  configuration: --prefix=/opt/local --disable-vhook --mandir=/opt/local/share/man --enable-shared --enable-pthreads --disable-mmx --cc=gcc-4.0 --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-gpl --enable-libfaac --enable-libfaad --enable-libxvid --enable-libx264 --enable-liba52
+  libavutil version: 49.7.0
+  libavcodec version: 51.60.0
+  libavformat version: 52.18.0
+  libavdevice version: 52.0.0
+  built on Feb  9 2009 21:29:08, gcc: 4.0.1 (Apple Computer, Inc. build 5367)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1002400]edit list not starting at 0, a/v desync might occur, patch welcome
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/101/original/signup.mp4':
+  Duration: 00:00:37.91, start: 0.000000, bitrate: 422 kb/s
+    Stream #0.0(eng): Audio: libfaad, 44100 Hz, stereo
+    Stream #0.1(eng): Video: h264, yuv420p, 640x480, 29.97 tb(r)
+WARNING: The bitrate parameter is set too low. It takes bits/s as argument, not kbits/s
+Output #0, flv, to '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/101/original/101-video.flv':
+    Stream #0.0(eng): Video: flv, yuv420p, 640x480, q=2-31, 200 kb/s, 25.00 tb(c)
+    Stream #0.1(eng): Audio: libmp3lame, 22050 Hz, stereo, 0 kb/s
+Stream mapping:
+  Stream #0.1 -> #0.0
+  Stream #0.0 -> #0.1
+Press [q] to stop encoding
+frame=   13 fps=  0 q=8.0 size=      39kB time=0.39 bitrate= 824.7kbits/s    frame=   33 fps= 32 q=8.0 size=     119kB time=1.32 bitrate= 741.4kbits/s    frame=   63 fps= 41 q=8.0 size=     238kB time=2.52 bitrate= 772.2kbits/s    frame=   85 fps= 42 q=8.0 size=     375kB time=3.40 bitrate= 905.3kbits/s    frame=  104 fps= 41 q=8.0 size=     456kB time=4.16 bitrate= 898.4kbits/s    frame=  130 fps= 43 q=8.0 size=     546kB time=5.20 bitrate= 859.6kbits/s    frame=  161 fps= 45 q=8.0 size=     674kB time=6.40 bitrate= 862.6kbits/s    frame=  188 fps= 46 q=8.0 size=     805kB time=7.42 bitrate= 889.2kbits/s    frame=  220 fps= 48 q=8.0 size=     899kB time=8.80 bitrate= 836.5kbits/s    frame=  252 fps= 50 q=8.0 size=     974kB time=10.08 bitrate= 791.2kbits/s    frame=  287 fps= 52 q=8.0 size=    1072kB time=11.39 bitrate= 770.9kbits/s    frame=  319 fps= 53 q=8.0 size=    1170kB time=12.76 bitrate= 751.3kbits/s    frame=  352 fps= 54 q=8.0 size=    1279kB time=14.08 bitrate= 743.9kbits/s    frame=  385 fps= 54 q=8.0 size=    1350kB time=15.39 bitrate= 719.0kbits/s    frame=  418 fps= 55 q=8.0 size=    1450kB time=16.72 bitrate= 710.3kbits/s    frame=  449 fps= 56 q=8.0 size=    1548kB time=17.89 bitrate= 708.8kbits/s    frame=  480 fps= 56 q=8.0 size=    1619kB time=19.20 bitrate= 690.8kbits/s    frame=  512 fps= 56 q=8.0 size=    1716kB time=20.40 bitrate= 689.0kbits/s    frame=  542 fps= 56 q=8.0 size=    1813kB time=21.68 bitrate= 685.2kbits/s    frame=  571 fps= 56 q=8.0 size=    1882kB time=22.84 bitrate= 675.1kbits/s    frame=  600 fps= 56 q=8.0 size=    1950kB time=23.90 bitrate= 668.4kbits/s    frame=  628 fps= 56 q=8.0 size=    2047kB time=25.12 bitrate= 667.6kbits/s    frame=  661 fps= 57 q=8.0 size=    2118kB time=26.41 bitrate= 656.9kbits/s    frame=  690 fps= 57 q=8.0 size=    2221kB time=27.60 bitrate= 659.1kbits/s    frame=  723 fps= 57 q=8.0 size=    2320kB time=28.92 bitrate= 657.1kbits/s    frame=  751 fps= 57 q=8.0 size=    2403kB time=29.91 bitrate= 658.3kbits/s    frame=  782 fps= 57 q=8.0 size=    2507kB time=31.28 bitrate= 656.6kbits/s    frame=  814 fps= 57 q=8.0 size=    2585kB time=32.56 bitrate= 650.4kbits/s    frame=  847 fps= 58 q=8.0 size=    2678kB time=33.88 bitrate= 647.6kbits/s    frame=  877 fps= 58 q=8.0 size=    2771kB time=34.98 bitrate= 649.1kbits/s    frame=  909 fps= 58 q=8.0 size=    2890kB time=36.36 bitrate= 651.2kbits/s    frame=  941 fps= 58 q=8.0 size=    2975kB time=37.64 bitrate= 647.4kbits/s    frame=  946 fps= 58 q=8.0 Lsize=    2985kB time=37.84 bitrate= 646.2kbits/s    
+video:2651kB audio:297kB global headers:0kB muxing overhead 1.280924%
+FFmpeg version UNKNOWN, Copyright (c) 2000-2008 Fabrice Bellard, et al.
+  configuration: --prefix=/opt/local --disable-vhook --mandir=/opt/local/share/man --enable-shared --enable-pthreads --disable-mmx --cc=gcc-4.0 --enable-libmp3lame --enable-libvorbis --enable-libtheora --enable-gpl --enable-libfaac --enable-libfaad --enable-libxvid --enable-libx264 --enable-liba52
+  libavutil version: 49.7.0
+  libavcodec version: 51.60.0
+  libavformat version: 52.18.0
+  libavdevice version: 52.0.0
+  built on Feb  9 2009 21:29:08, gcc: 4.0.1 (Apple Computer, Inc. build 5367)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1002400]edit list not starting at 0, a/v desync might occur, patch welcome
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/101/original/signup.mp4':
+  Duration: 00:00:37.91, start: 0.000000, bitrate: 422 kb/s
+    Stream #0.0(eng): Audio: libfaad, 44100 Hz, stereo
+    Stream #0.1(eng): Video: h264, yuv420p, 640x480, 29.97 tb(r)
+Output #0, mjpeg, to '/Users/Oliver/Documents/rails_projects/iportfolio/hosted/public/system/sources/101/original/101-still.jpg':
+    Stream #0.0(eng): Video: mjpeg, yuvj420p, 640x480, q=2-31, 200 kb/s,  1.00 tb(c)
+Stream mapping:
+  Stream #0.1 -> #0.0
+Press [q] to stop encoding
+frame=    1 fps=  0 q=6.8 Lsize=      32kB time=1.00 bitrate= 262.4kbits/s    
+video:32kB audio:0kB global headers:0kB muxing overhead 0.000000%
+** Exiting

@@ -13,6 +13,8 @@ class Item < ActiveRecord::Base
   validates_length_of :name, :maximum => 30
   validates_date :date, :allow_nil => true
   
+  attr_accessor :facebook_upload
+  
   # override to_param method to get prettier urls
   def to_param
     "#{self.id}-#{self.name.parameterize.to_s}"

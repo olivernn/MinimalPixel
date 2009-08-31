@@ -54,7 +54,7 @@ class Image < Item
   
   # this method gets run after creation, it will set up the background job to process the upload
   def process_images
-    ProcessorWorker.async_image_processor(:image_id => self.id)
+    ItemWorker.async_image_processor(:image_id => self.id)
   end
   
   def image_limits

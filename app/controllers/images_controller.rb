@@ -35,6 +35,9 @@ class ImagesController < MainController
 
     respond_to do |format|
       if @image.save
+        if current_subdomain_user.facebook_user?
+          ItemWorker.asynch_upload_image_to_facebook(:image_id => @image.id, :fb_session => facebook_session)
+        end
         flash[:notice] = 'Image is being processed.'
         format.html { redirect_to(project_item_path(@project, @image, :subdomain => @user.subdomain)) }
         format.xml  { render :xml => @image, :status => :created, :location => project_item_path(@project, @image) }

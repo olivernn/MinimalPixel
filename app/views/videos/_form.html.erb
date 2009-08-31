@@ -10,4 +10,9 @@
 	
 	<label for="video_description">Description</label>
 	<%= f.text_area :description %><br/>
+	
+	<% if current_subdomain_user.facebook_user? && upload %>
+		<label for="image_facebook_upload">Upload to Facebook</label>
+		<%= f.check_box :facebook_upload %>
+	<% end -%>
 </fieldset>

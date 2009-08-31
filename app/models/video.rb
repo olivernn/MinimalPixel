@@ -45,7 +45,7 @@ class Video < Item
   end
   
   def queue_conversion
-    ProcessorWorker.async_video_processor(:video_id => self.id)
+    ItemWorker.async_video_processor(:video_id => self.id)
   end
   
   def convert_video
