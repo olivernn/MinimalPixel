@@ -66,6 +66,9 @@ class DraftProjectsController < MainController
     
     respond_to do |format|
       if @project.publish!
+        if current_subdomain_user.facebook_user?
+          ProjectWorker.asynch_publish_to_facebook(:project_id => @project.id, :url => project_url(@project), :fb_session => facebook_session)
+        end
         flash[:notice] = "Project was succesfully published."
         format.html { redirect_to(project_path(@project, :subdomain => @user.subdomain)) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
