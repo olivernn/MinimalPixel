@@ -150,6 +150,7 @@ module AuthenticatedSystem
       kill_remember_cookie!     # Kill client-side auth cookie
       session[:user_id] = nil   # keeps the session but kill our variable
       session[:facebook_session] = nil    # logs out the facebook session
+      @facebook_session = false
       # explicitly kill any other session variables you set
     end
 

@@ -2,6 +2,10 @@ Welcome <%= @user.name %>,
 
 Thank you for signing up to MinimalPixel.net, your online portfolio is ready and you can start adding your images or videos immediately.
 
+<% if @user.facebook_user? %>
+You can log in using your facebook account by clicking on the facebook button at http://minimalpixel.net
+<% else %>
 Your Login is  <%= @user.login %> and you can get started straight away at http://<%= @user.subdomain %>.MinimalPixel.net/login 
+<% end -%>
 
 Finally if you have any questions, need some help, or just want to give us your feedback, please do not hesitate to get in touch with us at contact@MinimalPixel.net , we'd love to hear from you!

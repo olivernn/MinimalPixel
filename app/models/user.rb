@@ -109,14 +109,14 @@ class User < ActiveRecord::Base
   
   def self.create_from_fb_connect(fb_user)
     new_facebooker = User.new(:name => fb_user.name,
-                              :login => fb_user.first_name,
+                              :login => "FB_" + fb_user.first_name + "_" + fb_user.last_name,
                               :password => fb_user.last_name,
                               :password_confirmation => fb_user.last_name,
-                              :email => fb_user.proxied_email, 
+                              :email => fb_user.proxied_email,
                               :subdomain => fb_user.name)
                               
     new_facebooker.fb_user_id = fb_user.uid.to_i
-    new_facebooker.save
+    new_facebooker.save_with_validation(false)
     new_facebooker.register_user_to_fb
     new_facebooker
   end
@@ -137,7 +137,7 @@ class User < ActiveRecord::Base
     users = {:email => email, :account_id => id}
     Facebooker::User.register([users])
     self.email_hash = Facebooker::User.hash_email(email)
-    save
+    save_with_validation(false)
   end
   
   def facebook_user?
@@ -159,6 +159,6 @@ class User < ActiveRecord::Base
   end
   
   def prepare_subdomain
-    self.subdomain = self.subdomain.downcase.gsub(' ', '_')
+    self.subdomain = self.subdomain.downcase.gsub(' ', '-') if self.subdomain
   end
 end
