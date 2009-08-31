@@ -28,7 +28,7 @@ class ItemWorker < Workling::Base
             @image.source.to_io.content_type,
             @image.source.to_io.read)
     
-    options[:fb_session].user.upload_photo(file, :caption => @image.description)
+    options[:fb_session].user.upload_photo(file, :caption => @image.description + " - Uploaded from MinimalPixel")
   end
   
   def upload_video_to_facebook(options)
@@ -39,7 +39,7 @@ class ItemWorker < Workling::Base
             @video.source.to_io.content_type,
             @video.source.to_io.read)
     
-    options[:fb_session].user.upload_video(file, :caption => @video.description)
+    options[:fb_session].user.upload_video(file, :caption => @video.description + " - Uploaded from MinimalPixel")
   end
   
   private
