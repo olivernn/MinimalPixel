@@ -143,6 +143,12 @@ class User < ActiveRecord::Base
   def facebook_user?
     return !fb_user_id.nil? && fb_user_id > 0
   end
+  
+  def facebook_user_details
+    if self.facebook_user?
+      @facebook_user_details ||= Facebooker::User.new(self.fb_user_id)
+    end
+  end
   # --- FB CONNECT END --- #
   
   protected
