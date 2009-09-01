@@ -1,5 +1,6 @@
 class FacebookController < ApplicationController
   layout 'promotional'
+  
   def link_user_accounts
     if self.current_user.nil?
       @user = User.create_from_fb_connect(facebook_session.user)
@@ -19,10 +20,6 @@ class FacebookController < ApplicationController
   end
   
   def new
-    
-  end
-  
-  def pick_subdomain
     
   end
   
