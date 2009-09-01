@@ -35,7 +35,7 @@ class ImagesController < MainController
 
     respond_to do |format|
       if @image.save
-        if current_subdomain_user.facebook_user?
+        if current_subdomain_user.facebook_user? && @image.facebook_upload?
           ItemWorker.asynch_upload_image_to_facebook(:image_id => @image.id, :fb_session => facebook_session)
         end
         flash[:notice] = 'Image is being processed.'

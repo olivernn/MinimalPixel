@@ -4,7 +4,7 @@ class ProjectWorker < Workling::Base
     @fb_user = @project.user.facebook_user_details
     if @project.user.facebook_user?
       options[:fb_session].user.publish_to(options[:fb_session].user, 
-                                           :message => "I've just published a new project, take a look.",
+                                           :message => "I've just published a new project on MinimalPixel.net, take a look.",
                                            :action_links => [:text => @project.name, :href => options[:url]],
                                            :attachment => [
                                              :name => @project.items.first.name,
