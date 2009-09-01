@@ -15,6 +15,6 @@
 	
 	<% if current_subdomain_user.facebook_user? && upload %>
 		<label for="image_facebook_upload">Upload to Facebook</label>
-		<%= f.check_box :facebook_upload?, :checked => true %>
+		<%= f.check_box :facebook_upload, :checked => true %>
 	<% end -%>
 </fieldset>

@@ -35,7 +35,7 @@ class VideosController < MainController
 
     respond_to do |format|
       if @video.save
-        if current_subdomain_user.facebook_user? && @video.facebook_upload?
+        if current_subdomain_user.facebook_user? && @video.facebook_upload
           ItemWorker.asynch_upload_video_to_facebook(:video_id => @video.id, :fb_session => facebook_session)
         end
         flash[:notice] = 'Video is being processed.'
