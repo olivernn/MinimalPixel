@@ -1,0 +1,22 @@
+<h2>Facebook Account Details</h2>
+
+<p>Your MinimalPixel account is currently linked to the Facebook account for <%= link_to current_subdomain_user.facebook_user_details.name, current_subdomain_user.facebook_user_details.profile_url %></p>
+
+<h3>Permissions</h3>
+
+<p>To get the very most out of MinimalPixel please enable the following permissions:</p>
+
+<h4>Email Permissions</h4>
+
+<p>Grant MinimalPixel email permission to allow people to send email to your facebook inbox via MinimalPixel.  Your email is never published.</p>
+
+<% if current_subdomain_user.allows_fb_email? %>
+	<span>Already granted.</span>
+<% else %>
+	<%= link_to 'Grant Email Permission', @facebook_session.permission_url('email') %>
+<% end -%>
+
+<h4>News Feed Permissions</h4>
+<p>Grant MinimalPixel permission to post items to your news stream.  Whenever you publish a new project we will make an automatic notification on your news stream, this will let all your friends know about your newly published project.</p>
+
+<p><%= link_to 'Allow Facebook Updates', @facebook_session.permission_url('publish_stream') unless current_subdomain_user.allows_fb_publish? %></p>

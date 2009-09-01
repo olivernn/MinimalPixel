@@ -39,6 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :fonts
   map.resources :subscriptions
   map.resources :themes
+  map.resources :facebook_permissions
   
   # promotional routes here
   map.resources :articles do |article|
