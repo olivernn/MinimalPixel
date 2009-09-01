@@ -11,11 +11,15 @@
 <% else %>
 	<% if authorized? %>
 		<div class="get_started">
+			<% if current_subdomain_user.facebook_user? %>
+				<p><%= link_to 'Allow Facebook Email Contact', @facebook_session.permission_url('email') unless current_subdomain_user.allows_fb_email? %></p>
+				<p><%= link_to 'Allow Facebook Updates', @facebook_session.permission_url('publish_stream') unless current_subdomain_user.allows_fb_publish? %></p>
+			<% end -%>
 			<p>Get started with your portfolio by <%= link_to 'adding', new_draft_project_path, :class => 'help_link' %> a new project.</p>
 			
-			<p>You can <%= link_to 'customize', edit_style_path(current_subdomain_user.style) %> the look and style of your portfolio.</p>
+			<p>You can <%= link_to 'customize', edit_style_path(current_subdomain_user.style), :class => 'help_link' %> the look and style of your portfolio.</p>
 			
-			<p>Start <%= link_to 'adding', edit_profile_path(current_subdomain_user.profile) %> contact information and a profile picture to personalize your portfolio.</p>
+			<p>Start <%= link_to 'adding', edit_profile_path(current_subdomain_user.profile), :class => 'help_link' %> contact information and a profile picture to personalize your portfolio.</p>
 		</div>
 	<% end -%>
 <% end -%>

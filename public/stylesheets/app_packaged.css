@@ -74,7 +74,7 @@ ul.plans_display ul{ list-style:none}
 ul.plans_display h3{ font-size:1.1em}
 #flash_player{ width:500px; height:400px}
 .get_started{ display:none; color:black; padding:25px}
-.help_link{ color:blue}
+a:visited.help_link, a.help_link{ color:blue}
 body{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; width:1050px; margin-right:auto; margin-left:auto}
 #container{ margin-right:22px; margin-left:22px}
 #header h1{ font-size:3em}

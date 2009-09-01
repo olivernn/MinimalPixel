@@ -431,6 +431,6 @@ ul.plans_display h3{
 	padding:25px;
 }
 
-.help_link{
+a:visited.help_link, a.help_link{
 	color:blue;
 }

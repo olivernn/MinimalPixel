@@ -149,6 +149,18 @@ class User < ActiveRecord::Base
       @facebook_user_details ||= Facebooker::User.new(self.fb_user_id)
     end
   end
+  
+  def allows_fb_email?
+    if self.facebook_user?
+      @allow_fb_email ||= self.facebook_user_details.has_permission?('email')
+    end
+  end
+  
+  def allows_fb_publish?
+    if self.facebook_user?
+      @allow_fb_publish ||= self.facebook_user_details.has_permission?('publish_stream')
+    end
+  end
   # --- FB CONNECT END --- #
   
   protected

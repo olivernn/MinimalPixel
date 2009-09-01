@@ -25,10 +25,6 @@
 		<li><a class="top_level">Account</a>
 			<ul>
 				<li><%= link_to 'Logout', logout_path unless current_subdomain_user.facebook_user? %></li>
-				<% if current_subdomain_user.facebook_user? %>
-					<li><%= link_to 'Allow Facebook Email Contact', @facebook_session.permission_url('email') unless current_subdomain_user.facebook_user_details.has_permission?('email') %></li>
-					<li><%= link_to 'Allow Facebook Updates', @facebook_session.permission_url('publish_stream') unless current_subdomain_user.facebook_user_details.has_permission?('publish_stream') %></li>
-				<% end -%>
 				<li><%= link_to 'Home', projects_root_path %></li>
 				<li><%= link_to 'Summary', account_path(current_subdomain_user.account) %></li>
 				<li><%= link_to 'Change Plan', edit_account_path(current_subdomain_user.account) %></li>
