@@ -312,6 +312,10 @@ input.medium{
 	width:200px;
 }
 
+fieldset fieldset{
+	margin-top:15px;
+}
+
 fieldset fieldset p{
 	font-size:0.8em;
 }
@@ -433,4 +437,9 @@ ul.plans_display h3{
 
 a:visited.help_link, a.help_link{
 	color:blue;
+}
+
+/* ===  FACEBOOK CONNECT PERMISSION === */
+.permission_granted img{
+	margin-right:15px;
 }
