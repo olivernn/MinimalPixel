@@ -53,6 +53,7 @@ fieldset.new_style label, fieldset.new_style input, fieldset.new_style textarea,
 fieldset.new_style label{ font-size:0.8em}
 fieldset fieldset legend{ font-size:1em}
 input.medium{ width:200px}
+fieldset fieldset{ margin-top:15px}
 fieldset fieldset p{ font-size:0.8em}
 fieldset.new_style input{ margin-bottom:20px}
 fieldset.new_style img{ margin-left:20px; margin-bottom:10px}
@@ -75,6 +76,9 @@ ul.plans_display h3{ font-size:1.1em}
 #flash_player{ width:500px; height:400px}
 .get_started{ display:none; color:black; padding:25px}
 a:visited.help_link, a.help_link{ color:blue}
+.permission_granted img{ margin-right:15px}
+img.facebook{ height:50px; width:50px}
+h1.facebook{ display:inline}
 body{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; width:1050px; margin-right:auto; margin-left:auto}
 #container{ margin-right:22px; margin-left:22px}
 #header h1{ font-size:3em}

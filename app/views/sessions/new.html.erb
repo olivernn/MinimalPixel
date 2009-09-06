@@ -5,6 +5,12 @@
 		<%= render :partial => 'form' %>
 		
 	</fieldset>
-	<%= submit_tag 'Login' %>
-	<%= link_to 'Forgotten Password', forgot_password_path %>
+	<div id="login_actions">
+		<input id="login_button" class='button' type='image' src='/images/log_in.png' alt='Form Submit Button'>
+		<%= link_to 'Forgotten Password', forgot_password_path, :id => 'forgot_pass' %>
+		<div id="fb_login">
+			<p id="fb_login_text">or login with Facebook</p>
+			<%= fb_login_button('window.location = "/facebook/link_user_accounts";')%>
+		</div>
+	</div>
 <% end -%>

@@ -35,6 +35,14 @@ ul.comments li{ border-top:1px solid #AAAAAA}
 #login legend{ color:#FF2782}
 #login label{ font-size:0.8em}
 #login input{ width:130px}
+#login #fb_login_image{ margin-left:15px}
+#login #fb_login_text{ font-size:0.8em; text-align:center}
+#login_actions{ margin-top:25px; margin-right:10px; margin-left:10px}
+#login_actions #forgot_pass{ margin-left:10px; position:relative; top:-10px}
+#login_actions #login_button{ width:104px; height:22px; margin-top:-8px}
+#fb_login{ float:right; margin-top:-8px}
+#fb_login p{ display:inline; margin-right:5px; position:relative; top:-6px}
+#fb_login #fb_login_button{ padding-top:4px}
 ul.plans_display{ padding:0; margin-top:0; list-style:none}
 li.plan{ float:left; display:block; padding:10px; margin:10px; width:300px}
 li.plan div.details{ background:url(/images/shadowAlpha.png) no-repeat bottom right; padding-left:10px; padding-right:10px; padding-bottom:20px}

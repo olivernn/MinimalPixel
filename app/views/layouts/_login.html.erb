@@ -5,5 +5,8 @@
 		
 		<input class='button' type='image' src='/images/log_in.png' alt='Form Submit Button'>
 		<%= link_to 'Forgotten Password', forgot_password_path %>
+		
+		<p id="fb_login_text">or login with Facebook</p>
+		<%= fb_login_button('window.location = "/facebook/link_user_accounts";')%>
 	</fieldset>
 <% end -%>
