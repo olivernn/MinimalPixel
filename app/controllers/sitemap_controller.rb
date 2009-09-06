@@ -1,4 +1,4 @@
-class SitemapController < GlobalController
+class SitemapController < ApplicationController
   # responds to a GET /sitemap.xml
 
   def sitemap
