@@ -7,7 +7,7 @@ a.tag img{ border:none; padding:10px; color:white}
 #header, #menu, #footer{ width:958px}
 #menu{ float:left; width:720px; margin-top:-21px}
 #content{ float:left; width:720px; padding:10px 10px 10px 10px}
-#sub_section{ padding-left:25px; width:180px; height:700px}
+#sub_section{ padding-left:25px; width:180px; height:760px}
 #footer{ clear:both; font-size:0.7em; text-indent:10px}
 body{ font-family:Helvetica}
 #header h1{ font-size:5em; font-family:Helvetica; text-align:left; font-weight:900; color:#303030; margin-top:10px; margin-bottom:0px}
