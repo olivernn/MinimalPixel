@@ -1,15 +1,15 @@
-<h1>Facebook Account Details</h1>
+<%= image_tag '/images/facebook.png', :class => 'facebook' %><h1 class="facebook">Facebook Account Details</h1>
 
 <p>Your MinimalPixel account is currently linked to the Facebook account for <%= link_to current_subdomain_user.facebook_user_details.name, current_subdomain_user.facebook_user_details.profile_url %></p>
 
-<p>To get the very most out of MinimalPixel please enable the following permissions:</p>
+<p>To get the very most out of MinimalPixel please enable the following permissions.  You can also manage these permissions from your Facebook page <a href="http://www.facebook.com/editapps.php?v=allowed">here</a></p>
 
 <fieldset>
 	<legend>Permissions</legend>
 	
 	<fieldset>
 		<legend>Email</legend>
-		<p>Grant MinimalPixel email permission to allow people to send email to your facebook inbox via MinimalPixel.  Your email is never published.</p>
+		<p>Grant MinimalPixel email permission to allow people to send email to your facebook inbox via MinimalPixel.  Your email is <em>never</em> published.</p>
 		
 		<% if current_subdomain_user.allows_fb_email? %>
 			<span class="permission_granted"><%= image_tag '/images/accept.png'%>Already granted.</span>
@@ -23,10 +23,10 @@
 		<legend>News Feed</legend>
 		<p>Grant MinimalPixel permission to post items to your news stream.  Whenever you publish a new project we will make an automatic notification on your news stream, this will let all your friends know about your newly published project.</p>
 		
-		<% if current_subdomain_user.allows_fb_email? %>
+		<% if current_subdomain_user.allows_fb_publish? %>
 			<span class="permission_granted"><%= image_tag '/images/accept.png'%>Already granted.</span>
 		<% else %>
-			<%= link_to 'Allow Facebook Updates', @facebook_session.permission_url('publish_stream') %>
+			<%= link_to 'Grant News Feed Permission', @facebook_session.permission_url('publish_stream') %>			
 		<% end -%>
 	</fieldset>
 </fieldset>

@@ -439,7 +439,16 @@ a:visited.help_link, a.help_link{
 	color:blue;
 }
 
-/* ===  FACEBOOK CONNECT PERMISSION === */
+/* ===  FACEBOOK CONNECT === */
 .permission_granted img{
 	margin-right:15px;
+}
+
+img.facebook{
+	height:50px;
+	width:50px;
+}
+
+h1.facebook{
+	display:inline;
 }
