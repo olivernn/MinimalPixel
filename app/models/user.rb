@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validate :normalize_identity_url
   validates_presence_of :subdomain
   validates_uniqueness_of :subdomain, :case_sensitive => false
-  validates_exclusion_of :subdomain, :in => %w(admin blog support forum assets media developer) # these are reserved subdomains
+  validates_exclusion_of :subdomain, :in => %w(admin blog support forum assets media developer assets0 assets1 assets2 assets3) # these are reserved subdomains
   validates_format_of :subdomain, :with => RE_SUBDOMAIN_OK, :message => MSG_SUBDOMAIN_BAD
   
   # Relationships
