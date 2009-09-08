@@ -5,7 +5,7 @@
 <% unless @projects.empty? %>
 	<% for project in @projects %>
 		<div class="project_image" style="background-image: url(<%= project.items.ready.first.display_long %>); height:50px; width:600px">
-		<div class="project_title"><h2 class="project"><%= link_to project.name, project %></h2></div>
+		<div class="project_title" style="background-image: <%= transaprent_background(current_subdomain_user.style) %>"><h2 class="project"><%= link_to project.name, project %></h2></div>
 		</div>
 	<% end %>
 <% else %>
