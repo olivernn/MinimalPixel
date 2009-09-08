@@ -55,7 +55,7 @@ class ProjectsController < MainController
   # DELETE /projects/1.xml
   def destroy
     @project = @user.projects.find(params[:id])
-    @project.destroy
+    @project.remove!
 
     respond_to do |format|
       format.html { redirect_to(projects_url(:subdomain => @user.subdomain)) }

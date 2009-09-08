@@ -19,7 +19,7 @@ class Project < ActiveRecord::Base
   
   aasm_state :draft
   aasm_state :active
-  aasm_state :removed
+  aasm_state :removed, :enter => :destroy_later
     
   # publishing a project moves the status from draft to active, it also moves a project from removed to active
   aasm_event :publish do
@@ -44,5 +44,9 @@ class Project < ActiveRecord::Base
     unless self.user.can_create_projects?
       errors.add_to_base("You cannot add any more projects, upgrade plan or remove old projects.")
     end
+  end
+  
+  def destroy_later
+    ProjectWorker.asynch_destroy(:project_id => self.id)
   end
 end

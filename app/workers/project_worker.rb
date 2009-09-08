@@ -12,4 +12,8 @@ class ProjectWorker < Workling::Base
                                            )
     end
   end
+  
+  def destroy(options)
+    Project.find(options[:project_id]).destroy
+  end
 end
