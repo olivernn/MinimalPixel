@@ -1,16 +1,16 @@
 class StylesController < MainController
-  before_filter :user_required
-  before_filter :login_required, :except => :index
+  before_filter :user_required, :except => :show
+  before_filter :login_required, :except => :show
   
-  skip_filter :load_profile, :only => :index
+  skip_filter :load_profile, :only => :show
   
-  caches_action :index
+  caches_action :show
   cache_sweeper :style_sweeper, :except => :edit
   
-  # GET /styles
-  # GET /styles.css
-  def index
-    @style = @user.style
+  # GET /styles/:id.js
+  # GET /styles/:id.css
+  def show
+    @style = Style.find(params[:id])
     
     if stale?(:last_modified => @style.updated_at.utc, :etag => @style)
       respond_to do |format|

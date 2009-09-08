@@ -19,13 +19,13 @@ module ApplicationHelper
   
   def user_stylesheet
     if current_subdomain
-      stylesheet_link_tag styles_path(:format => :css, :subdomain => current_subdomain_user.subdomain), :id => "user_styles"
+      stylesheet_link_tag style_path(current_subdomain_user.style, :format => :css), :id => "user_styles"
     end
   end
   
   def user_font
     if current_subdomain
-      javascript_include_tag styles_path(:format => :js, :subdomain => current_subdomain_user.subdomain), :id => "user_font"
+      javascript_include_tag style_path(current_subdomain_user.style, :format => :js), :id => "user_font"
     end
   end
   

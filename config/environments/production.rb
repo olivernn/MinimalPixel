@@ -18,11 +18,7 @@ config.action_controller.perform_caching             = true
 config.action_controller.session[:domain] = '.minimalpixel.net'
 
 # Setting up multiple asset hosts for javascripts, stylesheets, images and flash
-config.action_controller.asset_host = Proc.new { |source| 
-  unless source.starts_with?('/styles')
-    "http://assets#{rand(4)}.minimalpixel.net"
-  end
-}
+config.action_controller.asset_host = "http://assets%d.minimalpixel.net"
 
 # Use a different cache store in production
 # config.cache_store = :mem_cache_store
