@@ -34,7 +34,7 @@ module AuthenticatedSystem
     #
     def authorized?(action=nil, resource=nil, *args)
       if logged_in? 
-        current_user == current_subdomain_user
+        current_user == current_subdomain_user || current_user.admin?
       else
         false
       end

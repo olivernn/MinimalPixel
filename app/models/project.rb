@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   validates_date :date, :allow_nil => true
   validate_on_create :project_limits
   
+  attr_accessible :name, :description
   
   # state machine modelling
   include AASM
