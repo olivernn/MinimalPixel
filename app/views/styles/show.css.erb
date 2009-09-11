@@ -36,7 +36,7 @@ th{
 }
 
 .project_title{
-	background-image:<%= transaprent_background(@style) %>;
+	background-image:url(<%= url_for("/images/#{@style.theme.name.downcase}_transparent.png") %>);
 }	
 
 h1, h2, h3, h4, h5{

@@ -52,7 +52,7 @@ module ApplicationHelper
   end
   
   def transaprent_background(style)
-    "url(images/#{style.theme.name.downcase}_transparent.png)"    
+    url_for("/images/#{style.theme.name.downcase}_transparent.png", :only_path => false)
   end
   
   # methods that set the meta tags for the page
