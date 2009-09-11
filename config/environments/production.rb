@@ -20,6 +20,9 @@ config.action_controller.session[:domain] = '.minimalpixel.net'
 # Setting up multiple asset hosts for javascripts, stylesheets, images and flash
 config.action_controller.asset_host = "http://assets%d.minimalpixel.net"
 
+# including the custom domain middleware
+config.middleware.use "CustomDomain", ".minimalpixel.net"
+
 # Use a different cache store in production
 # config.cache_store = :mem_cache_store
 
