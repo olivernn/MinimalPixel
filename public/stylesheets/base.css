@@ -166,7 +166,7 @@ ul.style_form li{
 #item_index{
 	float:left;
 	width:180px;
-	height:700px;
+	min-height:760px;
 	padding:0px;
 	margin-top:-12px;
 }

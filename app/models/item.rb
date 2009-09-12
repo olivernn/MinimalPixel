@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
   validates_length_of :name, :maximum => 30
   validates_date :date, :allow_nil => true
   
-  attr_accessible :name, :description, :image, :facebook_upload
+  attr_accessible :name, :description, :source, :facebook_upload
   
   attr_accessor :facebook_upload
   
