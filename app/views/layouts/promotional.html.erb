@@ -25,11 +25,11 @@
 			<div id="header">
 				<%= link_to (image_tag '/images/logo.png', :class => 'logo'), root_path(:subdomain => false) %>
 				<h1 class="site">Minimal<br/>Pixel</h1>
-				<p><strong>Simply</strong> the <strong>easiest</strong> way to create your online <strong>portfolio</strong>.</p>
+				<p><strong>Simply</strong> the <strong>easiest</strong> way to create your online <strong>art portfolio</strong>.</p>
 			</div>
 			<div id="menu">
 				<ul id='tabs'>
-					<%= tab(root_path(:subdomain => false), :welcome, :name => 'Welcome') %>
+					<%= tab(root_path(:subdomain => false), :welcome, :name => 'Home') %>
 					<%= tab(questions_path(:subdomain => false), :questions, :name => 'Help') %>
 					<%= tab(new_feedback_path(:subdomain => false), :feedback, :name => 'Contact Us') %>
 					<%= tab(blog_root_path, :articles, :name => 'Blog') %>
