@@ -18,12 +18,11 @@ class StyleSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_style_cache(style)
-    # expire_fragment :controller => :styles, :action => :index, :format => :js
-    # expire_fragment :controller => :styles, :action => :index, :format => :css
-    
     # need to also sweep the item js show action as the item title doesn't pick-up the new styles
     # expire_fragment(%r{/items/})
     # expire_fragment(%r{#{style.user.subdomain}/items/show/*})
+    
+    expire_fragment(%r{styles/#{style.id}.*})
     
     # expire all fragments
     expire_fragment(%r{#{style.user.subdomain}/*})
