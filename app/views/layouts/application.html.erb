@@ -25,7 +25,7 @@
 			<div id="header">
 					<%= display_brand_tag(current_subdomain_user.style) %>
 				<% if current_subdomain %>
-					<h1><%= link_to current_subdomain_user.name, projects_root_url(:subdomain => current_subdomain_user.subdomain) %></h1>
+					<h1><%= link_to current_subdomain_user.name, projects_root_path(:subdomain => current_subdomain_user.subdomain) %></h1>
 				<% end %>
 			</div>
 			<div id="content">
