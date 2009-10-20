@@ -4,7 +4,7 @@ class StylesController < MainController
   
   skip_filter :load_profile, :only => :show
   
-  caches_action :show
+  caches_page :show
   cache_sweeper :style_sweeper, :except => :edit
   
   # GET /styles/:id.js
@@ -12,11 +12,9 @@ class StylesController < MainController
   def show
     @style = Style.find(params[:id])
     
-    if stale?(:last_modified => @style.updated_at.utc, :etag => @style)
-      respond_to do |format|
-        format.js   # show.js.erb
-        format.css  # show.css.erb
-      end
+    respond_to do |format|
+      format.js   # show.js.erb
+      format.css  # show.css.erb
     end
   end
 

@@ -22,7 +22,9 @@ class StyleSweeper < ActionController::Caching::Sweeper
     # expire_fragment(%r{/items/})
     # expire_fragment(%r{#{style.user.subdomain}/items/show/*})
     
-    expire_fragment(%r{styles/#{style.id}.*})
+    # expire_fragment(%r{styles/#{style.id}.*})
+    expire_page :controller => :styles, :action => :show, :id => style, :format => :js
+    expire_page :controller => :styles, :action => :show, :id => style, :format => :css
     
     # expire all fragments
     expire_fragment(%r{#{style.user.subdomain}/*})

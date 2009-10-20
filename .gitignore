@@ -11,3 +11,4 @@ db/production_data.sql
 public/system
 public/cache
 public/fonts
+public/styles
