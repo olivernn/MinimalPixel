@@ -1,6 +1,5 @@
-$("#item_view").hide().html("<%= escape_javascript(render_item(@item, @project)) %>").fadeIn(1000);
-// need to re_apply the sifr font for the image heading!
-$("#item_view h1").sifr({font:'<%= @style.font.font.url %>', color:'<%= @style.heading_colour %>'});
+$("#item_view").hide().html("<%= escape_javascript(render_item(@item, @project)) %>").show();
+
 $('a.lightbox').click(function(e){
 	e.preventDefault();
 	$.modal("<img src='" + $(this).attr("href") + "'/>",{
@@ -25,3 +24,6 @@ $('a.lightbox').click(function(e){
 		}
 	});
 })
+
+// need to re_apply the sifr font for the image heading!
+$("#item_view h1").sifr({font:'<%= @style.font.font.url %>', color:'<%= @style.heading_colour %>'});

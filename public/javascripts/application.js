@@ -39,6 +39,7 @@ jQuery.extend({
 //this is the ajax functionality on the item pictures in the carosel
 $(document).ready(function(){
 	$('.carousel').click(function(){
+		$("#item_view").hide().html('<img src="/images/ajax-loader.gif" alt="Wait" class="spinner" />').fadeIn(1250);
 		$.get($(this).attr("href") + ".js", null, null, "script");
 		return false;
 	})

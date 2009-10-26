@@ -26,7 +26,7 @@ class ItemsController < MainController
   def show
     @item = @project.items.find(params[:id])
     @style = @user.style
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @item }
