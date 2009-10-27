@@ -79,6 +79,7 @@ a:visited.help_link, a.help_link{ color:blue}
 .permission_granted img{ margin-right:15px}
 img.facebook{ height:50px; width:50px}
 h1.facebook{ display:inline}
+.spinner{ }
 body{ font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana; width:1050px; margin-right:auto; margin-left:auto}
 #container{ margin-right:22px; margin-left:22px}
 #header h1{ font-size:3em}
