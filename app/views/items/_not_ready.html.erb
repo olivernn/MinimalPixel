@@ -1,10 +1,15 @@
 <h2>Nearly Ready!</h2>
 
-<p>Your upload is currently being optimized for the web, this may take a few minutes so please bear with us.  The page should automatically refresh every 5 seconds, if it doesn't (or you are impatient!) you can <%= link_to "refresh", project_item_path(project, item) %> the page.  Alternatively you could relax with a nice cup of tea!</p>
+<p>Your upload is currently being optimized for the web, this can take a few minutes so please bear with us.  This page will reload when your upload is ready.</p>
 
 <p>It is safe to navigate away from this page in the meantime, when your upload is ready it will appear in your project.</p>
 
-<!-- horrible piece of js to get the page to reload every 5 seconds -->
 <script>
-	setTimeout(function(){ location.reload() }, 5000);
+		setInterval(function(){
+			$.getJSON('<%= escape_javascript(project_item_path(project, item, :format => :json)) %>', null, function(data){
+				if (data.image.status == "ready") {
+					location.reload(); // processing is finished, reload the page to reveal the image/video
+				};
+			});
+		}, 5000);
 </script>
