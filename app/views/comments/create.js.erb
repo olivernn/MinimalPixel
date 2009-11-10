@@ -1,4 +1,17 @@
-$("#new_comment").before('<div id="flash-notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
-$('ul.comments').append("<%= escape_javascript(render :partial => 'comments/comment', :locals => {:comment => @comment}) %>");
-$('ul.comments li:last-child').effect("highlight", {}, 1000);
-$("#new_comment")[0].reset();
+<% if @comment.valid? %>
+	$("#new_comment").before('<div id="flash-notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+	$('ul.comments').append("<%= escape_javascript(render :partial => 'comments/comment', :locals => {:comment => @comment}) %>");
+	$("#comment_form").html('<%= escape_javascript(render :partial => "comments/form", :locals => {:comment => @article.comments.build, :article => @article}) %>');
+	$("#comment_form form").clearForm();
+<% else %>
+	$("#new_comment").before('<div id="flash-warning"><%= escape_javascript(flash.delete(:notice)) %></div>');
+	$("#comment_form").html('<%= escape_javascript(render :partial => "comments/form", :locals => {:comment => @comment, :article => @article}) %>');
+<% end %>
+
+// adding ajax to the comments form
+$(document).ready(function(){
+	$("#new_comment").submit(function(){
+		$.post(this.action, $(this).serialize(), null, "script");
+		return false;
+	})
+})

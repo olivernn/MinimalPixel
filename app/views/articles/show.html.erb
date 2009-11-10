@@ -19,14 +19,6 @@
 <% end -%>
 </ul>
 
-<h2>New Comment</h2>
-
-<% form_for([@article, @comment]) do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => 'comments/form', :locals => {:f => f} %>
-  <p>
-    <%= f.submit "Add" %>
-  </p>
-<% end %>
+<div id="comment_form"><%= render :partial => "comments/form", :locals => {:comment => @comment, :article => @article} %></div>
 
 <%= link_to "Back", blog_root_path %>

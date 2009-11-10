@@ -1,8 +1,19 @@
-<fieldset class="new_style">
-	<legend>Have your say</legend>
-	<label for="comment_name">Name</label>
-	<%= f.text_field :name %><br/>
-	
-	<label for="comment_content">Comment</label>
-	<%= f.text_area :content, :class => 'rich_text' %><br/>
-</fieldset>
+<h2>New Comment</h2>
+
+<% form_for([article, comment]) do |f| %>
+  <%= f.error_messages %>
+  <fieldset class="new_style">
+		<legend>Have your say</legend>
+		<label for="comment_name">Name</label>
+		<%= f.text_field :name %><br/>
+
+		<label for="comment_content">Comment</label>
+		<%= f.text_area :content, :class => 'rich_text' %><br/>
+
+		<label for="comment_anti_spam_answer">What is <%= comment.first_number.en.numwords %> plus <%= comment.second_number.en.numwords %></label>
+		<%= f.text_field :anti_spam_answer %>
+	</fieldset>
+  <p>
+    <%= f.submit "Add" %>
+  </p>
+<% end %>

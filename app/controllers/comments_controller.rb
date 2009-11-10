@@ -20,7 +20,10 @@ class CommentsController < PromotionalController
         format.js
       end
     else
-      render :template => "articles/show"
+      respond_to do |format|
+        format.html {redirect_to(article_path(@article))}
+        format.js
+      end
     end
   end
   

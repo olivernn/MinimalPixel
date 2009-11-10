@@ -32,6 +32,7 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate', :version => '2.3.6', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem "carlosbrando-remarkable", :lib => "remarkable", :source => "http://gems.github.com"
   config.gem "color"
+  config.gem "Linguistics"
   
   # These cause problems with irb. Left in for reference
   config.gem 'rspec-rails', :lib => false, :version => '1.2.7.1'
