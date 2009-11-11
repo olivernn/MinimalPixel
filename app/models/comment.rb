@@ -9,11 +9,11 @@ class Comment < ActiveRecord::Base
   attr_accessor :anti_spam_answer, :first_number, :second_number
   
   default_value_for :first_number do
-    Time.now.hour
+    (Time.now.hour / 2).ceil
   end
   
   default_value_for :second_number do
-    Time.now.day
+    (Time.now.day / 2).ceil
   end
   
   def datetime
@@ -21,6 +21,6 @@ class Comment < ActiveRecord::Base
   end
   
   def bot_or_not
-    errors.add(:anti_spam_answer,  "You appear to be a bot!") unless anti_spam_answer.to_i == (first_number + second_number)
+    errors.add(:anti_spam_answer,  "was incorrect, are you a bot?!") unless anti_spam_answer.to_i == (first_number + second_number)
   end
 end
